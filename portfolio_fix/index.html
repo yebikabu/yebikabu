@@ -1,279 +1,657 @@
 <!DOCTYPE html>
-<!-- saved from url=(0219)file:///C:/Users/admin/AppData/Local/Temp/885aa91f-77d6-46c9-b517-dc2338f27310_HJ_VFX_%E4%BA%91%E7%AB%AF%E8%BF%81%E7%A7%BB_%E8%AF%A6%E7%BB%86%E8%AF%8A%E6%96%AD%E4%BF%AE%E5%A4%8D%E7%89%88.zip.310/portfolio_fix/index.html -->
+<!-- saved from url=(0204)file:///C:/Users/admin/AppData/Local/Temp/706167ea-f790-47bb-ab97-6691be061c92_%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81%E9%9B%86%E7%BD%91%E7%AB%99-%E4%BF%AE%E6%AD%A3%E7%89%88.zip.c92/portfolio_site/index.html -->
 <html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>个人作品集｜CG · Houdini · AIGC</title>
 <style>
-:root{--bg:#090a0d;--p:#111318;--p2:#171a20;--line:#292d36;--t:#f5f6f7;--m:#9299a6;--a:#d9ff57}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font-family:Inter,"Microsoft YaHei",sans-serif}.app{display:grid;grid-template-columns:230px 1fr;min-height:100vh}.side{padding:28px 18px;border-right:1px solid var(--line);position:sticky;top:0;height:100vh;background:#0c0d10}.logo{font-weight:800;letter-spacing:.12em;margin:0 10px 30px}.logo i{color:var(--a);font-style:normal}.nav button{width:100%;padding:12px;border:0;background:0;color:var(--m);text-align:left;border-radius:9px;margin:2px 0}.nav button.active,.nav button:hover{background:var(--p2);color:#fff}.note{position:absolute;bottom:25px;left:28px;color:#666d78;font-size:12px;line-height:1.7}main{max-width:1500px;width:100%;padding:34px 42px 70px;margin:auto}.page{display:none}.page.active{display:block}.top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:30px}.k{font-size:11px;letter-spacing:.18em;color:var(--a)}h1{font-size:48px;line-height:1.05;margin:8px 0}.sub{color:var(--m);line-height:1.7;max-width:720px}.btn{background:var(--p2);border:1px solid var(--line);color:#fff;border-radius:9px;padding:10px 14px;cursor:pointer}.primary{background:var(--a);border-color:var(--a);color:#090a0d;font-weight:800}.danger{color:#ff8495}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:16px}.heroMain,.stat{border:1px solid var(--line);background:var(--p);border-radius:18px;padding:30px}.heroMain{min-height:300px;display:flex;flex-direction:column;justify-content:end;background:radial-gradient(circle at 75% 20%,#3a414c 0,#15181d 35%,#0f1115 75%)}.heroMain h2{font-size:34px;margin:8px 0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}.stat b{font-size:35px}.stat span{display:block;color:var(--m);margin-top:7px}.toolbar{display:flex;gap:10px;margin:18px 0;flex-wrap:wrap}.input{background:var(--p);border:1px solid var(--line);color:#fff;border-radius:9px;padding:11px 13px;min-width:240px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card,.script{border:1px solid var(--line);background:var(--p);border-radius:15px;overflow:hidden}.thumb{height:190px;background:#0b0d10;display:flex;align-items:center;justify-content:center}.thumb img,.thumb video{width:100%;height:100%;object-fit:cover}.placeholder{font-size:40px;color:#414753}.body{padding:16px}.tag{display:inline-block;color:var(--a);border:1px solid #46551c;border-radius:99px;padding:4px 8px;font-size:11px;margin-bottom:9px}.body h3{margin:0 0 7px}.body p{color:var(--m);font-size:13px;line-height:1.6;min-height:42px}.actions{display:flex;gap:8px}.mini{font-size:12px;padding:7px 9px}.empty{grid-column:1/-1;text-align:center;color:var(--m);padding:55px;border:1px dashed var(--line);border-radius:15px}.script{padding:18px;margin-bottom:12px}.script h3{margin:0 0 7px}.script small{color:var(--m)}pre{white-space:pre-wrap;color:#b9bec8;line-height:1.75;font:13px inherit}.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:16px}.panel{background:var(--p);border:1px solid var(--line);border-radius:15px;padding:22px}.field{margin:14px 0}.field label{display:block;color:var(--m);font-size:12px;margin-bottom:7px}.field input,.field textarea,.field select{width:100%;background:#0b0d10;border:1px solid var(--line);color:#fff;border-radius:9px;padding:11px}.field textarea{min-height:220px;resize:vertical}.modal{display:none;position:fixed;inset:0;background:#000b;z-index:5;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.box{width:min(760px,100%);max-height:90vh;overflow:auto;background:#111318;border:1px solid var(--line);border-radius:15px;padding:22px}.mh{display:flex;justify-content:space-between}.close{background:0;border:0;color:#aaa;font-size:24px;cursor:pointer}.drop{padding:25px;border:1px dashed #4a505b;border-radius:10px;text-align:center;color:var(--m)}.filehint{color:#777f8d;font-size:12px;line-height:1.6;margin-top:8px}.adminbar{position:sticky;top:0;z-index:4;display:flex;justify-content:flex-end;gap:8px;padding:8px 0 12px}.lockstate{font-size:12px;color:var(--m);padding:10px 12px}.adminOnly{display:none}.adminMode .adminOnly{display:inline-flex}.adminMode .publicHint{display:none}.status{position:fixed;right:20px;bottom:20px;background:#171a20;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:#bfc5ce;display:none;z-index:20}.status.show{display:block}@media(max-width:950px){.app{grid-template-columns:1fr}.side{height:auto;position:relative;border-right:0;border-bottom:1px solid var(--line)}.note{display:none}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap}.hero,.about{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}main{padding:25px}}@media(max-width:600px){.grid{grid-template-columns:1fr}h1{font-size:36px}.top{flex-direction:column}}
+:root{--bg:#090a0d;--p:#111318;--p2:#171a20;--line:#292d36;--t:#f5f6f7;--m:#9299a6;--a:#d9ff57}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font-family:Inter,"Microsoft YaHei",sans-serif}.app{display:grid;grid-template-columns:230px 1fr;min-height:100vh}.side{padding:28px 18px;border-right:1px solid var(--line);position:sticky;top:0;height:100vh;background:#0c0d10}.logo{font-weight:800;letter-spacing:.12em;margin:0 10px 30px}.logo i{color:var(--a);font-style:normal}.nav button{width:100%;padding:12px;border:0;background:0;color:var(--m);text-align:left;border-radius:9px;margin:2px 0}.nav button.active,.nav button:hover{background:var(--p2);color:#fff}.note{position:absolute;bottom:25px;left:28px;color:#666d78;font-size:12px;line-height:1.7}main{max-width:1500px;width:100%;padding:34px 42px 70px;margin:auto}.page{display:none}.page.active{display:block}.top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:30px}.k{font-size:11px;letter-spacing:.18em;color:var(--a)}h1{font-size:48px;line-height:1.05;margin:8px 0}.sub{color:var(--m);line-height:1.7;max-width:720px}.btn{background:var(--p2);border:1px solid var(--line);color:#fff;border-radius:9px;padding:10px 14px;cursor:pointer}.primary{background:var(--a);border-color:var(--a);color:#090a0d;font-weight:800}.danger{color:#ff8495}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:16px}.heroMain,.stat{border:1px solid var(--line);background:var(--p);border-radius:18px;padding:30px}.heroMain{min-height:300px;display:flex;flex-direction:column;justify-content:end;background:radial-gradient(circle at 75% 20%,#3a414c 0,#15181d 35%,#0f1115 75%)}.heroMain h2{font-size:34px;margin:8px 0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}.stat b{font-size:35px}.stat span{display:block;color:var(--m);margin-top:7px}.toolbar{display:flex;gap:10px;margin:18px 0;flex-wrap:wrap}.input{background:var(--p);border:1px solid var(--line);color:#fff;border-radius:9px;padding:11px 13px;min-width:240px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card,.script{border:1px solid var(--line);background:var(--p);border-radius:15px;overflow:hidden}.thumb{height:190px;background:#0b0d10;display:flex;align-items:center;justify-content:center}.thumb img,.thumb video{width:100%;height:100%;object-fit:cover}.placeholder{font-size:40px;color:#414753}.body{padding:16px}.tag{display:inline-block;color:var(--a);border:1px solid #46551c;border-radius:99px;padding:4px 8px;font-size:11px;margin-bottom:9px}.body h3{margin:0 0 7px}.body p{color:var(--m);font-size:13px;line-height:1.6;min-height:42px}.actions{display:flex;gap:8px}.mini{font-size:12px;padding:7px 9px}.empty{grid-column:1/-1;text-align:center;color:var(--m);padding:55px;border:1px dashed var(--line);border-radius:15px}.script{padding:18px;margin-bottom:12px}.script h3{margin:0 0 7px}.script small{color:var(--m)}pre{white-space:pre-wrap;color:#b9bec8;line-height:1.75;font:13px inherit}.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:16px}.panel{background:var(--p);border:1px solid var(--line);border-radius:15px;padding:22px}.field{margin:14px 0}.field label{display:block;color:var(--m);font-size:12px;margin-bottom:7px}.field input,.field textarea,.field select{width:100%;background:#0b0d10;border:1px solid var(--line);color:#fff;border-radius:9px;padding:11px}.field textarea{min-height:220px;resize:vertical}.modal{display:none;position:fixed;inset:0;background:#000b;z-index:5;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.box{width:min(760px,100%);max-height:90vh;overflow:auto;background:#111318;border:1px solid var(--line);border-radius:15px;padding:22px}.mh{display:flex;justify-content:space-between}.close{background:0;border:0;color:#aaa;font-size:24px;cursor:pointer}.drop{padding:25px;border:1px dashed #4a505b;border-radius:10px;text-align:center;color:var(--m)}.filehint{color:#777f8d;font-size:12px;line-height:1.6;margin-top:8px}.status{position:fixed;right:20px;bottom:20px;background:#171a20;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:#bfc5ce;display:none;z-index:20}.status.show{display:block}@media(max-width:950px){.app{grid-template-columns:1fr}.side{height:auto;position:relative;border-right:0;border-bottom:1px solid var(--line)}.note{display:none}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap}.hero,.about{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}main{padding:25px}}@media(max-width:600px){.grid{grid-template-columns:1fr}h1{font-size:36px}.top{flex-direction:column}}
 </style>
 </head>
-<body class="adminMode">
-<div class="app"><aside class="side"><div class="logo">PORTFOLIO<i>/</i>26</div><div class="adminbar"><span class="lockstate" id="lockstate">管理模式：可以编辑、删除、上传、调整排序</span><button class="btn" id="adminBtn" onclick="toggleAdmin()">退出管理模式</button></div><nav class="nav"><button class="" onclick="go(&#39;home&#39;,this)">总览</button><button onclick="go(&#39;works&#39;,this)" class="">作品</button><button onclick="go(&#39;scripts&#39;,this)">脚本 / 分镜</button><button onclick="go(&#39;about&#39;,this)">关于我</button><button onclick="go(&#39;cloud&#39;,this)" class="active">☁ 云端</button></nav><div class="note">可编辑个人作品集<br>图片 · 视频 · 脚本 · 分镜<br><br>作品文件保存到浏览器 IndexedDB<br>不会再把视频塞进 localStorage</div></aside><main>
-<section id="home" class="page"><div class="top"><div><div class="k">PERSONAL PORTFOLIO</div><h1 id="heroTitle">视觉特效 · CG · AIGC</h1><div class="sub" id="heroSub">展示 Houdini、CG、AIGC 视频、镜头设计与视觉特效作品。</div></div><div><button class="btn primary adminOnly" onclick="openWork()">＋ 上传作品</button></div></div><div class="hero"><div class="heroMain"><div class="k">SELECTED WORKS</div><h2>让作品自己说话。</h2><div class="sub">用完整项目呈现你的视觉设计、特效技术、镜头语言和创作能力。</div></div><div class="stats"><div class="stat"><b id="wc">36</b><span>作品</span></div><div class="stat"><b id="sc">0</b><span>脚本 / 分镜</span></div><div class="stat"><b>CG</b><span>核心方向</span></div><div class="stat"><b>VFX</b><span>技术方向</span></div></div></div></section>
-<section id="works" class="page"><div class="top"><div><div class="k">WORKS</div><h1>作品集</h1><div class="sub">公开浏览模式默认禁止编辑；进入管理模式后才能上传、编辑、删除和调整排序。当前版本为本机 IndexedDB 作品集，不是云端权限系统。</div></div><button class="btn primary adminOnly" onclick="openWork()">＋ 添加作品</button></div><div class="toolbar"><input class="input" id="search" placeholder="搜索作品" oninput="renderWorks()"><select class="input" id="filter" onchange="renderWorks()"><option value="">全部类型</option><option>Houdini FX</option><option>AIGC视频</option><option>CG</option><option>分镜</option><option>其他</option></select></div><div id="grid" class="grid"><article class="card"><div class="thumb"><video src="blob:null/6f521574-47b7-4037-8bfb-065f372a611f" controls="" preload="metadata" controlslist="nodownload"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-程序化地形生成</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;66620c69-7b67-49f9-b437-5d2b280c6032&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;66620c69-7b67-49f9-b437-5d2b280c6032&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;66620c69-7b67-49f9-b437-5d2b280c6032&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;66620c69-7b67-49f9-b437-5d2b280c6032&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/685d169d-f3a8-4aaa-a466-e9518c9a5aa2" controls="" preload="metadata" controlslist="nodownload"></video></div><div class="body"><span class="tag">Houdini FX</span><h3>H-风沙粒子</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;c6dcd646-e1f9-45ec-864c-a43762f03361&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;c6dcd646-e1f9-45ec-864c-a43762f03361&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;c6dcd646-e1f9-45ec-864c-a43762f03361&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;c6dcd646-e1f9-45ec-864c-a43762f03361&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/59e65792-822e-4187-9db5-f8d3cb35fb45" controls="" preload="metadata" controlslist="nodownload"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-空战</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;ed155652-529b-4ef8-aa90-ffdd4c03096e&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;ed155652-529b-4ef8-aa90-ffdd4c03096e&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;ed155652-529b-4ef8-aa90-ffdd4c03096e&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;ed155652-529b-4ef8-aa90-ffdd4c03096e&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/9070920b-51a8-4845-83e6-8113e1fc624f" controls="" preload="metadata" controlslist="nodownload"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-电塔</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;bdc20013-bea7-43bc-aee1-c43f82372690&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;bdc20013-bea7-43bc-aee1-c43f82372690&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;bdc20013-bea7-43bc-aee1-c43f82372690&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;bdc20013-bea7-43bc-aee1-c43f82372690&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/f4ef91f7-e0c3-4b5d-b6c8-0f32c0a269ce" controls="" preload="metadata" controlslist="nodownload"></video></div><div class="body"><span class="tag">Houdini FX</span><h3>H-ocean</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;09f2ab82-db9c-47c1-a1ef-8547520a541e&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;09f2ab82-db9c-47c1-a1ef-8547520a541e&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;09f2ab82-db9c-47c1-a1ef-8547520a541e&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;09f2ab82-db9c-47c1-a1ef-8547520a541e&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/0d790157-0c32-4b40-9123-e2f83d88e889" controls="" preload="metadata" controlslist="nodownload"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-雪地破碎</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;374ebb1e-c23f-47f6-9231-084b7e77a6a7&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;374ebb1e-c23f-47f6-9231-084b7e77a6a7&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;374ebb1e-c23f-47f6-9231-084b7e77a6a7&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;374ebb1e-c23f-47f6-9231-084b7e77a6a7&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/55430c3e-4d0e-4434-ada2-e13693d1bcb7" controls="" preload="metadata" controlslist="nodownload"></video></div><div class="body"><span class="tag">AIGC视频</span><h3>A-科幻概念预告</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;fc031638-f6ee-486d-b0fa-c0e545098d7e&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;fc031638-f6ee-486d-b0fa-c0e545098d7e&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;fc031638-f6ee-486d-b0fa-c0e545098d7e&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;fc031638-f6ee-486d-b0fa-c0e545098d7e&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/7f9b86b1-ff89-40e9-8007-884b3633311e" controls="" preload="metadata" controlslist="nodownload"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-船帆</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;1664c766-93df-4887-bedc-0ef483c64421&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;1664c766-93df-4887-bedc-0ef483c64421&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;1664c766-93df-4887-bedc-0ef483c64421&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;1664c766-93df-4887-bedc-0ef483c64421&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/f4cd12b2-2437-46bb-a6fb-711b30919690" controls="" preload="metadata" controlslist="nodownload"></video></div><div class="body"><span class="tag">AIGC视频</span><h3>A-耳机情景广告</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;232cd71d-0b3f-42d0-be4c-7bdda98216ec&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;232cd71d-0b3f-42d0-be4c-7bdda98216ec&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;232cd71d-0b3f-42d0-be4c-7bdda98216ec&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;232cd71d-0b3f-42d0-be4c-7bdda98216ec&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/9ba449d4-e5c8-415b-8753-427a54830856" draggable="false"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;807726d0-6417-4e57-a719-df70d86f1e34&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;807726d0-6417-4e57-a719-df70d86f1e34&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;807726d0-6417-4e57-a719-df70d86f1e34&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;807726d0-6417-4e57-a719-df70d86f1e34&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/fa988812-0628-4982-b2b0-c911b1f29fe3" draggable="false"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;c75b76a3-78de-4d71-8ca9-0cf6ba78e829&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;c75b76a3-78de-4d71-8ca9-0cf6ba78e829&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;c75b76a3-78de-4d71-8ca9-0cf6ba78e829&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;c75b76a3-78de-4d71-8ca9-0cf6ba78e829&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/c01b3656-5327-4d77-8800-2dd918471464" draggable="false"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;6aaaad51-8a5c-4313-a6c7-0b7e767f08a0&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;6aaaad51-8a5c-4313-a6c7-0b7e767f08a0&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;6aaaad51-8a5c-4313-a6c7-0b7e767f08a0&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;6aaaad51-8a5c-4313-a6c7-0b7e767f08a0&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/911785c0-eeec-4e64-a4c0-b0b96905405d" draggable="false"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;ec7e0a9d-8250-442a-84d9-43c9a51a1db4&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;ec7e0a9d-8250-442a-84d9-43c9a51a1db4&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;ec7e0a9d-8250-442a-84d9-43c9a51a1db4&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;ec7e0a9d-8250-442a-84d9-43c9a51a1db4&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/392e7e1f-6e8e-4efb-add9-97f6678783cd" draggable="false"></div><div class="body"><span class="tag">其他</span><h3>场景概念</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;3fb2a20a-7fa4-456e-b86c-191c30069859&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;3fb2a20a-7fa4-456e-b86c-191c30069859&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;3fb2a20a-7fa4-456e-b86c-191c30069859&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;3fb2a20a-7fa4-456e-b86c-191c30069859&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/42d71b35-99fb-41b0-8939-9d743a4fb9e2" draggable="false"></div><div class="body"><span class="tag">其他</span><h3>场景概念</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;6dcb0026-9e57-4e51-bd7c-9fc8f3e5caf8&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;6dcb0026-9e57-4e51-bd7c-9fc8f3e5caf8&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;6dcb0026-9e57-4e51-bd7c-9fc8f3e5caf8&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;6dcb0026-9e57-4e51-bd7c-9fc8f3e5caf8&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/af34565c-b92c-4bd6-b643-4c2681d6bed1" draggable="false"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;331b01e8-b5f0-45cf-a98a-331f0fa61236&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;331b01e8-b5f0-45cf-a98a-331f0fa61236&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;331b01e8-b5f0-45cf-a98a-331f0fa61236&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;331b01e8-b5f0-45cf-a98a-331f0fa61236&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/36a6a99b-339a-4c5f-8245-2ae0aefb6864" draggable="false"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;e292030b-6efd-498a-8a43-62c3cbd198f5&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;e292030b-6efd-498a-8a43-62c3cbd198f5&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;e292030b-6efd-498a-8a43-62c3cbd198f5&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;e292030b-6efd-498a-8a43-62c3cbd198f5&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/6250e7d4-76cc-4d5e-a39f-e55f38711d3b" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>夜行</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;202fdd7e-415a-4c51-a284-66eb0dd4569b&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;202fdd7e-415a-4c51-a284-66eb0dd4569b&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;202fdd7e-415a-4c51-a284-66eb0dd4569b&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;202fdd7e-415a-4c51-a284-66eb0dd4569b&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/dd3a8b40-4051-425d-8184-1f1de5db5cbc" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>夜私塾</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;bdcb796c-fefb-4098-8212-ce1af00bd57d&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;bdcb796c-fefb-4098-8212-ce1af00bd57d&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;bdcb796c-fefb-4098-8212-ce1af00bd57d&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;bdcb796c-fefb-4098-8212-ce1af00bd57d&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/4819c780-8821-40d9-8be4-aaecde3cca02" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>晨行</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;42e1cbe7-d424-4bf6-a8e1-0e5672d8e0a3&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;42e1cbe7-d424-4bf6-a8e1-0e5672d8e0a3&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;42e1cbe7-d424-4bf6-a8e1-0e5672d8e0a3&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;42e1cbe7-d424-4bf6-a8e1-0e5672d8e0a3&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/455e6091-ff64-437a-8af1-be76f96cfc3f" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>异变</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;15e6c571-d811-4718-bcd7-83a047371add&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;15e6c571-d811-4718-bcd7-83a047371add&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;15e6c571-d811-4718-bcd7-83a047371add&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;15e6c571-d811-4718-bcd7-83a047371add&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/4d9dcad3-226b-4951-9e77-7b8c519febe4" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>剧情分镜</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;ef7c933c-99cd-476b-8967-02810ae7c10e&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;ef7c933c-99cd-476b-8967-02810ae7c10e&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;ef7c933c-99cd-476b-8967-02810ae7c10e&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;ef7c933c-99cd-476b-8967-02810ae7c10e&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/ffa42969-a472-4368-b694-8bad6d7a95e4" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>剧情分镜</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;7f6ee44f-c491-4026-b4d2-027c8487f6a3&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;7f6ee44f-c491-4026-b4d2-027c8487f6a3&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;7f6ee44f-c491-4026-b4d2-027c8487f6a3&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;7f6ee44f-c491-4026-b4d2-027c8487f6a3&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/6d0c6885-3680-4f9e-9929-dce92aad066e" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>剧情分镜</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;db345cd6-cb49-42dc-95cb-d8da74b662a1&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;db345cd6-cb49-42dc-95cb-d8da74b662a1&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;db345cd6-cb49-42dc-95cb-d8da74b662a1&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;db345cd6-cb49-42dc-95cb-d8da74b662a1&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/063d7ef3-8272-4539-beec-c638fb918db1" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;3200b8e2-49df-487a-b0e2-66507de38109&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;3200b8e2-49df-487a-b0e2-66507de38109&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;3200b8e2-49df-487a-b0e2-66507de38109&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;3200b8e2-49df-487a-b0e2-66507de38109&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/2299a280-0713-40f6-8eb6-71cd466e8078" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;1b9d6735-e733-4203-bc56-0b7d133553cc&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;1b9d6735-e733-4203-bc56-0b7d133553cc&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;1b9d6735-e733-4203-bc56-0b7d133553cc&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;1b9d6735-e733-4203-bc56-0b7d133553cc&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/588d7387-6187-4901-afff-6cce6168313e" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;2aaafe60-8c87-430f-a70e-c1845cc50008&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;2aaafe60-8c87-430f-a70e-c1845cc50008&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;2aaafe60-8c87-430f-a70e-c1845cc50008&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;2aaafe60-8c87-430f-a70e-c1845cc50008&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/48d19690-fb6d-468d-95d5-8d6d47811894" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;a20151db-e164-474f-909c-1ea3f3d7b9b0&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;a20151db-e164-474f-909c-1ea3f3d7b9b0&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;a20151db-e164-474f-909c-1ea3f3d7b9b0&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;a20151db-e164-474f-909c-1ea3f3d7b9b0&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/ec266aed-2077-40c3-8c3a-7aabd05b4264" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;35cb3ff4-be5a-4c0c-8f83-a364dd446355&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;35cb3ff4-be5a-4c0c-8f83-a364dd446355&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;35cb3ff4-be5a-4c0c-8f83-a364dd446355&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;35cb3ff4-be5a-4c0c-8f83-a364dd446355&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/51481365-8d2f-4a25-83de-41336a528129" draggable="false"></div><div class="body"><span class="tag">其他</span><h3>场景概念</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;5115480c-e154-4de6-8c2f-be5639fa5d59&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;5115480c-e154-4de6-8c2f-be5639fa5d59&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;5115480c-e154-4de6-8c2f-be5639fa5d59&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;5115480c-e154-4de6-8c2f-be5639fa5d59&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/961f7c5f-9b79-4c1b-97a7-1d96104cf3c0" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;dac2de97-4cdd-4372-b0fc-4adc98160134&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;dac2de97-4cdd-4372-b0fc-4adc98160134&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;dac2de97-4cdd-4372-b0fc-4adc98160134&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;dac2de97-4cdd-4372-b0fc-4adc98160134&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/eb7baf59-2eb2-4330-987a-c51c26328ad2" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;4f30822c-8a99-42bf-a547-0deb6aeba896&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;4f30822c-8a99-42bf-a547-0deb6aeba896&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;4f30822c-8a99-42bf-a547-0deb6aeba896&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;4f30822c-8a99-42bf-a547-0deb6aeba896&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/1b4c401a-67b1-4163-b832-7c7b32417809" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;45fb2a1c-63f2-454d-9d71-24fe2dc1d2df&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;45fb2a1c-63f2-454d-9d71-24fe2dc1d2df&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;45fb2a1c-63f2-454d-9d71-24fe2dc1d2df&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;45fb2a1c-63f2-454d-9d71-24fe2dc1d2df&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/62602835-5ff6-447b-b8d0-b0101c2914ed" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;95bc4618-010c-43e0-af9c-3e86bee024d2&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;95bc4618-010c-43e0-af9c-3e86bee024d2&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;95bc4618-010c-43e0-af9c-3e86bee024d2&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;95bc4618-010c-43e0-af9c-3e86bee024d2&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/4e92caaa-20a7-42d1-bd6b-b85111bad688" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;05c715f2-e1fd-44b4-997b-490fe8b7de51&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;05c715f2-e1fd-44b4-997b-490fe8b7de51&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;05c715f2-e1fd-44b4-997b-490fe8b7de51&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;05c715f2-e1fd-44b4-997b-490fe8b7de51&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/2f61f8f2-209b-4a3f-82c7-f19eb1cce691" draggable="false"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork(&#39;07ce3349-6dd4-41aa-b3ea-0be5999cd36f&#39;,-1)">↑</button><button class="btn mini" onclick="moveWork(&#39;07ce3349-6dd4-41aa-b3ea-0be5999cd36f&#39;,1)">↓</button><button class="btn mini" onclick="openWork(&#39;07ce3349-6dd4-41aa-b3ea-0be5999cd36f&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;07ce3349-6dd4-41aa-b3ea-0be5999cd36f&#39;)">删除</button></div></div></article></div></section>
-<section id="scripts" class="page"><div class="top"><div><div class="k">SCRIPTS / STORYBOARD</div><h1>脚本与分镜</h1><div class="sub">直接创建、编辑你的镜头脚本和分镜文本。</div></div><button class="btn primary adminOnly" onclick="openScript()">＋ 新建脚本</button></div><div id="scriptsList"><div class="empty">还没有脚本，点击“新建脚本”。</div></div></section>
-<section id="about" class="page"><div class="top"><div><div class="k">ABOUT</div><h1>关于我</h1></div><button class="btn primary adminOnly" onclick="saveProfile()">保存修改</button></div><div class="about"><div class="panel"><div class="field"><label>姓名 / 标题</label><input id="pname"></div><div class="field"><label>职业定位</label><input id="prole"></div><div class="field"><label>个人简介</label><textarea id="pbio"></textarea></div><div class="field"><label>邮箱</label><input id="pemail"></div><div class="field"><label>作品链接 / 社交链接</label><input id="plink"></div></div><div class="panel"><h2>保存与权限</h2><p class="sub">作品图片和视频使用 IndexedDB 保存为 Blob，不再使用 localStorage 存储 Base64 文件。</p><p class="sub"><b>管理模式：</b>访客默认只能浏览；只有输入你设置的管理 PIN 才显示编辑、删除、上传和排序按钮。</p><p class="sub"><b>重要：</b>这是前端本机保护，不等于服务器级安全认证。如果以后部署到互联网，必须接入账号认证、数据库 RLS 和私有对象存储，才能真正阻止陌生人修改后台数据。</p><p class="sub">脚本、个人资料也保存在本机。关闭网页后再次打开同一个浏览器环境，数据仍会存在。</p><p class="sub">注意：这是“本机可编辑”版本，不是云端网站。换电脑、换浏览器或清除浏览器网站数据后，本机数据不会自动同步。</p></div></div></section>
+<body>
+<div class="app"><aside class="side"><div class="logo">PORTFOLIO<i>/</i>26</div><nav class="nav"><button class="" onclick="go(&#39;home&#39;,this)">总览</button><button onclick="go(&#39;works&#39;,this)" class="">作品</button><button onclick="go(&#39;scripts&#39;,this)" class="active">脚本 / 分镜</button><button onclick="go(&#39;about&#39;,this)" class="">关于我</button><button onclick="go(&#39;cloud&#39;,this)" class="">云端</button></nav><div class="note">可编辑个人作品集<br>图片 · 视频 · 脚本 · 分镜<br><br>作品与资料保存到 Supabase 云端<br>管理员登录后可编辑、上传、删除</div></aside><main>
+<section id="home" class="page"><div class="top"><div><div class="k">PERSONAL PORTFOLIO</div><h1 id="heroTitle">AIGC视觉</h1><div class="sub" id="heroSub">做的还有很多，这里部分展示</div></div><div><button class="btn primary" onclick="openWork()">＋ 上传作品</button></div></div><div class="hero"><div class="heroMain"><div class="k">SELECTED WORKS</div><h2>让作品自己说话。</h2><div class="sub">用完整项目呈现你的视觉设计、特效技术、镜头语言和创作能力。</div></div><div class="stats"><div class="stat"><b id="wc">36</b><span>作品</span></div><div class="stat"><b id="sc">3</b><span>脚本 / 分镜</span></div><div class="stat"><b>CG</b><span>核心方向</span></div><div class="stat"><b>VFX</b><span>技术方向</span></div></div></div></section>
+<section id="works" class="page"><div class="top"><div><div class="k">WORKS</div><h1>作品集</h1><div class="sub">图片、视频均可上传、预览、编辑、删除。管理员登录后保存到云端。</div></div><button class="btn primary" onclick="openWork()">＋ 添加作品</button></div><div class="toolbar"><input class="input" id="search" placeholder="搜索作品" oninput="renderWorks()"><select class="input" id="filter" onchange="renderWorks()"><option value="">全部类型</option><option>2D</option><option>3D</option><option>广告</option><option>概念图</option><option>Houdini FX</option><option>AIGC视频</option><option>CG</option><option>分镜</option><option>其他</option></select></div><div id="grid" class="grid"><article class="card"><div class="thumb"><img src="blob:null/cfe41f30-7406-4adb-87a1-0c6cb1f10e44"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;05c715f2-e1fd-44b4-997b-490fe8b7de51&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;05c715f2-e1fd-44b4-997b-490fe8b7de51&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/d523cbf7-fef4-4b5b-bdad-bbdf69f796a5" controls="" preload="metadata"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-ocean</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;09f2ab82-db9c-47c1-a1ef-8547520a541e&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;09f2ab82-db9c-47c1-a1ef-8547520a541e&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/d3e56533-978c-4a14-afc5-a9d33547e688"></div><div class="body"><span class="tag">分镜</span><h3>异变</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;15e6c571-d811-4718-bcd7-83a047371add&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;15e6c571-d811-4718-bcd7-83a047371add&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/ebeac5a0-2505-4fdb-8bee-344c77103840" controls="" preload="metadata"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-船帆</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;1664c766-93df-4887-bedc-0ef483c64421&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;1664c766-93df-4887-bedc-0ef483c64421&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/332642b8-6086-4131-8224-e905c543f1eb"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;1b9d6735-e733-4203-bc56-0b7d133553cc&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;1b9d6735-e733-4203-bc56-0b7d133553cc&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/1dcf4daf-578a-405f-8965-eb8a905b2009"></div><div class="body"><span class="tag">分镜</span><h3>夜行</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;202fdd7e-415a-4c51-a284-66eb0dd4569b&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;202fdd7e-415a-4c51-a284-66eb0dd4569b&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/196793f0-b7e9-46e0-aa62-ddbc175e60ab" controls="" preload="metadata"></video></div><div class="body"><span class="tag">AIGC视频</span><h3>A-耳机情景广告</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;232cd71d-0b3f-42d0-be4c-7bdda98216ec&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;232cd71d-0b3f-42d0-be4c-7bdda98216ec&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/cf9f5a30-e974-41ca-917c-051b5b1343a2"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;2aaafe60-8c87-430f-a70e-c1845cc50008&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;2aaafe60-8c87-430f-a70e-c1845cc50008&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/89c800af-610e-4860-8efd-0505c70ef815"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;3200b8e2-49df-487a-b0e2-66507de38109&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;3200b8e2-49df-487a-b0e2-66507de38109&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/006ebb7b-41a0-4ad8-b89f-4f0f9b83c21c"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;331b01e8-b5f0-45cf-a98a-331f0fa61236&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;331b01e8-b5f0-45cf-a98a-331f0fa61236&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/f7ebc39d-eb05-4901-8ee8-df36de6b4cab"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;35cb3ff4-be5a-4c0c-8f83-a364dd446355&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;35cb3ff4-be5a-4c0c-8f83-a364dd446355&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/5e7f3918-d9b9-4091-b96e-dabc9923b345" controls="" preload="metadata"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-雪地破碎</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;374ebb1e-c23f-47f6-9231-084b7e77a6a7&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;374ebb1e-c23f-47f6-9231-084b7e77a6a7&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/73e07a5a-f549-4f67-bcf6-056f73d1ac20"></div><div class="body"><span class="tag">其他</span><h3>场景概念</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;3fb2a20a-7fa4-456e-b86c-191c30069859&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;3fb2a20a-7fa4-456e-b86c-191c30069859&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/1ffaa96b-62d8-49e4-aa70-0a66d2cf1995"></div><div class="body"><span class="tag">分镜</span><h3>晨行</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;42e1cbe7-d424-4bf6-a8e1-0e5672d8e0a3&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;42e1cbe7-d424-4bf6-a8e1-0e5672d8e0a3&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/94560696-75ef-46b5-9e28-e4e12b0c3e90"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;45fb2a1c-63f2-454d-9d71-24fe2dc1d2df&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;45fb2a1c-63f2-454d-9d71-24fe2dc1d2df&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/e9096d87-9698-4a7d-9e8e-b1387dbb6b31"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;4f30822c-8a99-42bf-a547-0deb6aeba896&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;4f30822c-8a99-42bf-a547-0deb6aeba896&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/f78cb89f-d378-4fe0-b257-284727cdeea4"></div><div class="body"><span class="tag">其他</span><h3>场景概念</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;5115480c-e154-4de6-8c2f-be5639fa5d59&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;5115480c-e154-4de6-8c2f-be5639fa5d59&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/bd5bee1a-43a0-4b42-8fb4-867afe29e455"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;654f2df3-40c7-4786-a23d-ad2981d11021&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;654f2df3-40c7-4786-a23d-ad2981d11021&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/46342ddc-a9b2-4fb3-b7a8-faa8a89ea852" controls="" preload="metadata"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-程序化地形生成</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;66620c69-7b67-49f9-b437-5d2b280c6032&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;66620c69-7b67-49f9-b437-5d2b280c6032&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/48167672-b44e-46aa-8680-f81bb5224ebf"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;6aaaad51-8a5c-4313-a6c7-0b7e767f08a0&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;6aaaad51-8a5c-4313-a6c7-0b7e767f08a0&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/49762987-8e55-400e-9ab0-290ff85103d3"></div><div class="body"><span class="tag">其他</span><h3>场景概念</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;6dcb0026-9e57-4e51-bd7c-9fc8f3e5caf8&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;6dcb0026-9e57-4e51-bd7c-9fc8f3e5caf8&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/10c0d5a2-7a01-4e13-973a-48436ab580fd"></div><div class="body"><span class="tag">分镜</span><h3>剧情分镜</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;7f6ee44f-c491-4026-b4d2-027c8487f6a3&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;7f6ee44f-c491-4026-b4d2-027c8487f6a3&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/f0e87a5b-6191-44e2-ad5d-35f54adf257c"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;807726d0-6417-4e57-a719-df70d86f1e34&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;807726d0-6417-4e57-a719-df70d86f1e34&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/a27e6a7c-8c4b-4a09-92e5-4715bef80257"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;95bc4618-010c-43e0-af9c-3e86bee024d2&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;95bc4618-010c-43e0-af9c-3e86bee024d2&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/4d5705ba-81cf-4a12-a84e-008f0c493695"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;a20151db-e164-474f-909c-1ea3f3d7b9b0&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;a20151db-e164-474f-909c-1ea3f3d7b9b0&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/4c6da94e-edc5-473b-9c94-2839b98a92d7" controls="" preload="metadata"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-电塔</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;bdc20013-bea7-43bc-aee1-c43f82372690&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;bdc20013-bea7-43bc-aee1-c43f82372690&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/8b3f1b1c-56ae-45c0-8d6e-2c2d11c35441"></div><div class="body"><span class="tag">分镜</span><h3>夜私塾</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;bdcb796c-fefb-4098-8212-ce1af00bd57d&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;bdcb796c-fefb-4098-8212-ce1af00bd57d&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/36b90f90-a536-4d13-9085-a8408d202c79" controls="" preload="metadata"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-风沙粒子</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;c6dcd646-e1f9-45ec-864c-a43762f03361&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;c6dcd646-e1f9-45ec-864c-a43762f03361&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/75a84b7b-7974-4537-a225-b823ce90bbf6"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;c75b76a3-78de-4d71-8ca9-0cf6ba78e829&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;c75b76a3-78de-4d71-8ca9-0cf6ba78e829&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/95626007-cc6f-422b-8d3d-e09131c29186"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;dac2de97-4cdd-4372-b0fc-4adc98160134&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;dac2de97-4cdd-4372-b0fc-4adc98160134&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/62d1602d-e7ca-4389-baa4-c9353695c933"></div><div class="body"><span class="tag">分镜</span><h3>剧情分镜</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;db345cd6-cb49-42dc-95cb-d8da74b662a1&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;db345cd6-cb49-42dc-95cb-d8da74b662a1&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/b580a1eb-3d36-4be7-9eb6-cecdbda16e7c"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;e292030b-6efd-498a-8a43-62c3cbd198f5&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;e292030b-6efd-498a-8a43-62c3cbd198f5&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/d849a544-694d-4065-a590-d5d5511df2d0"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;ec7e0a9d-8250-442a-84d9-43c9a51a1db4&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;ec7e0a9d-8250-442a-84d9-43c9a51a1db4&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/4a8d805e-9d01-4858-a9ff-9b125cd9f369" controls="" preload="metadata"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-空战</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;ed155652-529b-4ef8-aa90-ffdd4c03096e&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;ed155652-529b-4ef8-aa90-ffdd4c03096e&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><img src="blob:null/32cc05e4-e403-4497-b3cd-668ad79254be"></div><div class="body"><span class="tag">分镜</span><h3>剧情分镜</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;ef7c933c-99cd-476b-8967-02810ae7c10e&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;ef7c933c-99cd-476b-8967-02810ae7c10e&#39;)">删除</button></div></div></article><article class="card"><div class="thumb"><video src="blob:null/47dd461e-7a5f-4250-bed7-ebb1450220cf" controls="" preload="metadata"></video></div><div class="body"><span class="tag">AIGC视频</span><h3>A-科幻概念预告</h3><p>暂无说明</p><div class="actions"><button class="btn mini" onclick="openWork(&#39;fc031638-f6ee-486d-b0fa-c0e545098d7e&#39;)">编辑</button><button class="btn mini danger" onclick="removeWork(&#39;fc031638-f6ee-486d-b0fa-c0e545098d7e&#39;)">删除</button></div></div></article></div></section>
+<section id="cloud" class="page"><div class="top"><div><div class="k">CLOUD PORTFOLIO</div><h1>云端作品</h1><div class="sub">直接读取 Supabase 云端作品。管理员登录后可以上传、编辑、删除并保存；访客无需 Vercel 登录即可浏览。</div></div><button class="btn primary" onclick="connectCloud()">连接云端</button></div><div class="panel"><div class="field"><label>Supabase Project URL</label><input id="cloudUrl" readonly></div><div class="field"><label>Publishable / Anon Key</label><input id="cloudKey" type="password" placeholder="粘贴你的 sb_publishable_... 密钥"></div><div class="actions"><button class="btn primary" onclick="saveCloudConfig()">保存并读取云端</button><button class="btn" onclick="openM('adminModal')">登录管理员</button></div><p class="sub" id="cloudStatus" style="margin-top:14px">正在准备云端连接…</p></div></section><section id="scripts" class="page active"><div class="top"><div><div class="k">SCRIPTS / STORYBOARD</div><h1>脚本与分镜</h1><div class="sub">直接创建、编辑你的镜头脚本和分镜文本。</div></div><button class="btn primary" onclick="openScript()">＋ 新建脚本</button></div><div id="scriptsList"><article class="script"><h3>第三镜</h3><small></small><pre>21:9电影宽银幕，写实东方玄幻史诗电影CG，真实电影摄影质感，承接上一镜最后一帧，严格保持天海古阵空间连续性。
 
-<section id="cloud" class="page active">
-<div class="top"><div><div class="k">CLOUD PORTFOLIO</div><h1>云端作品</h1>
-<div class="sub">把当前浏览器里的作品、图片、视频、脚本和个人资料安全迁移到 Supabase。原本地作品不会被删除。</div></div></div>
-<div class="panel">
-  <div class="field"><label>Supabase Project URL</label><input id="sbUrl" placeholder="https://xxxx.supabase.co"></div>
-  <div class="field"><label>Anon / Publishable Key</label><input id="sbKey" placeholder="eyJ..."></div>
-  <div class="toolbar">
-    <button class="btn primary" onclick="hjConnect()">连接云端</button>
-    <button class="btn" onclick="hjLogin()">登录管理员</button>
-    <button class="btn" onclick="hjSignUp()">注册管理员</button>
-  </div>
-  <div id="cloudState" class="sub">已连接并已登录：3032049226@qq.com</div>
-</div>
-<div class="panel">
-  <h3>一键迁移本机作品</h3>
-  <p class="sub">读取你现在还能正常显示的 portfolio26_db，不需要重新选择36个文件。上传过程中原数据保持不变。</p>
-  <div class="toolbar">
-    <button class="btn primary" onclick="hjMigrate()">开始一键迁移</button>
-    <button class="btn" onclick="hjLoad()">读取云端作品</button>
-  </div>
-  <pre id="cloudLog">等待操作……\n发现本机作品：36 个\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✗ H-ocean [上传媒体] 存储：The object exceeded the maximum allowed size\n✓ 异变（作品+媒体）\n✓ H-船帆（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 夜行（作品+媒体）\n✗ A-耳机情景广告 [上传媒体] 存储：The object exceeded the maximum allowed size\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ H-雪地破碎（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 晨行（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ H-程序化地形生成（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 剧情分镜（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ H-电塔（作品+媒体）\n✓ 夜私塾（作品+媒体）\n✗ H-风沙粒子 [上传媒体] 存储：The object exceeded the maximum allowed size\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 剧情分镜（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ H-空战（作品+媒体）\n✓ 剧情分镜（作品+媒体）\n✗ A-科幻概念预告 [上传媒体] 存储：The object exceeded the maximum allowed size\n✓ scripts\n✓ profile\n迁移完成：完整 32，失败 4；数据库作品 36；媒体 32\n发现本机作品：36 个\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✗ H-ocean [上传媒体] 存储：The object exceeded the maximum allowed size\n✓ 异变（作品+媒体）\n✓ H-船帆（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 夜行（作品+媒体）\n✗ A-耳机情景广告 [上传媒体] 存储：The object exceeded the maximum allowed size\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ H-雪地破碎（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 晨行（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ H-程序化地形生成（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 剧情分镜（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ H-电塔（作品+媒体）\n✓ 夜私塾（作品+媒体）\n✗ H-风沙粒子 [上传媒体] 存储：The object exceeded the maximum allowed size\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 剧情分镜（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ H-空战（作品+媒体）\n✓ 剧情分镜（作品+媒体）\n✗ A-科幻概念预告 [上传媒体] 存储：The object exceeded the maximum allowed size\n✓ scripts\n✓ profile\n迁移完成：完整 32，失败 4；数据库作品 36；媒体 32\n发现本机作品：36 个\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✗ H-ocean [上传媒体] 存储：The object exceeded the maximum allowed size\n✓ 异变（作品+媒体）\n✓ H-船帆（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 夜行（作品+媒体）\n✗ A-耳机情景广告 [上传媒体] 存储：The object exceeded the maximum allowed size\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ H-雪地破碎（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 晨行（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ H-程序化地形生成（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 剧情分镜（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ H-电塔（作品+媒体）\n✓ 夜私塾（作品+媒体）\n✗ H-风沙粒子 [上传媒体] 存储：The object exceeded the maximum allowed size\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 剧情分镜（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ H-空战（作品+媒体）\n✓ 剧情分镜（作品+媒体）\n✗ A-科幻概念预告 [上传媒体] 存储：The object exceeded the maximum allowed size\n✓ scripts\n✓ profile\n迁移完成：完整 32，失败 4；数据库作品 36；媒体 32\n发现本机作品：36 个\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ H-ocean（作品+媒体）\n✓ 异变（作品+媒体）\n✓ H-船帆（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 夜行（作品+媒体）\n✓ A-耳机情景广告（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ H-雪地破碎（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 晨行（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ H-程序化地形生成（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 剧情分镜（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ H-电塔（作品+媒体）\n✓ 夜私塾（作品+媒体）\n✓ H-风沙粒子（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 场景概念（作品+媒体）\n✓ 剧情分镜（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ 角色概念设计（作品+媒体）\n✓ H-空战（作品+媒体）\n✓ 剧情分镜（作品+媒体）\n✓ A-科幻概念预告（作品+媒体）\n✓ scripts\n✓ profile\n迁移完成：完整 36，失败 0；数据库作品 36；媒体 36</pre>
-</div>
-<div id="cloudGrid" class="grid"><article class="card"><div class="thumb"><video controls="" src="https://ponmymjbhzylvgegihrf.supabase.co/storage/v1/object/public/portfolio-media/2da3da72-416c-4dd4-9749-53fcfb7a0434/66620c69-7b67-49f9-b437-5d2b280c6032/__1.mp4"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-程序化地形生成</h3><p></p></div></article><article class="card"><div class="thumb"><video controls="" src="https://ponmymjbhzylvgegihrf.supabase.co/storage/v1/object/public/portfolio-media/2da3da72-416c-4dd4-9749-53fcfb7a0434/c6dcd646-e1f9-45ec-864c-a43762f03361/__.mp4"></video></div><div class="body"><span class="tag">Houdini FX</span><h3>H-风沙粒子</h3><p></p></div></article><article class="card"><div class="thumb"><video controls="" src="https://ponmymjbhzylvgegihrf.supabase.co/storage/v1/object/public/portfolio-media/2da3da72-416c-4dd4-9749-53fcfb7a0434/ed155652-529b-4ef8-aa90-ffdd4c03096e/__.mp4"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-空战</h3><p></p></div></article><article class="card"><div class="thumb"><video controls="" src="https://ponmymjbhzylvgegihrf.supabase.co/storage/v1/object/public/portfolio-media/2da3da72-416c-4dd4-9749-53fcfb7a0434/bdc20013-bea7-43bc-aee1-c43f82372690/__.mp4"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-电塔</h3><p></p></div></article><article class="card"><div class="thumb"><video controls="" src="https://ponmymjbhzylvgegihrf.supabase.co/storage/v1/object/public/portfolio-media/2da3da72-416c-4dd4-9749-53fcfb7a0434/09f2ab82-db9c-47c1-a1ef-8547520a541e/__ocean_2.mp4"></video></div><div class="body"><span class="tag">Houdini FX</span><h3>H-ocean</h3><p></p></div></article><article class="card"><div class="thumb"><video controls="" src="https://ponmymjbhzylvgegihrf.supabase.co/storage/v1/object/public/portfolio-media/2da3da72-416c-4dd4-9749-53fcfb7a0434/374ebb1e-c23f-47f6-9231-084b7e77a6a7/snowbroken.mp4"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-雪地破碎</h3><p></p></div></article><article class="card"><div class="thumb"><video controls="" src="https://ponmymjbhzylvgegihrf.supabase.co/storage/v1/object/public/portfolio-media/2da3da72-416c-4dd4-9749-53fcfb7a0434/fc031638-f6ee-486d-b0fa-c0e545098d7e/8_3__3__2.mp4"></video></div><div class="body"><span class="tag">AIGC视频</span><h3>A-科幻概念预告</h3><p></p></div></article><article class="card"><div class="thumb"><video controls="" src="https://ponmymjbhzylvgegihrf.supabase.co/storage/v1/object/public/portfolio-media/2da3da72-416c-4dd4-9749-53fcfb7a0434/1664c766-93df-4887-bedc-0ef483c64421/vellum__.mp4"></video></div><div class="body"><span class="tag">胡迪尼FX</span><h3>H-船帆</h3><p></p></div></article><article class="card"><div class="thumb"><video controls="" src="https://ponmymjbhzylvgegihrf.supabase.co/storage/v1/object/public/portfolio-media/2da3da72-416c-4dd4-9749-53fcfb7a0434/232cd71d-0b3f-42d0-be4c-7bdda98216ec/AIGC_______2.mp4"></video></div><div class="body"><span class="tag">AIGC视频</span><h3>A-耳机情景广告</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/064ce2bf-d15f-4da4-99c4-081f7ffdce67.png"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/ChatGPT_Image_2026_8_14__15_52_55.png"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/7ED27A99A1971307A3C8665B1655450D.png"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/A19F95DB0976A06393B924F4B1FC237E.png"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/8_15_.png"></div><div class="body"><span class="tag">其他</span><h3>场景概念</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/jimeng-2026-08-15-7089.png"></div><div class="body"><span class="tag">其他</span><h3>场景概念</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/jimeng-2026-08-16-6252.png"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/jimeng-2026-08-16-2099-_______________.png"></div><div class="body"><span class="tag">其他</span><h3>角色概念设计</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/ChatGPT-2-___.png"></div><div class="body"><span class="tag">分镜</span><h3>夜行</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/_____.png"></div><div class="body"><span class="tag">分镜</span><h3>夜私塾</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/_____(1).png"></div><div class="body"><span class="tag">分镜</span><h3>晨行</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/___.png"></div><div class="body"><span class="tag">分镜</span><h3>异变</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/jimeng-2026-08-16-5178-_______________.png"></div><div class="body"><span class="tag">分镜</span><h3>剧情分镜</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/_____2026-08-16_110219.png"></div><div class="body"><span class="tag">分镜</span><h3>剧情分镜</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/D117559565026FB048100812D224621B.jpg"></div><div class="body"><span class="tag">分镜</span><h3>剧情分镜</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/u3569179987__--ar_169_--v_8.2_0051f195-d1c2-4c9c-90d2-9a43b212a17c_2.png"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/u3569179987__--ar_169_--sref_httpss.mj.rund5uMvMsa_cU_--v_8.2_93f74c6c-e5dc-4ee9-a82a-05a94d0dac1f_3.png"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/AC3C9CF13D345A23F2025D393C3C6B37.png"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/u3569179987__--ar_169_--sref_httpss.mj.runIhrmkOH8D2U_--v_8.2_8c8a537f-e7f5-4deb-ab13-7ce6d7acb31e_0.png"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/u3569179987__--ar_169_--v_8.2_4e5fd763-d887-4143-8d9f-d93db4ac8df3_0.png"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/u3569179987_httpss.mj.runb8hrW30YOZk__--ar_169_--v_8.2_de7a5b35-7ed2-4215-928f-7882b900a9db_1.png"></div><div class="body"><span class="tag">其他</span><h3>场景概念</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/u3569179987_httpss.mj.runPrQhnidEFRo_httpss.mj.runkHyS7XkvxHo_57186a2a-08a6-42c8-a98e-0d94184afb3a_3.png"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/____17.png"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/DB314E17979EBA9B92DA2CB41A782A0B.png"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/FD36419326BD472C3B5F4C9DE1509184.jpg"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/D017DF97629AF29402B14E59C8DFC0A6.jpg"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p></p></div></article><article class="card"><div class="thumb"><img src="./个人作品集｜CG · Houdini · AIGC_files/3FE987971A8DAEB4315F2C13D13D1F7F.jpg"></div><div class="body"><span class="tag">分镜</span><h3>场景概念</h3><p></p></div></article></div>
-</section>
+75mm电影长焦近景，霜璃位于天海古阵北侧，面朝正南，玄烬位于画面视线方向的远处南侧。
+
+霜璃刚刚说完“这里会毁”，保持最后一个字落下后的短暂停顿。
+
+她没有继续说话。
+
+眼神始终锁定玄烬。
+
+表情极其克制，冷静、坚定、带有已经预见危险的压迫感。
+
+她轻轻吸气，鼻翼和胸口产生非常细微的呼吸变化。
+
+右手保持在身体前方，五指自然张开。
+
+环绕手腕的水滴仍然悬浮，但运动速度已经降低到几乎静止。
+
+摄影机只有极轻微的前推动作，从面部逐渐靠近眼睛。
+
+背景中的巨大海上神殿保持原位置，被真实体积雾自然遮挡，不能消失。
+
+东南方向阳光照亮她面部一侧，另一侧自然进入柔和阴影，真实皮肤质感，真实毛发，服装粗糙织物质感。
+
+没有发光眼睛，没有魔法光环，没有游戏角色待机感。
+
+最后停在她坚定的眼神上。
+
+硬切。
+65mm电影摄影机，霜璃右手局部特写。
+
+镜头从她手腕侧面开始。
+
+霜璃五指缓慢向内收拢约三分之一，并没有夸张挥手动作。
+
+就在手指产生动作的同时，周围悬浮水滴开始改变运动轨迹。
+
+原本随机悬浮的水滴受到牵引，逐渐向她掌心前方汇聚。
+
+水滴不是瞬间生成，而是具有真实液体惯性：
+
+远处的小水滴先缓慢改变方向，
+随后速度逐渐增加，
+相互靠近时发生轻微碰撞、融合和分裂。
+
+越来越多细小水滴从潮湿石板表面脱离。
+
+部分水珠沿石板裂缝向她移动。
+
+水珠经过石板表面时留下极薄的湿润痕迹。
+
+所有水体真实透明、真实折射、真实表面张力，不发蓝光，不产生霓虹效果。
+
+摄影机轻微向前推进。
+
+镜头最后让一颗较大的水滴从镜头前方掠过。
+
+利用水滴遮挡画面完成切镜。
+35mm电影摄影机，中远景，镜头位于霜璃北侧偏东位置，朝西南方向观察。
+
+霜璃仍然固定在天海古阵北侧。
+
+摄影机通过她身体侧后方拍摄。
+
+她保持站立，没有移动。
+
+突然，远处阵台边缘的海水开始出现异常运动。
+
+不是爆炸。
+
+不是巨浪。
+
+而是大量海水受到引力般的牵引，从阵台边缘缓慢向上抬升。
+
+最开始只有几十厘米高度。
+
+随后形成一条连续水流。
+
+水流沿着阵台边缘向霜璃方向移动。
+
+真实流体模拟，水体具有重量、惯性、黏滞感和自然飞溅。
+
+部分水滴因为速度变化脱离主水流，形成大量真实微小液滴。
+
+霜璃站在前景保持稳定。
+
+她的衣摆继续受到西向东的海风影响。
+
+摄影机缓慢横移，让正在升起的海水与霜璃形成明显空间关系。
+
+背景中的北方神殿、中央古阵、东侧海域位置完全保持一致。
+
+真实Houdini流体质感，真实海水，不要蓝色能量，不要发光水柱，不要游戏技能特效。
+
+硬切。
+50mm电影摄影机，中近景。
+
+霜璃位于画面中央偏右。
+
+她右手向身体前方缓慢推出约20厘米。
+
+这个动作不是挥动，而是一个非常精确、克制的控制动作。
+
+随着手掌推出：
+
+周围大量水滴突然改变运动轨迹。
+
+水流从她身后、侧方和地面汇聚到手掌前方。
+
+形成一个直径约2.5米的高速旋转水环。
+
+水环不是完美几何圆形。
+
+它具有真实液体的不稳定性：
+
+局部水流变厚，
+局部水流变薄，
+边缘不断甩出液滴，
+内部出现旋涡，
+水体互相穿插和融合。
+
+水环以顺时针方向高速旋转。
+
+霜璃的身体保持稳定。
+
+她的衣摆和头发继续向东运动。
+
+摄影机绕霜璃身体前方进行一个非常短的约30度弧形移动，同时轻微前推。
+
+让水环从她身体后方逐渐绕到身体前方。
+
+镜头运动与水环旋转方向形成视觉上的相反运动，产生空间张力。
+
+真实流体动力学，真实折射，真实水滴，真实体积水雾，Houdini级流体特效。
+
+不要水龙，不要巨大水球，不要发光魔法圈，不要规则UI圆环，不要科幻能量护盾。
+85mm电影长焦，玄烬面部和肩部近景。
+
+承接之前镜头的视线方向。
+
+玄烬位于天海古阵南侧，正在向北方靠近。
+
+他的动作突然减慢。
+
+不是停止。
+
+而是意识到霜璃已经完成防御准备。
+
+他的眼睛快速观察霜璃手前的巨大水环。
+
+随后视线下降到水环底部。
+
+最后重新锁定霜璃的眼睛。
+
+表情从主动进攻转变为更加谨慎。
+
+右手握剑的力度明显增加。
+
+手背出现轻微肌肉张力。
+
+剑身开始产生极细微的蓝白色电弧。
+
+电弧只出现几次便消失。
+
+玄烬轻轻吐气。
+
+随后突然向前迈出。
+
+摄影机随着他身体动作快速向后退。
+
+硬切。
+24mm电影广角，极低机位，距离地面约30厘米。
+
+摄影机位于玄烬南侧，朝正北方向。
+
+玄烬突然高速启动。
+
+右脚猛烈蹬地。
+
+身体前倾。
+
+左肩领先。
+
+剑身从身体右后方快速向前带出。
+
+摄影机与玄烬同步向北高速移动。
+
+镜头贴近地面跟随人物，不绕人物，不超过人物，不改变运动方向。
+
+脚下石板受到真实冲击：
+
+碎石被弹起，
+细小灰尘被卷起，
+少量石屑沿运动方向高速飞散。
+
+玄烬衣摆因为高速移动产生明显空气阻力。
+
+头发向后拉伸。
+
+剑锋周围空气开始出现连续电弧。
+
+雷电不是附着在剑上的粗大光带，而是大量细小电弧在剑锋、空气和附近粒子之间快速跳跃。
+
+随着速度增加，剑锋后方出现极短、断续、具有真实运动轨迹的雷火粒子尾迹。
+
+不要巨大能量剑气。
+
+不要发光身体。
+
+不要瞬移。
+
+动作必须具有真实人体重量和加速度。
+
+镜头高速推进约25米。
+
+最后玄烬进入画面前景。
+
+硬切。
+35mm电影摄影机，中远景，天海古阵中央战场。
+
+玄烬从画面南侧高速冲入，突然在距离霜璃约15米的位置减速。
+
+霜璃仍然站在北侧。
+
+双方重新进入同一画面。
+
+玄烬身体前倾，右手持剑，剑锋朝向霜璃。
+
+霜璃右手前伸，直径约2.5米的高速旋转水环悬浮在身体前方。
+
+摄影机在两人之间横向快速移动约4米，在移动结束的一瞬间突然稳定下来。
+
+海风、衣摆、头发、水滴、雷弧全部继续运动。
+
+但两个人的身体在这一瞬间形成极短暂的“冻结感”。
+
+双方隔着15米对视。
+
+玄烬轻轻压低身体。
+
+霜璃的手指微微收紧。
+
+水环突然加速。
+
+剑锋雷弧同时增强。
+
+下一镜头直接进入两人的第一次高速交锋。
+
+画面结束。
+
+保持天海古阵、北侧神殿、东侧断桥、西侧悬浮岩群全部空间位置不变。
+
+真实电影摄影机，真实人体重量，真实流体，真实粒子，真实体积雾，真实物理光照，Houdini电影级VFX质感，低饱和史诗电影调色。
+
+禁止爆炸，禁止大面积能量光效，禁止游戏技能蓄力UI感，禁止人物瞬移，禁止空间跳变，禁止机甲，禁止科幻。</pre><div class="actions"><button class="btn mini" onclick="openScript(&#39;0f5adde8-a28d-429b-924a-3d92d7983763&#39;)">编辑</button><button class="btn mini danger" onclick="delScript(&#39;0f5adde8-a28d-429b-924a-3d92d7983763&#39;)">删除</button></div></article><article class="script"><h3>第二镜</h3><small></small><pre>21:9电影宽银幕，写实东方玄幻史诗电影CG，真实电影摄影机质感，天海古阵中央战场，承接上一镜头最后一帧，保持完全相同的空间布局与光线方向。
+
+超广角21mm电影摄影机，高度约35米，从天海古阵南侧斜向俯视中央战场。
+
+玄烬位于画面下方偏南位置，霜璃位于画面上方偏北位置，两人隔着约75米的巨大空旷阵台对峙，北方远处巨大海上神殿清晰存在，东侧断裂石桥、西侧悬浮岩群作为远景空间参照。
+
+摄影机不是静止，而是以明显但克制的速度向中央战场斜向前推进约10米，同时缓慢降低高度。
+
+画面先展示巨大空间，再快速把视觉注意力收束到两个人之间。
+
+海风由西向东，人物衣摆和头发统一向东侧运动，海雾沿阵台边缘向东移动。
+
+玄烬突然向前迈出一步。
+
+这一瞬间切镜。
+
+真实物理光照，东南方向主光源，真实体积雾，大气透视，哑光粗糙石材，低饱和电影调色，真实摄影机动态范围，Houdini电影级环境VFX质感。
+
+禁止游戏画面感，禁止概念插画感，禁止科幻，禁止机甲，禁止过度特效。
+35mm电影摄影机极低机位，贴近天海古阵石板地面。
+
+玄烬黑色战靴突然踏入画面并重重落在风化石板上，脚掌落地瞬间身体重量真实传递到地面。
+
+石板表面少量碎石被震起，几颗细小石粒向前滚动，极少量灰尘从鞋底边缘被挤出。
+
+鞋底与石板之间产生真实摩擦。
+
+镜头不是慢动作，动作快速、干脆、有重量。
+
+玄烬的衣摆从画面上方掠过，暗示人物正在向北方快速接近。
+
+东南方向自然侧光照亮鞋面边缘，石板保持哑光粗糙质感。
+
+真实物理运动，真实重量感，真实粒子，Houdini级微型碎石与尘埃模拟，电影摄影机运动模糊。
+
+镜头结尾让最后一颗碎石继续向前滚动。
+
+利用碎石运动切入下一镜头。
+50mm电影摄影机，玄烬右手剑锋极近距离特写。
+
+剑锋从画面右侧快速进入画面并向左前方移动，镜头跟随剑锋进行极短距离高速横向追踪。
+
+剑身为真实金属材质，粗糙度真实克制，没有镜面炫光。
+
+随着玄烬开始向北方移动，剑锋周围空气产生极细微的扰动。
+
+第一颗极其微弱的蓝白色电弧在剑刃附近短暂跳跃。
+
+不是发光武器，不是能量剑。
+
+雷电只是空气电离产生的微小自然电弧，出现后迅速消失。
+
+剑锋继续向前。
+
+最后剑尖从画面前景掠过。
+
+利用剑尖运动方向直接切入人物眼神。
+85mm电影长焦人像镜头，玄烬面部近景。
+
+玄烬正在向北方前进，身体仍处于运动状态，不能像摆拍肖像一样静止。
+
+镜头从他侧前方快速向后移动，保持人物面部稳定在画面中央。
+
+玄烬原本平静的眼神突然收紧。
+
+眉眼轻微下压。
+
+视线始终锁定前方的霜璃。
+
+呼吸明显加深一次。
+
+没有夸张表情，没有怒吼。
+
+表现一种真正进入战斗状态前的冷静杀意。
+
+头发被西向东的海风吹动，一缕发丝短暂掠过面部。
+
+背景中的天海古阵和神殿保持浅景深但仍然能够辨认空间关系。
+
+东南侧自然光打在面部一侧，另一侧自然进入柔和阴影。
+
+切。
+85mm电影长焦镜头，霜璃面部近景，与上一镜形成明确视线匹配。
+
+霜璃位于天海古阵北侧，身体朝南，正在注视向她靠近的玄烬。
+
+镜头从她正前方略偏右的位置快速轻微后退。
+
+霜璃的眼睛先看向玄烬手中的剑，然后极其自然地重新抬眼，与玄烬建立直接视线关系。
+
+眼神从平静转为警戒。
+
+嘴唇轻微收紧。
+
+下颌微微抬起。
+
+没有夸张表演。
+
+她不是害怕，而是在确认玄烬真的准备动手。
+
+西向东海风吹动她的长发和衣摆。
+
+背景可以看到北侧巨大海上神殿的一部分轮廓和体积雾。
+
+镜头最后停留在她的眼神上。
+
+切。
+50mm电影摄影机，中近景。
+
+镜头位于霜璃身体右侧，拍摄她的右手和身体侧面。
+
+霜璃没有大幅度抬手施法。
+
+她只是缓慢张开右手五指。
+
+随着手指打开，阵台石板裂缝中的一颗水珠被重力之外的力量牵引，缓慢脱离石面。
+
+水珠悬浮到她手掌前方。
+
+第二颗。
+
+第三颗。
+
+然后越来越多极小水滴从周围潮湿石面和空气水汽中汇聚。
+
+水滴沿着她手腕形成极细的环形运动轨迹。
+
+所有水滴具有真实液体表面张力、真实折射和真实惯性。
+
+水滴不是蓝色发光粒子。
+
+没有魔法光环。
+
+没有游戏技能特效。
+
+镜头轻微向前推进。
+
+最后一颗水滴进入轨道。
+
+切。
+35mm电影摄影机，中远景。
+
+镜头位于玄烬和霜璃之间偏西侧的位置，朝北拍摄。
+
+前景左侧是玄烬的部分肩膀和剑身，玄烬仍然位于南侧。
+
+中景中央是空旷的天海古阵。
+
+远处霜璃位于北侧。
+
+她的右手周围已经出现缓慢旋转的水滴。
+
+北方巨大海上神殿位于霜璃后方。
+
+摄影机沿人物之间的南北轴线快速后退约5米，同时轻微升高。
+
+让两人的真实距离重新暴露出来。
+
+玄烬向北前进。
+
+霜璃没有后退。
+
+两人的身体运动方向形成明确对抗：
+
+玄烬：南 → 北。
+
+霜璃：北侧原地防守。
+
+画面形成非常清晰的空间张力。
+
+切。
+50mm电影摄影机，玄烬胸口以上中近景。
+
+玄烬正在向北缓慢走近，镜头以低速倒退跟拍。
+
+玄烬看着远处霜璃。
+
+声音低沉、自然、短促，带有压迫感：
+
+“你还要拦我？”
+
+说完之后不要停住动作。
+
+玄烬继续向前一步。
+
+右手剑柄开始收紧。
+
+镜头随着他的最后一步产生轻微真实惯性变化。
+
+下一镜头立即切到霜璃的脸部。
+
+对白不要朗诵，不要拖长音，不要慢速，不要催眠感，不要情绪过度夸张。
+
+画面保持真实电影表演。
+75mm电影摄影机，霜璃面部与右手局部同框。
+
+霜璃保持北侧位置，没有后退。
+
+她看着玄烬。
+
+平静地说：
+
+“再往前一步。”
+
+说完之后停顿不到半秒。
+
+她的右手五指突然轻微收拢。
+
+围绕手腕运动的水滴瞬间加速。
+
+几十颗水滴形成高速旋转的细小水环。
+
+镜头从她的眼睛快速向下轻微移动到手部。
+
+水滴运动速度突然提高。
+
+真实液体动力学，真实表面张力，真实离心运动。
+
+下一句台词：
+
+“这里会毁。”
+
+最后一个字落下的瞬间。
+
+水环突然停止。
+
+所有水滴悬停在空中。
+
+切入下一镜头。</pre><div class="actions"><button class="btn mini" onclick="openScript(&#39;8c078e25-5040-4d48-9aae-ed3b23c6132f&#39;)">编辑</button><button class="btn mini danger" onclick="delScript(&#39;8c078e25-5040-4d48-9aae-ed3b23c6132f&#39;)">删除</button></div></article><article class="script"><h3>第一镜</h3><small></small><pre>21:9电影宽银幕，东方玄幻史诗奇幻电影级写实CG场景，真实拍摄质感，顶级好莱坞奇幻电影环境视觉，真实物理比例，真实PBR材质，Houdini电影级VFX环境质感，真实全球光照，真实体积雾，真实大气散射，真实海洋流体，真实摄影机动态范围，低饱和电影调色，哑光粗糙材质，控制高光，绝不游戏化，绝不概念插画化。
+
+【固定空间】
+镜头位于天海古阵南侧约150米高空，摄影机朝正北方向，南侧是无尽海洋，中央是直径约400米的巨大天海古阵，北侧远处是500米级巨大东方远古海上神殿，东侧远处存在巨大断裂古代石桥，西侧是数公里范围的巨大天然悬浮岩群。所有建筑、岩体、海岸线和地貌保持真实物理比例，位置关系固定，不发生空间重构。
+
+【首帧构图】
+21mm超广角电影摄影机，超大全景。画面前景和下半部分主要是辽阔海洋，真实海浪缓慢向北推进；中远景中央位置隐约出现巨大圆形天海古阵，阵台建立在巨型海上岩台之上，多层同心圆石环清晰可辨；北方地平线后方隐约出现巨大海上神殿，神殿被远距离海雾部分遮挡；更远处可以看到巨大悬浮岩群和海蚀山体，形成清晰的前景、中景、远景空间层次。
+
+【摄影机运动】
+摄影机从150米高空开始，以真实电影航拍摄影机的稳定惯性缓慢向正北方向推进，同时从150米缓慢下降至约90米高度。摄影机始终保持朝北，不旋转，不改变世界坐标，不横向漂移，不突然升高，不突然俯冲。运动速度前半段非常缓慢，随着天海古阵逐渐进入画面，推进速度略微增加，具有真实大型摄影机运动惯性。
+
+【环境运动】
+南侧海洋持续向北方缓慢推进，海浪具有真实流体结构和不同速度层次；海面存在极少量自然水汽；低空海雾沿海面缓慢向东移动；天空大型积云缓慢向东运动；远处云层具有真实尺度和层次；空气中只有极少量自然微尘和湿润水汽，不要大量粒子装饰。
+
+【光照】
+太阳固定在东南方向，从厚重云层之间斜向照射场景，明确的主光方向。天海古阵东南侧石材受到柔和自然阳光，西北侧进入自然阴影；远处神殿局部受到侧向阳光，其背面保持冷灰阴影；体积雾中出现非常克制的真实光束，大气散射随着距离增加逐渐降低对比度。海面只有有限、柔和、真实的反射，高光受到严格控制，不出现刺眼镜面反射，不出现HDR游戏画面。
+
+【材质】
+所有石材为真实风化灰黑色岩石，粗糙、哑光、沉重，具有自然裂缝、盐蚀、潮湿痕迹和长期风化痕迹，但纹理密度克制；海水真实深度和浑浊度；远处岩体具有真实地质结构；神殿使用深色风化木石材质，具有真实重量和结构逻辑；禁止复杂重复纹样，禁止过密雕刻，禁止装饰性纹理堆砌。
+
+【空间尺度】
+必须表现出真正数公里级环境尺度。天海古阵只是巨大海洋环境中的一个主体，远处神殿、悬浮岩群、海蚀山体和海洋共同构成史诗级纵深。前景海面、中景阵台、远景神殿、超远景岩群之间具有明显真实大气透视关系。不要把所有东西压缩在一起，不要缩小神殿，不要缩小海洋，不要让场景像游戏地图。
+
+【画面变化】
+0–2秒：主要看到辽阔海洋和远处被雾气遮挡的天海古阵。
+2–4秒：摄影机继续向北推进，海雾逐渐散开，400米级圆形天海古阵完整进入视觉中心。
+4–6秒：北方巨大海上神殿逐渐从雾层中显现，东侧断裂石桥和西侧悬浮岩群形成远景空间参照。
+6–7秒：摄影机下降到约90米，推进至天海古阵南侧边缘，远处中央战斗区域隐约出现两个极小的人影，人物比例必须非常小，只作为空间尺度参照，不进行人物特写。
+
+【视觉重点】
+重点表现巨大真实空间、海洋尺度、古阵尺度、神殿尺度、真实体积雾、大气透视、自然光影和电影摄影机运动。画面必须像真实存在于电影世界中的巨大东方玄幻场景，而不是游戏场景截图。所有物体具有真实重量、真实距离、真实遮挡关系和真实光照。
+
+【结尾状态】
+最后一帧固定在天海古阵南侧边缘，摄影机高度约90米，镜头仍然朝正北，天海古阵位于画面中央，北方神殿位于远景中央偏上，南侧海洋位于摄影机后方，两个角色位于阵台中央纵轴上，玄烬在南侧45米位置，霜璃在北侧30米位置，二人距离约75米。保持这一空间状态作为下一镜头首帧。
+
+禁止：空间位置改变，建筑位置改变，地貌重构，海岸线变化，镜头突然旋转，镜头瞬移，人物比例错误，人物突然放大，随机漂浮建筑，随机悬浮碎石，过度粒子，过度高光，强烈镜面反射，游戏画面感，概念艺术感，漫画感，二次元感，科幻建筑，机甲，赛博朋克，现代建筑，霓虹灯，过度锐化，过度颗粒，脏污高频纹理，重复纹理，塑料材质，CG塑料感，假体积雾，假HDR，过度景深，过度运动模糊，镜头抖动。</pre><div class="actions"><button class="btn mini" onclick="openScript(&#39;117fb000-7a30-416f-91e1-94ceafc14eef&#39;)">编辑</button><button class="btn mini danger" onclick="delScript(&#39;117fb000-7a30-416f-91e1-94ceafc14eef&#39;)">删除</button></div></article></div></section>
+<section id="about" class="page"><div class="top"><div><div class="k">ABOUT</div><h1>关于我</h1></div><button class="btn primary" onclick="saveProfile()">保存修改</button></div><div class="about"><div class="panel"><div class="field"><label>姓名 / 标题</label><input id="pname"></div><div class="field"><label>职业定位</label><input id="prole"></div><div class="field"><label>个人简介</label><textarea id="pbio"></textarea></div><div class="field"><label>邮箱</label><input id="pemail"></div><div class="field"><label>作品链接 / 社交链接</label><input id="plink"></div></div><div class="panel"><h2>保存方式</h2><p class="sub">作品、脚本、个人资料和上传文件均保存到 Supabase 云端。管理员登录后可在任何电脑或手机继续编辑；访客只能浏览公开内容。</p></div></div></section>
 </main></div>
-<div id="wm" class="modal"><div class="box"><div class="mh"><h2 id="wt">编辑作品</h2><button class="close" onclick="closeM(&#39;wm&#39;)">×</button></div><input type="hidden" id="wid" value="232cd71d-0b3f-42d0-be4c-7bdda98216ec"><div class="field"><label>作品名称</label><input id="wtitle" placeholder="例如：天海古阵｜东方玄幻VFX"></div><div class="field"><label>类型</label><select id="wtype"><option>Houdini FX</option><option>AIGC视频</option><option>CG</option><option>分镜</option><option>其他</option></select></div><div class="field"><label>作品说明</label><textarea id="wdesc" placeholder="技术、镜头、创作思路……"></textarea></div><div class="field"><label>图片 / 视频</label><input id="wfile" type="file" accept="image/*,video/*"><div class="filehint">视频不再转成 Base64；会直接以文件 Blob 保存。建议单个视频不要超过浏览器可用磁盘空间。</div></div><div class="drop">选择文件后点击“保存”即可。编辑作品时不重新选择文件，会保留原文件。</div><div class="actions" style="margin-top:14px"><button class="btn" onclick="closeM(&#39;wm&#39;)">取消</button><button class="btn primary" onclick="saveWork()">保存</button></div></div></div>
-<div id="sm" class="modal"><div class="box"><div class="mh"><h2 id="st">新建脚本</h2><button class="close" onclick="closeM(&#39;sm&#39;)">×</button></div><input type="hidden" id="sid"><div class="field"><label>标题</label><input id="sname" placeholder="例如：第四镜｜霜璃水域追杀"></div><div class="field"><label>简介</label><input id="sintro"></div><div class="field"><label>正文</label><textarea id="sbody" style="min-height:380px" placeholder="时间轴、CUT、镜头、动作、VFX、对白……"></textarea></div><div class="actions"><button class="btn" onclick="closeM(&#39;sm&#39;)">取消</button><button class="btn primary" onclick="saveScript()">保存</button></div></div></div>
-<div id="pm" class="modal"><div class="box"><div class="mh"><h2 id="pt">进入管理模式</h2><button class="close" onclick="closeM(&#39;pm&#39;)">×</button></div><div class="field"><label>管理 PIN</label><input id="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="输入 4-12 位 PIN"></div><div class="filehint">首次使用请设置 PIN。PIN 只保存在当前浏览器的本地数据中。</div><div class="actions" style="margin-top:14px"><button class="btn" onclick="closeM(&#39;pm&#39;)">取消</button><button class="btn primary" onclick="confirmPin()">确认</button></div></div></div><div id="status" class="status">作品已保存</div>
-<script>document.addEventListener('contextmenu',e=>{if(e.target.matches('img,video'))e.preventDefault()});
-const DB_NAME='portfolio26_db',DB_VERSION=1,WORKS='works',META='meta';
-let db,works=[],scripts=[],profile={name:'个人作品集',role:'视觉特效 · CG · AIGC',bio:'展示 Houdini、CG、AIGC 视频、镜头设计与视觉特效作品。',email:'',link:''};
-const $=id=>document.getElementById(id);
-function notify(t){$('status').textContent=t;$('status').classList.add('show');setTimeout(()=>$('status').classList.remove('show'),2200)}
-function openDB(){return new Promise((resolve,reject)=>{const r=indexedDB.open(DB_NAME,DB_VERSION);r.onupgradeneeded=()=>{const d=r.result;if(!d.objectStoreNames.contains(WORKS)){const s=d.createObjectStore(WORKS,{keyPath:'id'});s.createIndex('createdAt','createdAt')}if(!d.objectStoreNames.contains(META))d.createObjectStore(META,{keyPath:'key'})};r.onsuccess=()=>{db=r.result;resolve(db)};r.onerror=()=>reject(r.error)})}
-function tx(store,mode='readonly'){return db.transaction(store,mode).objectStore(store)}
-function req(r){return new Promise((resolve,reject)=>{r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
-async function allWorks(){return await req(tx(WORKS).getAll())}
-async function putWork(x){await req(tx(WORKS,'readwrite').put(x))}
-async function delWorkDB(id){await req(tx(WORKS,'readwrite').delete(id))}
-async function getMeta(key){return await req(tx(META).get(key))}
-async function putMeta(key,value){await req(tx(META,'readwrite').put({key,value}))}
-async function init(){try{await openDB();let oldW=JSON.parse(localStorage.getItem('portfolio26w')||'[]');let migrated=false;if(oldW.length){for(const x of oldW){let mediaBlob=null,mediaType=x.media?.type||'',mediaName=x.media?.name||'';if(x.media?.url?.startsWith('data:')){try{const res=await fetch(x.media.url);mediaBlob=await res.blob()}catch(e){}}await putWork({...x,media:mediaBlob?{type:mediaType,name:mediaName}:null,createdAt:x.createdAt||Date.now()});migrated=true}localStorage.removeItem('portfolio26w')}let oldS=JSON.parse(localStorage.getItem('portfolio26s')||'null');let oldP=JSON.parse(localStorage.getItem('portfolio26p')||'null');if(oldS){scripts=oldS;await putMeta('scripts',scripts);localStorage.removeItem('portfolio26s')}else{scripts=(await getMeta('scripts'))?.value||[]}if(oldP){profile=oldP;await putMeta('profile',profile);localStorage.removeItem('portfolio26p')}else{profile=(await getMeta('profile'))?.value||profile}works=await allWorks();if(ensureOrder()){for(const x of works) await putWork(x)}syncUI();renderWorks();renderScripts();if(migrated)notify('已迁移旧作品数据');}catch(e){console.error(e);alert('数据库初始化失败：'+e.message)}}
-async function persistScripts(){await putMeta('scripts',scripts)}async function persistProfile(){await putMeta('profile',profile)}
-function go(id,b){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(id==='works')renderWorks();if(id==='scripts')renderScripts();if(id==='about')loadProfile()}
-function syncUI(){$('wc').textContent=works.length;$('sc').textContent=scripts.length;$('heroTitle').textContent=profile.role||profile.name;$('heroSub').textContent=profile.bio}
-function openM(id){$(id).classList.add('open')}function closeM(id){$(id).classList.remove('open')}
-function openWork(id){if(!adminMode)return alert('请先进入管理模式');$('wid').value=id||'';$('wt').textContent=id?'编辑作品':'添加作品';$('wfile').value='';if(id){let x=works.find(a=>a.id===id);$('wtitle').value=x.title;$('wtype').value=x.type;$('wdesc').value=x.desc||''}else{$('wtitle').value='';$('wdesc').value='';$('wtype').value='Houdini FX'}openM('wm')}
-async function saveWork(){if(!adminMode)return alert('请先进入管理模式');try{if(!$('wtitle').value.trim())return alert('请填写作品名称');let id=$('wid').value,x=id?works.find(a=>a.id===id):null;let file=$('wfile').files[0];let media=x?.media||null;if(file)media={blob:file,type:file.type,name:file.name,size:file.size};let item={id:id||crypto.randomUUID(),title:$('wtitle').value.trim(),type:$('wtype').value,desc:$('wdesc').value,media,createdAt:x?.createdAt||Date.now(),order:x?.order??(works.length?Math.max(...works.map(w=>w.order??0))+1:0)};await putWork(item);works=await allWorks();syncUI();renderWorks();closeM('wm');notify('作品已保存');}catch(e){console.error(e);alert('保存失败：'+e.message)}}
-function mediaURL(x){if(!x?.blob)return null;return URL.createObjectURL(x.blob)}
-function renderWorks(){
-  let q=($('search').value||'').toLowerCase(), f=$('filter').value;
-  let a=works.slice().sort((x,y)=>(x.order??x.createdAt??0)-(y.order??y.createdAt??0)).filter(x=>(!f||x.type===f)&&(!q||(x.title+x.type+x.desc).toLowerCase().includes(q)));
-  $('grid').innerHTML=a.length?a.map(x=>{
-    let u=mediaURL(x.media),isv=x.media?.type?.startsWith('video'),isi=x.media?.type?.startsWith('image');
-    return `<article class="card"><div class="thumb">${isv&&u?`<video src="${u}" controls preload="metadata" controlsList="nodownload"></video>`:isi&&u?`<img src="${u}" draggable="false">`:'<div class="placeholder">✦</div>'}</div><div class="body"><span class="tag">${e(x.type)}</span><h3>${e(x.title)}</h3><p>${e(x.desc||'暂无说明')}</p><div class="actions adminOnly"><button class="btn mini" onclick="moveWork('${x.id}',-1)">↑</button><button class="btn mini" onclick="moveWork('${x.id}',1)">↓</button><button class="btn mini" onclick="openWork('${x.id}')">编辑</button><button class="btn mini danger" onclick="removeWork('${x.id}')">删除</button></div></div></article>`
-  }).join(''):'<div class="empty">还没有作品，进入管理模式后添加第一件作品。</div>';
-  document.body.classList.toggle('adminMode',adminMode);
-}
-async function removeWork(id){if(!adminMode)return;if(confirm('确定删除？')){await delWorkDB(id);works=await allWorks();syncUI();renderWorks();notify('作品已删除')}}
-function openScript(id){if(!adminMode)return alert('请先进入管理模式');$('sid').value=id||'';$('st').textContent=id?'编辑脚本':'新建脚本';if(id){let x=scripts.find(a=>a.id===id);$('sname').value=x.title;$('sintro').value=x.intro||'';$('sbody').value=x.body||''}else{$('sname').value='';$('sintro').value='';$('sbody').value=''}openM('sm')}
-async function saveScript(){if(!adminMode)return alert('请先进入管理模式');if(!$('sname').value.trim())return alert('请填写标题');let d={title:$('sname').value.trim(),intro:$('sintro').value,body:$('sbody').value};if($('sid').value)Object.assign(scripts.find(x=>x.id===$('sid').value),d);else scripts.unshift({id:crypto.randomUUID(),...d});await persistScripts();syncUI();renderScripts();closeM('sm');notify('脚本已保存')}
-function renderScripts(){$('scriptsList').innerHTML=scripts.length?scripts.map(x=>`<article class="script"><h3>${e(x.title)}</h3><small>${e(x.intro||'')}</small><pre>${e(x.body||'')}</pre><div class="actions adminOnly"><button class="btn mini" onclick="openScript('${x.id}')">编辑</button><button class="btn mini danger" onclick="delScript('${x.id}')">删除</button></div></article>`).join(''):'<div class="empty">还没有脚本，点击“新建脚本”。</div>'}
-async function delScript(id){if(!adminMode)return;if(confirm('确定删除？')){scripts=scripts.filter(x=>x.id!==id);await persistScripts();syncUI();renderScripts();notify('脚本已删除')}}
-function loadProfile(){$('pname').value=profile.name;$('prole').value=profile.role;$('pbio').value=profile.bio;$('pemail').value=profile.email;$('plink').value=profile.link}
-async function saveProfile(){if(!adminMode)return alert('请先进入管理模式');profile={name:$('pname').value,role:$('prole').value,bio:$('pbio').value,email:$('pemail').value,link:$('plink').value};await persistProfile();syncUI();notify('个人资料已保存')}
-
-let adminMode=false;
-const AUTH_KEY='portfolio26_pin_hash';
-async function hashText(t){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
-async function toggleAdmin(){
-  if(adminMode){adminMode=false;document.body.classList.remove('adminMode');$('lockstate').textContent='访客模式：编辑功能已锁定';$('adminBtn').textContent='进入管理模式';renderWorks();renderScripts();return;}
-  const saved=(await getMeta(AUTH_KEY))?.value;
-  $('pt').textContent=saved?'进入管理模式':'首次设置管理 PIN';$('pin').value='';openM('pm');
-}
-async function confirmPin(){
-  const pin=$('pin').value.trim();if(pin.length<4||pin.length>12)return alert('PIN 请设置为 4-12 位');
-  const h=await hashText(pin);const saved=(await getMeta(AUTH_KEY))?.value;
-  if(!saved){await putMeta(AUTH_KEY,h);adminMode=true;notify('管理 PIN 已设置');}
-  else if(h===saved){adminMode=true;notify('已进入管理模式');}
-  else return alert('PIN 不正确');
-  document.body.classList.add('adminMode');$('lockstate').textContent='管理模式：可以编辑、删除、上传、调整排序';$('adminBtn').textContent='退出管理模式';closeM('pm');renderWorks();renderScripts();loadProfile();
-}
-function ensureOrder(){
-  let changed=false; let n=0;
-  works.sort((a,b)=>(a.order??a.createdAt??0)-(b.order??b.createdAt??0));
-  works.forEach((x,i)=>{if(x.order==null){x.order=i;changed=true} n=Math.max(n,x.order)});
-  return changed;
-}
-async function moveWork(id,dir){if(!adminMode)return;works.sort((a,b)=>(a.order??0)-(b.order??0));const i=works.findIndex(x=>x.id===id),j=i+dir;if(i<0||j<0||j>=works.length)return;const a=works[i],b=works[j],o=a.order;a.order=b.order;b.order=o;await putWork(a);await putWork(b);works=await allWorks();renderWorks();notify('作品顺序已调整')}
-
-function e(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-init();
-</script>
-<script src="./个人作品集｜CG · Houdini · AIGC_files/supabase-js@2"></script>
+<div id="wm" class="modal"><div class="box"><div class="mh"><h2 id="wt">添加作品</h2><button class="close" onclick="closeM(&#39;wm&#39;)">×</button></div><input type="hidden" id="wid"><div class="field"><label>作品名称</label><input id="wtitle" placeholder="例如：天海古阵｜东方玄幻VFX"></div><div class="field"><label>类型</label><select id="wtype"><option>2D</option><option>3D</option><option>广告</option><option>概念图</option><option>Houdini FX</option><option>AIGC视频</option><option>CG</option><option>分镜</option><option>其他</option></select></div><div class="field"><label>作品说明</label><textarea id="wdesc" placeholder="技术、镜头、创作思路……"></textarea></div><div class="field"><label>图片 / 视频</label><input id="wfile" type="file" accept="image/*,video/*"><div class="filehint">视频不再转成 Base64；会直接以文件 Blob 保存。建议单个视频不要超过浏览器可用磁盘空间。</div></div><div class="drop">选择文件后点击“保存”即可。编辑作品时不重新选择文件，会保留原文件。</div><div class="actions" style="margin-top:14px"><button class="btn" onclick="closeM(&#39;wm&#39;)">取消</button><button class="btn primary" onclick="saveWork()">保存</button></div></div></div>
+<div id="sm" class="modal"><div class="box"><div class="mh"><h2 id="st">新建脚本</h2><button class="close" onclick="closeM(&#39;sm&#39;)">×</button></div><input type="hidden" id="sid" value=""><div class="field"><label>标题</label><input id="sname" placeholder="例如：第四镜｜霜璃水域追杀"></div><div class="field"><label>简介</label><input id="sintro"></div><div class="field"><label>正文</label><textarea id="sbody" style="min-height:380px" placeholder="时间轴、CUT、镜头、动作、VFX、对白……"></textarea></div><div class="actions"><button class="btn" onclick="closeM(&#39;sm&#39;)">取消</button><button class="btn primary" onclick="saveScript()">保存</button></div></div></div>
+<div id="status" class="status">已保存</div>
+<div id="adminModal" class="modal"><div class="box"><div class="mh"><h2>管理员登录</h2><button class="close" onclick="closeM('adminModal')">×</button></div><div class="field"><label>邮箱</label><input id="adminEmail" type="email" autocomplete="username"></div><div class="field"><label>管理员密码</label><input id="adminPassword" type="password" autocomplete="current-password"></div><div class="field"><label>Supabase Publishable / Anon Key</label><input id="adminKey" type="password" placeholder="sb_publishable_... 或旧版 anon key"></div><p class="filehint">这里是你网站自己的管理员登录，不是 Vercel 登录。访客不需要登录。</p><div class="actions"><button class="btn" onclick="closeM('adminModal')">取消</button><button class="btn primary" onclick="loginAdmin()">登录管理员模式</button></div></div></div>
 <script>
-(function(){
-const DB='portfolio26_db', STORE='works', BUCKET='portfolio-media';
-let client=null, currentUser=null;
+const SUPABASE_URL='https://ponmymjbhzylvgegihrf.supabase.co';
+const CONFIG_KEY='hjvfx_publishable_key';
+// 把你的完整 sb_publishable_... 密钥粘贴到下一行。Publishable key 可以安全放在前端。
+const BUILTIN_PUBLISHABLE_KEY='';
+let publishableKey=BUILTIN_PUBLISHABLE_KEY||localStorage.getItem(CONFIG_KEY)||'';
+let accessToken=sessionStorage.getItem('hj_access_token')||'';
+let refreshToken=sessionStorage.getItem('hj_refresh_token')||'';
+let currentUser=null,isAdmin=false,works=[],scripts=[],profile={name:'个人作品集',role:'视觉特效 · CG · AIGC',bio:'展示 Houdini、CG、AIGC 视频、镜头设计与视觉特效作品。',email:'',link:''};
 const $=id=>document.getElementById(id);
-function clog(t){const x=$('cloudLog'); if(x)x.textContent += '\\n'+t;}
-function state(t){if($('cloudState'))$('cloudState').textContent=t;}
-function openLocal(){
- return new Promise((resolve,reject)=>{
-  const r=indexedDB.open(DB);
-  r.onsuccess=()=>resolve(r.result); r.onerror=()=>reject(r.error);
- });
+function notify(t){$('status').textContent=t;$('status').classList.add('show');setTimeout(()=>$('status').classList.remove('show'),2600)}
+function openM(id){$(id).classList.add('open')}
+function closeM(id){$(id).classList.remove('open')}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function mediaUrl(m){
+  if(!m)return '';
+  if(m.path)return SUPABASE_URL+'/storage/v1/object/public/portfolio-media/'+m.path.split('/').map(encodeURIComponent).join('/');
+  if(m.url)return m.url;
+  return '';
 }
-function allLocal(db){
- return new Promise((resolve,reject)=>{
-  const tx=db.transaction(STORE,'readonly'), r=tx.objectStore(STORE).getAll();
-  r.onsuccess=()=>resolve(r.result||[]); r.onerror=()=>reject(r.error);
- });
+function setCloudStatus(t){const x=$('cloudStatus');if(x)x.textContent=t}
+function authHeaders(extra={}){const h={apikey:publishableKey,...extra};if(accessToken)h.Authorization='Bearer '+accessToken;return h}
+async function request(path,opt={}){
+  if(!publishableKey)throw Error('请先配置 Supabase Publishable / Anon Key');
+  const r=await fetch(SUPABASE_URL+path,{...opt,headers:authHeaders(opt.headers||{})});
+  const t=await r.text();
+  if(!r.ok){
+    let msg=t;try{const j=JSON.parse(t);msg=j.message||j.error_description||j.msg||t}catch{}
+    throw Error(msg||('HTTP '+r.status));
+  }
+  try{return t?JSON.parse(t):null}catch{return t}
 }
-function metaLocal(db,key){
- return new Promise((resolve,reject)=>{
-  if(!db.objectStoreNames.contains('meta')) return resolve(null);
-  const r=db.transaction('meta','readonly').objectStore('meta').get(key);
-  r.onsuccess=()=>resolve(r.result?.value??null); r.onerror=()=>reject(r.error);
- });
+async function rest(table,query='',opt={}){return request('/rest/v1/'+table+query,opt)}
+async function refreshSession(){
+  if(!refreshToken||!publishableKey)return false;
+  const r=await fetch(SUPABASE_URL+'/auth/v1/token?grant_type=refresh_token',{method:'POST',headers:{apikey:publishableKey,'Content-Type':'application/json'},body:JSON.stringify({refresh_token:refreshToken})});
+  const d=await r.json();if(!r.ok)return false;
+  accessToken=d.access_token||'';refreshToken=d.refresh_token||refreshToken;currentUser=d.user||currentUser;
+  sessionStorage.setItem('hj_access_token',accessToken);sessionStorage.setItem('hj_refresh_token',refreshToken);return true;
 }
-async function hjConnect(){
- try{
-  const url=$('sbUrl').value.trim(), key=$('sbKey').value.trim();
-  if(!url||!key) return alert('请填写 Project URL 和 Anon / Publishable Key');
-  if(!window.supabase) return alert('云端组件加载失败，请联网后刷新页面');
-  client=window.supabase.createClient(url,key);
-  const r=await client.auth.getSession();
-  currentUser=r.data.session?.user||null;
-  state(currentUser?'已连接并已登录：'+currentUser.email:'已连接 Supabase，尚未登录');
-  localStorage.setItem('hj_sb_url',url); localStorage.setItem('hj_sb_key',key);
- }catch(e){state('连接失败：'+e.message);alert('连接失败：'+e.message)}
-}
-async function ensureClient(){
- if(client)return true;
- const u=$('sbUrl').value.trim()||localStorage.getItem('hj_sb_url')||'';
- const k=$('sbKey').value.trim()||localStorage.getItem('hj_sb_key')||'';
- if(!u||!k){alert('请先填写并连接 Supabase');return false}
- $('sbUrl').value=u;$('sbKey').value=k; await hjConnect(); return !!client;
-}
-async function hjLogin(){
- if(!await ensureClient())return;
- const email=prompt('管理员邮箱'); if(!email)return;
- const password=prompt('管理员密码'); if(!password)return;
- const r=await client.auth.signInWithPassword({email,password});
- if(r.error)return alert('登录失败：'+r.error.message);
- currentUser=r.data.user; state('已登录：'+currentUser.email); alert('登录成功');
-}
-async function hjSignUp(){
- if(!await ensureClient())return;
- const email=prompt('管理员邮箱'); if(!email)return;
- const password=prompt('管理员密码'); if(!password)return;
- const r=await client.auth.signUp({email,password});
- if(r.error)return alert('注册失败：'+r.error.message);
- alert(r.data.session?'注册并登录成功':'注册成功。如果项目开启邮箱验证，请先验证邮箱再登录。');
-}
-async function hjMigrate(){
- if(!await ensureClient())return;
- if(!currentUser){const r=await client.auth.getUser();currentUser=r.data.user||null}
- if(!currentUser){return alert('请先登录管理员账号')}
-
- const db=await openLocal(), local=await allLocal(db);
- clog('发现本机作品：'+local.length+' 个');
- let ok=0, fail=0, dbOk=0, mediaOk=0;
-
- for(const w of local){
-  let itemSaved=false, mediaSaved=false, stage='准备';
+async function loginAdmin(){
+  const email=$('adminEmail').value.trim(),password=$('adminPassword').value,key=$('adminKey').value.trim();
+  if(!email||!password||!key)return alert('请填写邮箱、密码和 Publishable / Anon Key');
+  publishableKey=key;localStorage.setItem(CONFIG_KEY,key);$('cloudKey').value=key;
   try{
-   const created = Number(w.createdAt);
-   const createdAt = Number.isFinite(created) && created>0
-      ? new Date(created).toISOString()
-      : new Date().toISOString();
-
-   stage='写入云端作品';
-   const payload={
-     id:String(w.id),
-     title:String(w.title||'未命名作品'),
-     type:String(w.type||'其他'),
-     description:String(w.desc||''),
-     sort_order:Number.isFinite(Number(w.order))?Number(w.order):0,
-     created_at:createdAt,
-     owner_id:currentUser.id,
-     is_public:true
-   };
-   const r=await client.from('portfolio_items').upsert(payload,{onConflict:'id'}).select('id').single();
-   if(r.error) throw new Error('数据库：'+r.error.message);
-   itemSaved=true; dbOk++;
-
-   if(w.media?.blob){
-    stage='上传媒体';
-    const raw=w.media.blob;
-    const blob = raw instanceof Blob ? raw : new Blob([raw],{type:w.media.type||'application/octet-stream'});
-    const original=String(w.media.name||'media');
-    const safe=original.replace(/[^a-zA-Z0-9._-]/g,'_')||'media';
-    const path=currentUser.id+'/'+String(w.id)+'/'+safe;
-
-    const up=await client.storage.from(BUCKET).upload(path,blob,{
-      contentType:w.media.type||blob.type||'application/octet-stream',
-      upsert:true
-    });
-    if(up.error) throw new Error('存储：'+up.error.message);
-
-    const pub=client.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
-    const mf=await client.from('portfolio_files').upsert({
-      work_id:String(w.id),owner_id:currentUser.id,path,name:original,
-      mime_type:w.media.type||blob.type||'application/octet-stream',
-      size:blob.size,url:pub
-    },{onConflict:'work_id'});
-    if(mf.error) throw new Error('媒体记录：'+mf.error.message);
-    mediaSaved=true; mediaOk++;
-   }else{
-    mediaSaved=true;
-   }
-
-   ok++;
-   clog('✓ '+(w.title||w.id)+(w.media?.blob?'（作品+媒体）':'（作品）'));
-  }catch(e){
-   fail++;
-   clog('✗ '+(w.title||w.id)+' ['+stage+'] '+e.message);
-   // The work record is intentionally NOT deleted if media upload fails.
-   // This makes retries safe and preserves already-migrated database rows.
-  }
- }
-
- for(const [key,val] of [['scripts',await metaLocal(db,'scripts')],['profile',await metaLocal(db,'profile')]]){
-  if(val!==null){
-   const r=await client.from('portfolio_data').upsert(
-     {owner_id:currentUser.id,key,value:val},{onConflict:'owner_id,key'}
-   );
-   if(r.error)clog('✗ 资料 '+key+'：'+r.error.message);
-   else clog('✓ '+key);
-  }
- }
- clog('迁移完成：完整 '+ok+'，失败 '+fail+'；数据库作品 '+dbOk+'；媒体 '+mediaOk);
- alert('迁移完成：完整 '+ok+'，失败 '+fail+'\n数据库作品：'+dbOk+'\n媒体文件：'+mediaOk+
-       (fail?'\\n请查看运行日志，里面会显示每个失败的具体阶段和原因。':''));
- await hjLoad();
+    const r=await fetch(SUPABASE_URL+'/auth/v1/token?grant_type=password',{method:'POST',headers:{apikey:publishableKey,'Content-Type':'application/json'},body:JSON.stringify({email,password})});
+    const d=await r.json();if(!r.ok)throw Error(d.error_description||d.msg||'管理员登录失败');
+    accessToken=d.access_token;refreshToken=d.refresh_token||'';currentUser=d.user;isAdmin=true;
+    sessionStorage.setItem('hj_access_token',accessToken);sessionStorage.setItem('hj_refresh_token',refreshToken);
+    closeM('adminModal');updateAdminUI();await loadCloud();notify('管理员模式已开启');
+  }catch(e){console.error(e);alert('登录失败：'+e.message)}
 }
-async function hjLoad(){
- if(!await ensureClient())return;
- if(!currentUser){const r=await client.auth.getUser();currentUser=r.data.user||null}
- if(!currentUser)return alert('请先登录');
- const r=await client.from('portfolio_items').select('id,title,type,description,sort_order,created_at,is_public').eq('is_public',true).order('sort_order',{ascending:true});
- if(r.error)return alert('读取云端失败：'+r.error.message);
- const rows=r.data||[];
- const ids=rows.map(x=>x.id);
- let files=[];
- if(ids.length){
-  const f=await client.from('portfolio_files').select('work_id,name,mime_type,url').in('work_id',ids);
-  if(f.error)return alert('读取媒体失败：'+f.error.message);
-  files=f.data||[];
- }
- const map={}; files.forEach(f=>map[f.work_id]=f);
- $('cloudGrid').innerHTML=rows.length?rows.map(w=>{
-  const f=map[w.id], media=f?.url?(f.mime_type?.startsWith('video/')?'<video controls src="'+f.url+'"></video>':'<img src="'+f.url+'">'):'<div class="placeholder">＋</div>';
-  return '<article class="card"><div class="thumb">'+media+'</div><div class="body"><span class="tag">'+e(w.type||'其他')+'</span><h3>'+e(w.title||'')+'</h3><p>'+e(w.description||'')+'</p></div></article>'
- }).join(''):'<div class="empty">云端还没有作品。</div>';
+function logoutAdmin(){accessToken='';refreshToken='';currentUser=null;isAdmin=false;sessionStorage.removeItem('hj_access_token');sessionStorage.removeItem('hj_refresh_token');updateAdminUI();loadCloud();notify('已退出管理员模式')}
+function updateAdminUI(){
+  let b=$('adminButton');if(!b){b=document.createElement('button');b.id='adminButton';b.className='btn primary';b.style.position='fixed';b.style.right='20px';b.style.top='18px';b.style.zIndex='30';document.body.appendChild(b)}
+  b.textContent=isAdmin?'管理员模式 · 退出':'管理员登录';b.onclick=isAdmin?logoutAdmin:()=>{if(publishableKey)$('adminKey').value=publishableKey;openM('adminModal')};
+  document.querySelectorAll('[data-admin]').forEach(x=>x.style.display=isAdmin?'':'none');loadProfile();renderWorks();renderScripts();
 }
-window.hjConnect=hjConnect;window.hjLogin=hjLogin;window.hjSignUp=hjSignUp;window.hjMigrate=hjMigrate;window.hjLoad=hjLoad;
-window.addEventListener('load',()=>{if($('sbUrl'))$('sbUrl').value=localStorage.getItem('hj_sb_url')||'';if($('sbKey'))$('sbKey').value=localStorage.getItem('hj_sb_key')||''});
-})();
+function go(id,b){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(id==='works')renderWorks();if(id==='scripts')renderScripts();if(id==='about')loadProfile();if(id==='cloud')syncCloudPanel()}
+function syncCloudPanel(){$('cloudUrl').value=SUPABASE_URL;$('cloudKey').value=publishableKey||'';setCloudStatus(publishableKey?'已配置云端密钥。正在读取作品…':'请粘贴 Publishable / Anon Key 后保存。')}
+async function connectCloud(){if(!publishableKey){openM('adminModal');return}await loadCloud()}
+function saveCloudConfig(){const k=$('cloudKey').value.trim();if(!k)return alert('请粘贴 Publishable / Anon Key');publishableKey=k;localStorage.setItem(CONFIG_KEY,k);loadCloud()}
+function openWork(id){if(!isAdmin){openM('adminModal');return}$('wid').value=id||'';$('wt').textContent=id?'编辑作品':'添加作品';$('wfile').value='';if(id){const x=works.find(a=>a.id===id);if(!x)return;$('wtitle').value=x.title||'';$('wtype').value=x.type||'其他';$('wdesc').value=x.desc||''}else{$('wtitle').value='';$('wdesc').value='';$('wtype').value='3D'}openM('wm')}
+function pickDropFile(file){const input=$('wfile');const dt=new DataTransfer();dt.items.add(file);input.files=dt.files}
+async function uploadMedia(file,workId){
+  if(!file)return null;if(!currentUser?.id)throw Error('管理员登录状态已失效，请重新登录');
+  const safeName=(file.name||'file').replace(/[^\w\u4e00-\u9fff.\-]+/g,'_');const path=currentUser.id+'/'+workId+'/'+Date.now()+'_'+safeName;
+  const r=await fetch(SUPABASE_URL+'/storage/v1/object/portfolio-media/'+path,{method:'POST',headers:authHeaders({'Content-Type':file.type||'application/octet-stream','x-upsert':'true'}),body:file});
+  const t=await r.text();if(!r.ok){let msg=t;try{const j=JSON.parse(t);msg=j.message||j.error||t}catch{};throw Error(msg||('上传失败 HTTP '+r.status))}
+  return {work_id:workId,owner_id:currentUser.id,path,name:file.name,mime_type:file.type||'application/octet-stream',size:file.size,url:SUPABASE_URL+'/storage/v1/object/public/portfolio-media/'+path};
+}
+async function deleteStoragePath(path){if(!path||!currentUser?.id)return;try{await fetch(SUPABASE_URL+'/storage/v1/object/portfolio-media',{method:'DELETE',headers:authHeaders({'Content-Type':'application/json'}),body:JSON.stringify({prefixes:[path]})})}catch(e){console.warn('Storage 删除失败',e)}}
+async function saveWork(){
+  if(!isAdmin)return openM('adminModal');
+  try{
+    const title=$('wtitle').value.trim();if(!title)return alert('请填写作品名称');const id=$('wid').value||crypto.randomUUID(),old=works.find(x=>x.id===id),file=$('wfile').files[0];
+    const row={id,owner_id:currentUser.id,title,type:$('wtype').value,description:$('wdesc').value,sort_order:old?.sort_order??(works.length?Math.max(...works.map(x=>Number(x.sort_order)||0))+1:0),is_public:true};
+    if(old)await rest('portfolio_items?'+new URLSearchParams({id:'eq.'+id}),{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({title:row.title,type:row.type,description:row.description,sort_order:row.sort_order,is_public:true})});
+    else await rest('portfolio_items',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(row)});
+    if(file){if(old?.media?.path)await deleteStoragePath(old.media.path);const fm=await uploadMedia(file,id);await rest('portfolio_files?'+new URLSearchParams({work_id:'eq.'+id}),{method:'DELETE',headers:{'Prefer':'return=minimal'}});await rest('portfolio_files',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(fm)})}
+    await loadCloud();closeM('wm');notify('作品已保存到云端');
+  }catch(e){console.error(e);alert('保存失败：'+e.message)}
+}
+async function removeWork(id){if(!isAdmin)return openM('adminModal');if(!confirm('确定删除这个作品？'))return;try{const old=works.find(x=>x.id===id);if(old?.media?.path)await deleteStoragePath(old.media.path);await rest('portfolio_items?'+new URLSearchParams({id:'eq.'+id}),{method:'DELETE',headers:{'Prefer':'return=minimal'}});await loadCloud();notify('作品已删除')}catch(e){alert('删除失败：'+e.message)}}
+function renderWorks(){
+  const q=($('search')?.value||'').toLowerCase(),f=$('filter')?.value||'';const a=works.filter(x=>(!f||x.type===f)&&(!q||((x.title||'')+(x.type||'')+(x.desc||'')).toLowerCase().includes(q)));
+  $('grid').innerHTML=a.length?a.map(x=>{const m=x.media||{},u=mediaUrl(m),isv=(m.mime_type||'').startsWith('video/'),isi=(m.mime_type||'').startsWith('image/');return `<article class="card"><div class="thumb">${isv&&u?`<video src="${esc(u)}" controls preload="metadata"></video>`:isi&&u?`<img src="${esc(u)}" loading="lazy">`:'<div class="placeholder">✦</div>'}</div><div class="body"><span class="tag">${esc(x.type||'其他')}</span><h3>${esc(x.title||'未命名作品')}</h3><p>${esc(x.desc||'暂无说明')}</p><div class="actions">${isAdmin?`<button class="btn mini" onclick="openWork('${x.id}')">编辑</button><button class="btn mini danger" onclick="removeWork('${x.id}')">删除</button>`:''}</div></div></article>`}).join(''):'<div class="empty">还没有作品，或没有符合条件的作品。</div>';
+  $('wc').textContent=works.length;
+}
+async function saveScriptsToCloud(){if(!currentUser?.id)throw Error('管理员登录状态已失效');await rest('portfolio_data',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({owner_id:currentUser.id,key:'scripts',value:scripts})})}
+function openScript(id){if(!isAdmin)return openM('adminModal');$('sid').value=id||'';$('st').textContent=id?'编辑脚本':'新建脚本';if(id){const x=scripts.find(a=>a.id===id);$('sname').value=x.title||'';$('sintro').value=x.intro||'';$('sbody').value=x.body||''}else{$('sname').value='';$('sintro').value='';$('sbody').value=''}openM('sm')}
+async function saveScript(){if(!isAdmin)return openM('adminModal');if(!$('sname').value.trim())return alert('请填写标题');const id=$('sid').value,d={id:id||crypto.randomUUID(),title:$('sname').value.trim(),intro:$('sintro').value,body:$('sbody').value};if(id){const i=scripts.findIndex(x=>x.id===id);if(i>=0)scripts[i]=d}else scripts.unshift(d);await saveScriptsToCloud();renderScripts();syncUI();closeM('sm');notify('脚本已保存到云端')}
+function renderScripts(){$('scriptsList').innerHTML=scripts.length?scripts.map(x=>`<article class="script"><h3>${esc(x.title||'未命名脚本')}</h3><small>${esc(x.intro||'')}</small><pre>${esc(x.body||'')}</pre><div class="actions">${isAdmin?`<button class="btn mini" onclick="openScript('${x.id}')">编辑</button><button class="btn mini danger" onclick="delScript('${x.id}')">删除</button>`:''}</div></article>`).join(''):'<div class="empty">还没有脚本，点击“新建脚本”。</div>'}
+async function delScript(id){if(!isAdmin)return openM('adminModal');if(!confirm('确定删除？'))return;scripts=scripts.filter(x=>x.id!==id);await saveScriptsToCloud();renderScripts();syncUI();notify('脚本已删除')}
+async function saveProfile(){if(!isAdmin)return openM('adminModal');profile={...profile,name:$('pname').value,role:$('prole').value,bio:$('pbio').value,email:$('pemail').value,link:$('plink').value};await rest('portfolio_data',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({owner_id:currentUser.id,key:'profile',value:profile})});syncUI();notify('个人资料已保存到云端')}
+function loadProfile(){$('pname').value=profile.name||'';$('prole').value=profile.role||'';$('pbio').value=profile.bio||'';$('pemail').value=profile.email||'';$('plink').value=profile.link||'';['pname','prole','pbio','pemail','plink'].forEach(id=>$(id).readOnly=!isAdmin)}
+function syncUI(){$('wc').textContent=works.length;$('sc').textContent=scripts.length;$('heroTitle').textContent=profile.role||profile.name||'视觉特效 · CG · AIGC';$('heroSub').textContent=profile.bio||'展示 Houdini、CG、AIGC 视频、镜头设计与视觉特效作品。';syncCloudPanel()}
+async function loadCloud(){
+  if(!publishableKey){setCloudStatus('未配置 Supabase Publishable / Anon Key。打开“云端”页面粘贴一次即可。');return}
+  try{
+    let query='select=id,title,type,description,sort_order,created_at,is_public&order=sort_order.asc,created_at.asc';if(!isAdmin)query+='&is_public=eq.true';
+    let rows=await rest('portfolio_items?'+query);let fs=[];try{fs=await rest('portfolio_files?select=work_id,name,mime_type,url,path,size')}catch(e){console.warn('读取媒体记录失败',e)}
+    const fm={};fs.forEach(f=>fm[f.work_id]=f);works=rows.map(w=>({...w,desc:w.description||'',media:fm[w.id]||null}));
+    try{let data;if(isAdmin)data=await rest('portfolio_data?select=key,value&owner_id=eq.'+encodeURIComponent(currentUser.id));else data=await rest('portfolio_data?select=key,value');for(const x of (data||[])){if(x.key==='scripts')scripts=Array.isArray(x.value)?x.value:(x.value?.scripts||[]);if(x.key==='profile')profile={...profile,...(x.value||{})}}}catch(e){console.warn('读取脚本/个人资料失败',e)}
+    syncUI();loadProfile();renderWorks();renderScripts();setCloudStatus('云端已连接：读取 '+works.length+' 个作品');notify('云端读取完成，共 '+works.length+' 个作品');
+  }catch(e){console.error(e);setCloudStatus('云端读取失败：'+e.message);$('grid').innerHTML='<div class="empty">云端读取失败：'+esc(e.message)+'</div>'}
+}
+async function restoreSession(){
+  if(!publishableKey||!accessToken)return false;
+  try{const d=await request('/auth/v1/user');currentUser=d;isAdmin=true;return true}catch(e){if(await refreshSession()){try{currentUser=await request('/auth/v1/user');isAdmin=true;return true}catch{}}}
+  accessToken='';refreshToken='';currentUser=null;isAdmin=false;sessionStorage.removeItem('hj_access_token');sessionStorage.removeItem('hj_refresh_token');return false;
+}
+function setupDrop(){const drop=document.querySelector('#wm .drop');if(!drop)return;drop.addEventListener('dragover',e=>{e.preventDefault();drop.style.borderColor='var(--a)'});drop.addEventListener('dragleave',()=>drop.style.borderColor='');drop.addEventListener('drop',e=>{e.preventDefault();drop.style.borderColor='';const f=e.dataTransfer.files?.[0];if(f){pickDropFile(f);drop.textContent='已选择：'+f.name}})}
+async function boot(){
+  $('cloudUrl').value=SUPABASE_URL;$('cloudKey').value=publishableKey||'';setupDrop();await restoreSession();updateAdminUI();await loadCloud();
+  if(!publishableKey)setCloudStatus('请进入“云端”，粘贴 Publishable / Anon Key 并保存。');
+}
+boot();
 </script>
-
 </body></html>
