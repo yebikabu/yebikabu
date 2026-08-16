@@ -5,7 +5,7 @@
 <title>个人作品集｜CG · Houdini · AIGC</title>
 <style>
 :root{--bg:#090a0d;--p:#111318;--p2:#171a20;--line:#292d36;--t:#f5f6f7;--m:#9299a6;--a:#d9ff57}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font-family:Inter,"Microsoft YaHei",sans-serif}.app{display:grid;grid-template-columns:230px 1fr;min-height:100vh}.side{padding:28px 18px;border-right:1px solid var(--line);position:sticky;top:0;height:100vh;background:#0c0d10}.logo{font-weight:800;letter-spacing:.12em;margin:0 10px 30px}.logo i{color:var(--a);font-style:normal}.nav button{width:100%;padding:12px;border:0;background:0;color:var(--m);text-align:left;border-radius:9px;margin:2px 0}.nav button.active,.nav button:hover{background:var(--p2);color:#fff}.note{position:absolute;bottom:25px;left:28px;color:#666d78;font-size:12px;line-height:1.7}main{max-width:1500px;width:100%;padding:34px 42px 70px;margin:auto}.page{display:none}.page.active{display:block}.top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:30px}.k{font-size:11px;letter-spacing:.18em;color:var(--a)}h1{font-size:48px;line-height:1.05;margin:8px 0}.sub{color:var(--m);line-height:1.7;max-width:720px}.btn{background:var(--p2);border:1px solid var(--line);color:#fff;border-radius:9px;padding:10px 14px;cursor:pointer}.primary{background:var(--a);border-color:var(--a);color:#090a0d;font-weight:800}.danger{color:#ff8495}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:16px}.heroMain,.stat{border:1px solid var(--line);background:var(--p);border-radius:18px;padding:30px}.heroMain{min-height:300px;display:flex;flex-direction:column;justify-content:end;background:radial-gradient(circle at 75% 20%,#3a414c 0,#15181d 35%,#0f1115 75%)}.heroMain h2{font-size:34px;margin:8px 0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}.stat b{font-size:35px}.stat span{display:block;color:var(--m);margin-top:7px}.toolbar{display:flex;gap:10px;margin:18px 0;flex-wrap:wrap}.input{background:var(--p);border:1px solid var(--line);color:#fff;border-radius:9px;padding:11px 13px;min-width:240px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card,.script{border:1px solid var(--line);background:var(--p);border-radius:15px;overflow:hidden}.thumb{height:190px;background:#0b0d10;display:flex;align-items:center;justify-content:center}.thumb img,.thumb video{width:100%;height:100%;object-fit:cover}.placeholder{font-size:40px;color:#414753}.body{padding:16px}.tag{display:inline-block;color:var(--a);border:1px solid #46551c;border-radius:99px;padding:4px 8px;font-size:11px;margin-bottom:9px}.body h3{margin:0 0 7px}.body p{color:var(--m);font-size:13px;line-height:1.6;min-height:42px}.actions{display:flex;gap:8px}.mini{font-size:12px;padding:7px 9px}.empty{grid-column:1/-1;text-align:center;color:var(--m);padding:55px;border:1px dashed var(--line);border-radius:15px}.script{padding:18px;margin-bottom:12px}.script h3{margin:0 0 7px}.script small{color:var(--m)}pre{white-space:pre-wrap;color:#b9bec8;line-height:1.75;font:13px inherit}.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:16px}.panel{background:var(--p);border:1px solid var(--line);border-radius:15px;padding:22px}.field{margin:14px 0}.field label{display:block;color:var(--m);font-size:12px;margin-bottom:7px}.field input,.field textarea,.field select{width:100%;background:#0b0d10;border:1px solid var(--line);color:#fff;border-radius:9px;padding:11px}.field textarea{min-height:220px;resize:vertical}.modal{display:none;position:fixed;inset:0;background:#000b;z-index:5;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.box{width:min(760px,100%);max-height:90vh;overflow:auto;background:#111318;border:1px solid var(--line);border-radius:15px;padding:22px}.mh{display:flex;justify-content:space-between}.close{background:0;border:0;color:#aaa;font-size:24px;cursor:pointer}.drop{padding:25px;border:1px dashed #4a505b;border-radius:10px;text-align:center;color:var(--m)}.filehint{color:#777f8d;font-size:12px;line-height:1.6;margin-top:8px}.status{position:fixed;right:20px;bottom:20px;background:#171a20;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:#bfc5ce;display:none;z-index:20}.status.show{display:block}@media(max-width:950px){.app{grid-template-columns:1fr}.side{height:auto;position:relative;border-right:0;border-bottom:1px solid var(--line)}.note{display:none}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap}.hero,.about{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}main{padding:25px}}@media(max-width:600px){.grid{grid-template-columns:1fr}h1{font-size:36px}.top{flex-direction:column}}
-</style>
+.site-cover-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.48;border-radius:18px}.heroMain{position:relative;overflow:hidden}.heroMain>*{position:relative;z-index:1}</style>
 </head>
 <body>
 <div class="app"><aside class="side"><div class="logo">PORTFOLIO<i>/</i>26</div><nav class="nav"><button class="" onclick="go(&#39;home&#39;,this)">总览</button><button onclick="go(&#39;works&#39;,this)" class="">作品</button><button onclick="go(&#39;scripts&#39;,this)" class="active">脚本 / 分镜</button><button onclick="go(&#39;about&#39;,this)" class="">关于我</button><button onclick="go(&#39;cloud&#39;,this)" class="">云端</button></nav><div class="note">可编辑个人作品集<br>图片 · 视频 · 脚本 · 分镜<br><br>作品与资料保存到 Supabase 云端<br>管理员登录后可编辑、上传、删除</div></aside><main>
@@ -529,6 +529,49 @@
 最后一帧固定在天海古阵南侧边缘，摄影机高度约90米，镜头仍然朝正北，天海古阵位于画面中央，北方神殿位于远景中央偏上，南侧海洋位于摄影机后方，两个角色位于阵台中央纵轴上，玄烬在南侧45米位置，霜璃在北侧30米位置，二人距离约75米。保持这一空间状态作为下一镜头首帧。
 
 禁止：空间位置改变，建筑位置改变，地貌重构，海岸线变化，镜头突然旋转，镜头瞬移，人物比例错误，人物突然放大，随机漂浮建筑，随机悬浮碎石，过度粒子，过度高光，强烈镜面反射，游戏画面感，概念艺术感，漫画感，二次元感，科幻建筑，机甲，赛博朋克，现代建筑，霓虹灯，过度锐化，过度颗粒，脏污高频纹理，重复纹理，塑料材质，CG塑料感，假体积雾，假HDR，过度景深，过度运动模糊，镜头抖动。</pre><div class="actions"><button class="btn mini" onclick="openScript(&#39;117fb000-7a30-416f-91e1-94ceafc14eef&#39;)">编辑</button><button class="btn mini danger" onclick="delScript(&#39;117fb000-7a30-416f-91e1-94ceafc14eef&#39;)">删除</button></div></article></div></section>
+
+<section id="settings" class="page" data-admin>
+  <div class="top">
+    <div>
+      <div class="k">SITE CUSTOMIZATION</div>
+      <h1>界面设置</h1>
+      <div class="sub">管理员可直接修改首页封面、Logo、标题、字体、颜色和圆角。保存后所有设备同步。</div>
+    </div>
+    <button class="btn primary" onclick="saveSiteSettings()">保存界面设置</button>
+  </div>
+  <div class="about">
+    <div class="panel">
+      <h2>首页内容</h2>
+      <div class="field"><label>Logo</label><input id="siteLogo" placeholder="例如：PORTFOLIO/26"></div>
+      <div class="field"><label>首页标题</label><input id="siteTitle" placeholder="例如：AIGC视觉"></div>
+      <div class="field"><label>首页简介</label><textarea id="siteSub" style="min-height:120px"></textarea></div>
+      <div class="field"><label>首页封面图片</label><input id="siteCoverFile" type="file" accept="image/*"><div class="filehint">选择图片后保存，会上传到 Supabase Storage。</div></div>
+    </div>
+    <div class="panel">
+      <h2>视觉样式</h2>
+      <div class="field"><label>主背景</label><input id="siteBg" type="color" value="#090a0d"></div>
+      <div class="field"><label>卡片背景</label><input id="sitePanel" type="color" value="#111318"></div>
+      <div class="field"><label>次级卡片背景</label><input id="sitePanel2" type="color" value="#171a20"></div>
+      <div class="field"><label>强调色</label><input id="siteAccent" type="color" value="#d9ff57"></div>
+      <div class="field"><label>主文字</label><input id="siteText" type="color" value="#f5f6f7"></div>
+      <div class="field"><label>辅助文字</label><input id="siteMuted" type="color" value="#9299a6"></div>
+      <div class="field"><label>边框</label><input id="siteLine" type="color" value="#292d36"></div>
+      <div class="field"><label>圆角</label><input id="siteRadius" type="range" min="0" max="28" value="15" oninput="$('siteRadiusVal').textContent=this.value+'px'"><span id="siteRadiusVal">15px</span></div>
+      <div class="field"><label>字体</label>
+        <select id="siteFont">
+          <option value='Inter,"Microsoft YaHei",sans-serif'>Inter / 微软雅黑</option>
+          <option value='"Microsoft YaHei",sans-serif'>微软雅黑</option>
+          <option value='Arial,sans-serif'>Arial</option>
+          <option value='"Noto Sans SC","Microsoft YaHei",sans-serif'>Noto Sans SC</option>
+          <option value='Georgia,serif'>Georgia</option>
+          <option value='SimSun,serif'>宋体</option>
+          <option value='KaiTi,serif'>楷体</option>
+        </select>
+      </div>
+      <div class="field"><label>自定义字体</label><input id="siteFontFile" type="file" accept=".woff,.woff2,.ttf,.otf"><div class="filehint">支持 WOFF / WOFF2 / TTF / OTF。</div></div>
+    </div>
+  </div>
+</section>
 <section id="about" class="page"><div class="top"><div><div class="k">ABOUT</div><h1>关于我</h1></div><button class="btn primary" onclick="saveProfile()">保存修改</button></div><div class="about"><div class="panel"><div class="field"><label>姓名 / 标题</label><input id="pname"></div><div class="field"><label>职业定位</label><input id="prole"></div><div class="field"><label>个人简介</label><textarea id="pbio"></textarea></div><div class="field"><label>邮箱</label><input id="pemail"></div><div class="field"><label>作品链接 / 社交链接</label><input id="plink"></div></div><div class="panel"><h2>保存方式</h2><p class="sub">作品、脚本、个人资料和上传文件均保存到 Supabase 云端。管理员登录后可在任何电脑或手机继续编辑；访客只能浏览公开内容。</p></div></div></section>
 </main></div>
 <div id="wm" class="modal"><div class="box"><div class="mh"><h2 id="wt">添加作品</h2><button class="close" onclick="closeM(&#39;wm&#39;)">×</button></div><input type="hidden" id="wid"><div class="field"><label>作品名称</label><input id="wtitle" placeholder="例如：天海古阵｜东方玄幻VFX"></div><div class="field"><label>类型</label><select id="wtype"><option>2D</option><option>3D</option><option>广告</option><option>概念图</option><option>Houdini FX</option><option>AIGC视频</option><option>CG</option><option>分镜</option><option>其他</option></select></div><div class="field"><label>作品说明</label><textarea id="wdesc" placeholder="技术、镜头、创作思路……"></textarea></div><div class="field"><label>图片 / 视频</label><input id="wfile" type="file" accept="image/*,video/*"><div class="filehint">视频不再转成 Base64；会直接以文件 Blob 保存。建议单个视频不要超过浏览器可用磁盘空间。</div></div><div class="drop">选择文件后点击“保存”即可。编辑作品时不重新选择文件，会保留原文件。</div><div class="actions" style="margin-top:14px"><button class="btn" onclick="closeM(&#39;wm&#39;)">取消</button><button class="btn primary" onclick="saveWork()">保存</button></div></div></div>
@@ -539,7 +582,7 @@
 const SUPABASE_URL='https://ponmymjbhzylvgegihrf.supabase.co';
 const CONFIG_KEY='hjvfx_publishable_key';
 // 把你的完整 sb_publishable_... 密钥粘贴到下一行。Publishable key 可以安全放在前端。
-const BUILTIN_PUBLISHABLE_KEY='sb_publishable_yhHHGYud4AfE7AaXcr52cA_TG9yhaMU';
+const BUILTIN_PUBLISHABLE_KEY='';
 let publishableKey=BUILTIN_PUBLISHABLE_KEY||localStorage.getItem(CONFIG_KEY)||'';
 let accessToken=sessionStorage.getItem('hj_access_token')||'';
 let refreshToken=sessionStorage.getItem('hj_refresh_token')||'';
@@ -591,9 +634,9 @@ function logoutAdmin(){accessToken='';refreshToken='';currentUser=null;isAdmin=f
 function updateAdminUI(){
   let b=$('adminButton');if(!b){b=document.createElement('button');b.id='adminButton';b.className='btn primary';b.style.position='fixed';b.style.right='20px';b.style.top='18px';b.style.zIndex='30';document.body.appendChild(b)}
   b.textContent=isAdmin?'管理员模式 · 退出':'管理员登录';b.onclick=isAdmin?logoutAdmin:()=>{if(publishableKey)$('adminKey').value=publishableKey;openM('adminModal')};
-  document.querySelectorAll('[data-admin]').forEach(x=>x.style.display=isAdmin?'':'none');loadProfile();renderWorks();renderScripts();
+  document.querySelectorAll('[data-admin]').forEach(x=>x.style.display=isAdmin?'':'none');loadProfile();renderWorks();renderScripts();loadSiteSettings();
 }
-function go(id,b){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(id==='works')renderWorks();if(id==='scripts')renderScripts();if(id==='about')loadProfile();if(id==='cloud')syncCloudPanel()}
+function go(id,b){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(id==='works')renderWorks();if(id==='scripts')renderScripts();if(id==='about')loadProfile();if(id==='cloud')syncCloudPanel();if(id==='settings'){if(!isAdmin)return openM('adminModal');fillSiteSettingsForm()}}
 function syncCloudPanel(){$('cloudUrl').value=SUPABASE_URL;$('cloudKey').value=publishableKey||'';setCloudStatus(publishableKey?'已配置云端密钥。正在读取作品…':'请粘贴 Publishable / Anon Key 后保存。')}
 async function connectCloud(){if(!publishableKey){openM('adminModal');return}await loadCloud()}
 function saveCloudConfig(){const k=$('cloudKey').value.trim();if(!k)return alert('请粘贴 Publishable / Anon Key');publishableKey=k;localStorage.setItem(CONFIG_KEY,k);loadCloud()}
@@ -631,7 +674,52 @@ function renderScripts(){$('scriptsList').innerHTML=scripts.length?scripts.map(x
 async function delScript(id){if(!isAdmin)return openM('adminModal');if(!confirm('确定删除？'))return;scripts=scripts.filter(x=>x.id!==id);await saveScriptsToCloud();renderScripts();syncUI();notify('脚本已删除')}
 async function saveProfile(){if(!isAdmin)return openM('adminModal');profile={...profile,name:$('pname').value,role:$('prole').value,bio:$('pbio').value,email:$('pemail').value,link:$('plink').value};await rest('portfolio_data',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({owner_id:currentUser.id,key:'profile',value:profile})});syncUI();notify('个人资料已保存到云端')}
 function loadProfile(){$('pname').value=profile.name||'';$('prole').value=profile.role||'';$('pbio').value=profile.bio||'';$('pemail').value=profile.email||'';$('plink').value=profile.link||'';['pname','prole','pbio','pemail','plink'].forEach(id=>$(id).readOnly=!isAdmin)}
-function syncUI(){$('wc').textContent=works.length;$('sc').textContent=scripts.length;$('heroTitle').textContent=profile.role||profile.name||'视觉特效 · CG · AIGC';$('heroSub').textContent=profile.bio||'展示 Houdini、CG、AIGC 视频、镜头设计与视觉特效作品。';syncCloudPanel()}
+
+let siteSettings={
+  logo:'PORTFOLIO/26', title:'AIGC视觉', sub:'做的还有很多，这里部分展示', cover:'',
+  bg:'#090a0d', panel:'#111318', panel2:'#171a20', accent:'#d9ff57',
+  text:'#f5f6f7', muted:'#9299a6', line:'#292d36', radius:15,
+  font:'Inter,"Microsoft YaHei",sans-serif', fontUrl:''
+};
+
+function applySiteSettings(){
+  const r=document.documentElement.style;
+  r.setProperty('--bg',siteSettings.bg);r.setProperty('--p',siteSettings.panel);
+  r.setProperty('--p2',siteSettings.panel2);r.setProperty('--a',siteSettings.accent);
+  r.setProperty('--t',siteSettings.text);r.setProperty('--m',siteSettings.muted);
+  r.setProperty('--line',siteSettings.line);document.body.style.fontFamily=siteSettings.font;
+  document.querySelectorAll('.card,.script,.panel,.heroMain,.stat,.box').forEach(x=>x.style.borderRadius=siteSettings.radius+'px');
+  const logo=$('siteLogoView');
+  if(logo){const parts=String(siteSettings.logo||'PORTFOLIO/26').split('/');logo.innerHTML=esc(parts[0])+(parts.length>1?'<i>/</i>'+esc(parts.slice(1).join('/')):'')}
+  if($('heroTitle'))$('heroTitle').textContent=siteSettings.title||profile.role||'AIGC视觉';
+  if($('heroSub'))$('heroSub').textContent=siteSettings.sub||profile.bio||'做的还有很多，这里部分展示';
+  const hm=document.querySelector('.heroMain');
+  if(hm){let bg=hm.querySelector('.site-cover-bg');if(siteSettings.cover){if(!bg){bg=document.createElement('div');bg.className='site-cover-bg';hm.prepend(bg)}bg.style.backgroundImage=`url("${siteSettings.cover}")`}else if(bg)bg.remove()}
+  if(siteSettings.fontUrl){let st=document.getElementById('customSiteFont');if(!st){st=document.createElement('style');st.id='customSiteFont';document.head.appendChild(st)}st.textContent=`@font-face{font-family:HJCustomSiteFont;src:url("${siteSettings.fontUrl}");font-display:swap}body{font-family:HJCustomSiteFont,${siteSettings.font}}`}
+}
+function fillSiteSettingsForm(){
+  if(!$('siteLogo'))return;
+  $('siteLogo').value=siteSettings.logo||'';$('siteTitle').value=siteSettings.title||'';$('siteSub').value=siteSettings.sub||'';
+  $('siteBg').value=siteSettings.bg||'#090a0d';$('sitePanel').value=siteSettings.panel||'#111318';$('sitePanel2').value=siteSettings.panel2||'#171a20';
+  $('siteAccent').value=siteSettings.accent||'#d9ff57';$('siteText').value=siteSettings.text||'#f5f6f7';$('siteMuted').value=siteSettings.muted||'#9299a6';$('siteLine').value=siteSettings.line||'#292d36';
+  $('siteRadius').value=siteSettings.radius??15;$('siteRadiusVal').textContent=(siteSettings.radius??15)+'px';$('siteFont').value=siteSettings.font||'Inter,"Microsoft YaHei",sans-serif';
+}
+async function loadSiteSettings(){
+  try{const rows=await rest('portfolio_data?owner_id=eq.'+encodeURIComponent(currentUser?.id||'')+'&key=eq.site_settings&select=value');if(rows?.[0]?.value)siteSettings={...siteSettings,...rows[0].value}}catch(e){console.warn('读取界面设置失败',e)}
+  applySiteSettings();if(isAdmin)fillSiteSettingsForm();
+}
+async function saveSiteSettings(){
+  if(!isAdmin)return openM('adminModal');
+  siteSettings={...siteSettings,logo:$('siteLogo').value.trim()||'PORTFOLIO/26',title:$('siteTitle').value.trim()||'AIGC视觉',sub:$('siteSub').value,bg:$('siteBg').value,panel:$('sitePanel').value,panel2:$('sitePanel2').value,accent:$('siteAccent').value,text:$('siteText').value,muted:$('siteMuted').value,line:$('siteLine').value,radius:Number($('siteRadius').value)||15,font:$('siteFont').value};
+  try{
+    const f=$('siteCoverFile')?.files?.[0],ff=$('siteFontFile')?.files?.[0];
+    if(f){const path=currentUser.id+'/site/cover_'+Date.now()+'_'+(f.name||'cover').replace(/[^\w\u4e00-\u9fff.\-]+/g,'_');const r=await fetch(SUPABASE_URL+'/storage/v1/object/portfolio-media/'+path,{method:'POST',headers:authHeaders({'Content-Type':f.type||'image/jpeg','x-upsert':'true'}),body:f});if(!r.ok)throw Error(await r.text());siteSettings.cover=SUPABASE_URL+'/storage/v1/object/public/portfolio-media/'+path}
+    if(ff){const path=currentUser.id+'/site/font_'+Date.now()+'_'+(ff.name||'font').replace(/[^\w.\-]+/g,'_');const r=await fetch(SUPABASE_URL+'/storage/v1/object/portfolio-media/'+path,{method:'POST',headers:authHeaders({'Content-Type':ff.type||'font/woff2','x-upsert':'true'}),body:ff});if(!r.ok)throw Error(await r.text());siteSettings.fontUrl=SUPABASE_URL+'/storage/v1/object/public/portfolio-media/'+path}
+    await rest('portfolio_data',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({owner_id:currentUser.id,key:'site_settings',value:siteSettings})});
+    applySiteSettings();notify('界面设置已保存到云端');
+  }catch(e){console.error(e);alert('界面设置保存失败：'+e.message)}
+}
+function syncUI(){$('wc').textContent=works.length;$('sc').textContent=scripts.length;applySiteSettings();syncCloudPanel()}
 async function loadCloud(){
   if(!publishableKey){setCloudStatus('未配置 Supabase Publishable / Anon Key。打开“云端”页面粘贴一次即可。');return}
   try{
