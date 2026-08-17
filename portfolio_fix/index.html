@@ -633,7 +633,7 @@ body::after{
 const SUPABASE_URL='https://ponmymjbhzylvgegihrf.supabase.co';
 const CONFIG_KEY='hjvfx_publishable_key';
 // 把你的完整 sb_publishable_... 密钥粘贴到下一行。Publishable key 可以安全放在前端。
-const BUILTIN_PUBLISHABLE_KEY='sb_publishable_yhHHGYud4AfE7AaXcr52cA_TG9yhaMU';
+const BUILTIN_PUBLISHABLE_KEY='';
 let publishableKey=BUILTIN_PUBLISHABLE_KEY||localStorage.getItem(CONFIG_KEY)||'';
 let accessToken=localStorage.getItem('hj_access_token')||sessionStorage.getItem('hj_access_token')||'';
 let refreshToken=localStorage.getItem('hj_refresh_token')||sessionStorage.getItem('hj_refresh_token')||'';
@@ -749,12 +749,22 @@ function renderWorks(){
   }).join(''):'<div class="empty">还没有作品，或没有符合条件的作品。</div>';
   $('wc').textContent=works.length;applySiteSettings();
 }
-async function saveScriptsToCloud(){if(!currentUser?.id)throw Error('管理员登录状态已失效');await rest('portfolio_data',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({owner_id:currentUser.id,key:'scripts',value:scripts})})}
+async function upsertData(key,value){
+  if(!currentUser?.id)throw Error('管理员登录状态已失效');
+  const q='owner_id=eq.'+encodeURIComponent(currentUser.id)+'&key=eq.'+encodeURIComponent(key);
+  const existing=await rest('portfolio_data?'+q+'&select=id');
+  if(existing&&existing.length){
+    await rest('portfolio_data?'+q,{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({value})});
+  }else{
+    await rest('portfolio_data',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({owner_id:currentUser.id,key,value})});
+  }
+}
+async function saveScriptsToCloud(){await upsertData('scripts',scripts)}
 function openScript(id){if(!isAdmin)return openM('adminModal');$('sid').value=id||'';$('st').textContent=id?'编辑脚本':'新建脚本';if(id){const x=scripts.find(a=>a.id===id);$('sname').value=x.title||'';$('sintro').value=x.intro||'';$('sbody').value=x.body||''}else{$('sname').value='';$('sintro').value='';$('sbody').value=''}openM('sm')}
 async function saveScript(){if(!isAdmin)return openM('adminModal');if(!$('sname').value.trim())return alert('请填写标题');const id=$('sid').value,d={id:id||crypto.randomUUID(),title:$('sname').value.trim(),intro:$('sintro').value,body:$('sbody').value};if(id){const i=scripts.findIndex(x=>x.id===id);if(i>=0)scripts[i]=d}else scripts.unshift(d);await saveScriptsToCloud();renderScripts();syncUI();closeM('sm');notify('脚本已保存到云端')}
 function renderScripts(){$('scriptsList').innerHTML=scripts.length?scripts.map(x=>`<article class="script"><h3>${esc(x.title||'未命名脚本')}</h3><small>${esc(x.intro||'')}</small><pre>${esc(x.body||'')}</pre><div class="actions">${isAdmin?`<button class="btn mini" onclick="openScript('${x.id}')">编辑</button><button class="btn mini danger" onclick="delScript('${x.id}')">删除</button>`:''}</div></article>`).join(''):'<div class="empty">还没有脚本，点击“新建脚本”。</div>'}
 async function delScript(id){if(!isAdmin)return openM('adminModal');if(!confirm('确定删除？'))return;scripts=scripts.filter(x=>x.id!==id);await saveScriptsToCloud();renderScripts();syncUI();notify('脚本已删除')}
-async function saveProfile(){if(!isAdmin)return openM('adminModal');profile={...profile,name:$('pname').value,role:$('prole').value,bio:$('pbio').value,email:$('pemail').value,link:$('plink').value};await rest('portfolio_data',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({owner_id:currentUser.id,key:'profile',value:profile})});syncUI();notify('个人资料已保存到云端')}
+async function saveProfile(){if(!isAdmin)return openM('adminModal');profile={...profile,name:$('pname').value,role:$('prole').value,bio:$('pbio').value,email:$('pemail').value,link:$('plink').value};await upsertData('profile',profile);syncUI();notify('个人资料已保存到云端')}
 function loadProfile(){$('pname').value=profile.name||'';$('prole').value=profile.role||'';$('pbio').value=profile.bio||'';$('pemail').value=profile.email||'';$('plink').value=profile.link||'';['pname','prole','pbio','pemail','plink'].forEach(id=>$(id).readOnly=!isAdmin)}
 
 let siteSettings={bgMode:'solid',grad1:'#090a0d',grad2:'#171a20',gradAngle:135,bgImage:'',bgImageOpacity:1,bgImageFit:'cover',logo:'PORTFOLIO/26',title:'AIGC视觉',sub:'做的还有很多，这里部分展示',heroHeadline:'让作品自己说话。',heroDesc:'用完整项目呈现你的视觉设计、特效技术、镜头语言和创作能力。',cover:'',coverPosition:'center',coverOpacity:.48,bg:'#090a0d',panel:'#111318',panel2:'#171a20',accent:'#d9ff57',text:'#f5f6f7',muted:'#9299a6',line:'#292d36',radius:15,font:'Inter,"Microsoft YaHei",sans-serif',fontUrl:'',maxWidth:1500,sidebar:230,gridCols:3,cardRatio:'16/9',objectFit:'cover',titleSize:48,bodySize:16,heroAlign:'left',stat1Value:'36',stat1Label:'作品',stat2Value:'3',stat2Label:'脚本 / 分镜',stat3Value:'CG',stat3Label:'核心方向',stat4Value:'VFX',stat4Label:'技术方向',showScripts:true,showAbout:true,showCloud:true,showStats:true,showUpload:true};
@@ -850,7 +860,7 @@ async function saveSiteSettings(){if(!isAdmin)return openM('adminModal');siteSet
   if(!r.ok)throw Error(await r.text());
   siteSettings.bgImage=storagePublicUrl(path);
 }
-if(ff){const path=currentUser.id+'/site/font_'+Date.now()+'_'+(ff.name||'font').replace(/[^\w.\-]+/g,'_');const r=await fetch(SUPABASE_URL+'/storage/v1/object/portfolio-media/'+path,{method:'POST',headers:authHeaders({'Content-Type':ff.type||'font/woff2','x-upsert':'true'}),body:ff});if(!r.ok)throw Error(await r.text());siteSettings.fontUrl=storagePublicUrl(path)}await rest('portfolio_data',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({owner_id:currentUser.id,key:'site_settings',value:siteSettings})});applySiteSettings();notify('界面设置已保存到云端')}catch(e){console.error(e);alert('界面设置保存失败：'+e.message)}}
+if(ff){const path=currentUser.id+'/site/font_'+Date.now()+'_'+(ff.name||'font').replace(/[^\w.\-]+/g,'_');const r=await fetch(SUPABASE_URL+'/storage/v1/object/portfolio-media/'+path,{method:'POST',headers:authHeaders({'Content-Type':ff.type||'font/woff2','x-upsert':'true'}),body:ff});if(!r.ok)throw Error(await r.text());siteSettings.fontUrl=storagePublicUrl(path)}await upsertData('site_settings',siteSettings);applySiteSettings();notify('界面设置已保存到云端')}catch(e){console.error(e);alert('界面设置保存失败：'+e.message)}}
 document.addEventListener('change',e=>{if(e.target?.id==='siteCoverFile'&&e.target.files?.[0]){const f=e.target.files[0];if(!f.type.startsWith('image/')){alert('封面必须是图片文件');e.target.value='';return}const r=new FileReader();r.onload=()=>{siteSettings={...siteSettings,cover:r.result};applySiteSettings();requestAnimationFrame(()=>applySiteSettings())};r.readAsDataURL(f)}});document.addEventListener('change',e=>{
   if(e.target?.id==='siteBgFile'&&e.target.files?.[0]){
     const f=e.target.files[0];
