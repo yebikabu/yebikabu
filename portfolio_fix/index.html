@@ -34,6 +34,14 @@ body::after{
   background-attachment:fixed;
   opacity:var(--site-bg-gradient-opacity,1);
 }
+#lightbox{position:fixed;inset:0;z-index:200;background:rgba(5,6,8,.94);display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px}
+#lightbox.open{display:flex}
+#lightbox img{max-width:92vw;max-height:80vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6);cursor:zoom-out}
+#lightbox .lbClose{position:absolute;top:14px;right:20px;font-size:34px;color:#fff;background:none;border:0;cursor:pointer;line-height:1}
+#lightbox .lbNav{position:absolute;top:50%;transform:translateY(-50%);font-size:40px;color:#fff;background:rgba(255,255,255,.08);border:0;border-radius:50%;width:52px;height:52px;cursor:pointer}
+#lightbox .lbPrev{left:16px}#lightbox .lbNext{right:16px}
+#lightbox .lbCap{color:var(--m,#9299a6);margin-top:12px;font-size:14px;text-align:center}
+.thumb img{cursor:zoom-in}
 </style>
 </head>
 <body>
@@ -628,12 +636,13 @@ body::after{
 <div id="wm" class="modal"><div class="box"><div class="mh"><h2 id="wt">添加作品</h2><button class="close" onclick="closeM(&#39;wm&#39;)">×</button></div><input type="hidden" id="wid"><div class="field"><label>作品名称</label><input id="wtitle" placeholder="例如：天海古阵｜东方玄幻VFX"></div><div class="field"><label>类型</label><select id="wtype"><option>2D</option><option>3D</option><option>广告</option><option>概念图</option><option>Houdini FX</option><option>AIGC视频</option><option>CG</option><option>分镜</option><option>其他</option></select></div><div class="field"><label>作品说明</label><textarea id="wdesc" placeholder="技术、镜头、创作思路……"></textarea></div><div class="field"><label>图片 / 视频</label><input id="wfile" type="file" accept="image/*,video/*"><div class="filehint">视频不再转成 Base64；会直接以文件 Blob 保存。建议单个视频不要超过浏览器可用磁盘空间。</div></div><div class="drop">选择文件后点击“保存”即可。编辑作品时不重新选择文件，会保留原文件。</div><div class="actions" style="margin-top:14px"><button class="btn" onclick="closeM(&#39;wm&#39;)">取消</button><button class="btn primary" onclick="saveWork()">保存</button></div></div></div>
 <div id="sm" class="modal"><div class="box"><div class="mh"><h2 id="st">新建脚本</h2><button class="close" onclick="closeM(&#39;sm&#39;)">×</button></div><input type="hidden" id="sid" value=""><div class="field"><label>标题</label><input id="sname" placeholder="例如：第四镜｜霜璃水域追杀"></div><div class="field"><label>简介</label><input id="sintro"></div><div class="field"><label>正文</label><textarea id="sbody" style="min-height:380px" placeholder="时间轴、CUT、镜头、动作、VFX、对白……"></textarea></div><div class="actions"><button class="btn" onclick="closeM(&#39;sm&#39;)">取消</button><button class="btn primary" onclick="saveScript()">保存</button></div></div></div>
 <div id="status" class="status">已保存</div>
+<div id="lightbox"><button class="lbClose" onclick="closeLightbox()">×</button><button class="lbNav lbPrev" onclick="lbStep(-1)">‹</button><button class="lbNav lbNext" onclick="lbStep(1)">›</button><img id="lbImg" alt=""><div class="lbCap" id="lbCap"></div></div>
 <div id="adminModal" class="modal"><div class="box"><div class="mh"><h2>管理员登录</h2><button class="close" onclick="closeM('adminModal')">×</button></div><div class="field"><label>邮箱</label><input id="adminEmail" type="email" autocomplete="username"></div><div class="field"><label>管理员密码</label><input id="adminPassword" type="password" autocomplete="current-password"></div><div class="field"><label>Supabase Publishable / Anon Key</label><input id="adminKey" type="password" placeholder="sb_publishable_... 或旧版 anon key"></div><p class="filehint">这里是你网站自己的管理员登录，不是 Vercel 登录。访客不需要登录。</p><div class="actions"><button class="btn" onclick="closeM('adminModal')">取消</button><button class="btn primary" onclick="loginAdmin()">登录管理员模式</button></div></div></div>
 <script>
 const SUPABASE_URL='https://ponmymjbhzylvgegihrf.supabase.co';
 const CONFIG_KEY='hjvfx_publishable_key';
 // 把你的完整 sb_publishable_... 密钥粘贴到下一行。Publishable key 可以安全放在前端。
-const BUILTIN_PUBLISHABLE_KEY='sb_publishable_yhHHGYud4AfE7AaXcr52cA_TG9yhaMU';
+const BUILTIN_PUBLISHABLE_KEY='';
 let publishableKey=BUILTIN_PUBLISHABLE_KEY||localStorage.getItem(CONFIG_KEY)||'';
 let accessToken=localStorage.getItem('hj_access_token')||sessionStorage.getItem('hj_access_token')||'';
 let refreshToken=localStorage.getItem('hj_refresh_token')||sessionStorage.getItem('hj_refresh_token')||'';
@@ -676,6 +685,28 @@ window.mediaFail=async function(el){
   const d=document.createElement('div');d.className='placeholder';d.textContent='媒体加载失败';
   el.replaceWith(d);
 };
+let lbList=[],lbIdx=0;
+function openLightbox(list,i){
+  lbList=list;lbIdx=i;showLb();
+  const lb=$('lightbox');if(!lb.classList.contains('open'))lb.classList.add('open');
+}
+function showLb(){
+  const it=lbList[lbIdx];if(!it)return closeLightbox();
+  const img=$('lbImg');img.src=it.url;img.onerror=()=>mediaFail(img);
+  img.setAttribute('data-mpath',it.path||'');
+  delete img.dataset.triedSign;
+  $('lbCap').textContent=it.title||'';
+  const multi=lbList.length>1;
+  document.querySelector('.lbPrev').style.display=multi?'':'none';
+  document.querySelector('.lbNext').style.display=multi?'':'none';
+}
+function closeLightbox(){$('lightbox').classList.remove('open')}
+function lbStep(d){lbIdx=(lbIdx+d+lbList.length)%lbList.length;showLb()}
+document.addEventListener('keydown',e=>{
+  const open=$('lightbox')?.classList.contains('open');if(!open)return;
+  if(e.key==='Escape')closeLightbox();else if(e.key==='ArrowLeft')lbStep(-1);else if(e.key==='ArrowRight')lbStep(1);
+});
+document.addEventListener('click',e=>{if(e.target?.id==='lightbox')closeLightbox()});
 function authHeaders(extra={}){const h={apikey:publishableKey,...extra};if(accessToken)h.Authorization='Bearer '+accessToken;return h}
 async function request(path,opt={}){
   if(!publishableKey)throw Error('请先配置 Supabase Publishable / Anon Key');
@@ -742,9 +773,10 @@ async function removeWork(id){if(!isAdmin)return openM('adminModal');if(!confirm
 function renderWorks(){
   const q=($('search')?.value||'').toLowerCase(),f=$('filter')?.value||'';
   const a=works.filter(x=>(!f||x.type===f)&&(!q||((x.title||'')+(x.type||'')+(x.desc||'')).toLowerCase().includes(q)));
+  window._lbImages=a.filter(x=>x.media&&(x.media.mime_type||'').startsWith('image/')).map(x=>({url:mediaUrl(x.media),path:x.media.path,title:x.title}));
   $('grid').innerHTML=a.length?a.map(x=>{
     const m=x.media||{},u=mediaUrl(m),isv=(m.mime_type||'').startsWith('video/'),isi=(m.mime_type||'').startsWith('image/');
-    const media=isv&&u?`<video src="${esc(u)}" controls preload="metadata" playsinline data-mpath="${esc(m.path||'')}" onerror="mediaFail(this)"></video>`:isi&&u?`<img src="${esc(u)}" alt="${esc(x.title||'作品')}" loading="lazy" data-mpath="${esc(m.path||'')}" onerror="mediaFail(this)">`:'<div class="placeholder">✦</div>';
+    const media=isv&&u?`<video src="${esc(u)}" controls preload="metadata" playsinline data-mpath="${esc(m.path||'')}" onerror="mediaFail(this)" onclick="if(this.paused&&this.requestFullscreen)this.requestFullscreen().catch(()=>{})"></video>`:isi&&u?`<img src="${esc(u)}" alt="${esc(x.title||'作品')}" loading="lazy" data-mpath="${esc(m.path||'')}" onerror="mediaFail(this)" onclick="openLightbox(window._lbImages,window._lbImages.findIndex(i=>i.path==='${esc(m.path||'')}'))">`:'<div class="placeholder">✦</div>';
     return `<article class="card"><div class="thumb">${media}</div><div class="body"><span class="tag">${esc(x.type||'其他')}</span><h3>${esc(x.title||'未命名作品')}</h3><p>${esc(x.desc||'暂无说明')}</p><div class="actions">${isAdmin?`<button class="btn mini" onclick="openWork('${x.id}')">编辑</button><button class="btn mini danger" onclick="removeWork('${x.id}')">删除</button>`:''}</div></div></article>`;
   }).join(''):'<div class="empty">还没有作品，或没有符合条件的作品。</div>';
   $('wc').textContent=works.length;applySiteSettings();
@@ -761,9 +793,9 @@ async function upsertData(key,value){
 }
 async function saveScriptsToCloud(){await upsertData('scripts',scripts)}
 function openScript(id){if(!isAdmin)return openM('adminModal');$('sid').value=id||'';$('st').textContent=id?'编辑脚本':'新建脚本';if(id){const x=scripts.find(a=>a.id===id);$('sname').value=x.title||'';$('sintro').value=x.intro||'';$('sbody').value=x.body||''}else{$('sname').value='';$('sintro').value='';$('sbody').value=''}openM('sm')}
-async function saveScript(){if(!isAdmin)return openM('adminModal');if(!$('sname').value.trim())return alert('请填写标题');const id=$('sid').value,d={id:id||crypto.randomUUID(),title:$('sname').value.trim(),intro:$('sintro').value,body:$('sbody').value};if(id){const i=scripts.findIndex(x=>x.id===id);if(i>=0)scripts[i]=d}else scripts.unshift(d);await saveScriptsToCloud();renderScripts();syncUI();closeM('sm');notify('脚本已保存到云端')}
+async function saveScript(){if(!isAdmin)return openM('adminModal');if(!$('sname').value.trim())return alert('请填写标题');const id=$('sid').value,d={id:id||crypto.randomUUID(),title:$('sname').value.trim(),intro:$('sintro').value,body:$('sbody').value};if(id){const i=scripts.findIndex(x=>x.id===id);if(i>=0)scripts[i]=d}else scripts.unshift(d);try{await saveScriptsToCloud()}catch(e){console.error(e);alert('脚本保存失败：'+e.message);return}renderScripts();syncUI();closeM('sm');notify('脚本已保存到云端')}
 function renderScripts(){$('scriptsList').innerHTML=scripts.length?scripts.map(x=>`<article class="script"><h3>${esc(x.title||'未命名脚本')}</h3><small>${esc(x.intro||'')}</small><pre>${esc(x.body||'')}</pre><div class="actions">${isAdmin?`<button class="btn mini" onclick="openScript('${x.id}')">编辑</button><button class="btn mini danger" onclick="delScript('${x.id}')">删除</button>`:''}</div></article>`).join(''):'<div class="empty">还没有脚本，点击“新建脚本”。</div>'}
-async function delScript(id){if(!isAdmin)return openM('adminModal');if(!confirm('确定删除？'))return;scripts=scripts.filter(x=>x.id!==id);await saveScriptsToCloud();renderScripts();syncUI();notify('脚本已删除')}
+async function delScript(id){if(!isAdmin)return openM('adminModal');if(!confirm('确定删除？'))return;scripts=scripts.filter(x=>x.id!==id);try{await saveScriptsToCloud()}catch(e){console.error(e);alert('脚本删除失败：'+e.message);return}renderScripts();syncUI();notify('脚本已删除')}
 async function saveProfile(){if(!isAdmin)return openM('adminModal');profile={...profile,name:$('pname').value,role:$('prole').value,bio:$('pbio').value,email:$('pemail').value,link:$('plink').value};await upsertData('profile',profile);syncUI();notify('个人资料已保存到云端')}
 function loadProfile(){$('pname').value=profile.name||'';$('prole').value=profile.role||'';$('pbio').value=profile.bio||'';$('pemail').value=profile.email||'';$('plink').value=profile.link||'';['pname','prole','pbio','pemail','plink'].forEach(id=>$(id).readOnly=!isAdmin)}
 
