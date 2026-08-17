@@ -635,8 +635,8 @@ const CONFIG_KEY='hjvfx_publishable_key';
 // 把你的完整 sb_publishable_... 密钥粘贴到下一行。Publishable key 可以安全放在前端。
 const BUILTIN_PUBLISHABLE_KEY='';
 let publishableKey=BUILTIN_PUBLISHABLE_KEY||localStorage.getItem(CONFIG_KEY)||'';
-let accessToken=sessionStorage.getItem('hj_access_token')||'';
-let refreshToken=sessionStorage.getItem('hj_refresh_token')||'';
+let accessToken=localStorage.getItem('hj_access_token')||sessionStorage.getItem('hj_access_token')||'';
+let refreshToken=localStorage.getItem('hj_refresh_token')||sessionStorage.getItem('hj_refresh_token')||'';
 let currentUser=null,isAdmin=false,works=[],scripts=[],profile={name:'个人作品集',role:'视觉特效 · CG · AIGC',bio:'展示 Houdini、CG、AIGC 视频、镜头设计与视觉特效作品。',email:'',link:''};
 const $=id=>document.getElementById(id);
 function notify(t){$('status').textContent=t;$('status').classList.add('show');setTimeout(()=>$('status').classList.remove('show'),2600)}
@@ -656,6 +656,26 @@ function mediaUrl(m){
   return '';
 }
 function setCloudStatus(t){const x=$('cloudStatus');if(x)x.textContent=t}
+async function createSignedUrl(path){
+  if(!path||!publishableKey)return '';
+  const enc=String(path).split('/').map(encodeURIComponent).join('/');
+  const r=await fetch(SUPABASE_URL+'/storage/v1/object/sign/portfolio-media/'+enc,{method:'POST',headers:authHeaders({'Content-Type':'application/json'}),body:JSON.stringify({expiresIn:3600})});
+  if(!r.ok)throw Error('生成签名链接失败 HTTP '+r.status);
+  const d=await r.json();let su=d.signedURL||d.signedUrl||'';
+  if(!su)return '';
+  if(/^https?:/i.test(su))return su;
+  if(su.startsWith('/storage'))return SUPABASE_URL+su;
+  return SUPABASE_URL+'/storage/v1'+su;
+}
+window.mediaFail=async function(el){
+  const p=el.getAttribute('data-mpath');
+  if(p&&!el.dataset.triedSign){
+    el.dataset.triedSign='1';
+    try{const su=await createSignedUrl(p);if(su){el.src=su;return}}catch(e){console.warn('签名链接兜底失败',e)}
+  }
+  const d=document.createElement('div');d.className='placeholder';d.textContent='媒体加载失败';
+  el.replaceWith(d);
+};
 function authHeaders(extra={}){const h={apikey:publishableKey,...extra};if(accessToken)h.Authorization='Bearer '+accessToken;return h}
 async function request(path,opt={}){
   if(!publishableKey)throw Error('请先配置 Supabase Publishable / Anon Key');
@@ -673,7 +693,7 @@ async function refreshSession(){
   const r=await fetch(SUPABASE_URL+'/auth/v1/token?grant_type=refresh_token',{method:'POST',headers:{apikey:publishableKey,'Content-Type':'application/json'},body:JSON.stringify({refresh_token:refreshToken})});
   const d=await r.json();if(!r.ok)return false;
   accessToken=d.access_token||'';refreshToken=d.refresh_token||refreshToken;currentUser=d.user||currentUser;
-  sessionStorage.setItem('hj_access_token',accessToken);sessionStorage.setItem('hj_refresh_token',refreshToken);return true;
+  localStorage.setItem('hj_access_token',accessToken);localStorage.setItem('hj_refresh_token',refreshToken);return true;
 }
 async function loginAdmin(){
   const email=$('adminEmail').value.trim(),password=$('adminPassword').value,key=$('adminKey').value.trim();
@@ -682,12 +702,12 @@ async function loginAdmin(){
   try{
     const r=await fetch(SUPABASE_URL+'/auth/v1/token?grant_type=password',{method:'POST',headers:{apikey:publishableKey,'Content-Type':'application/json'},body:JSON.stringify({email,password})});
     const d=await r.json();if(!r.ok)throw Error(d.error_description||d.msg||'管理员登录失败');
-    accessToken=d.access_token;refreshToken=d.refresh_token||'';currentUser=d.user;isAdmin=true;
-    sessionStorage.setItem('hj_access_token',accessToken);sessionStorage.setItem('hj_refresh_token',refreshToken);
+  accessToken=d.access_token;refreshToken=d.refresh_token||refreshToken;currentUser=d.user;isAdmin=true;
+  localStorage.setItem('hj_access_token',accessToken);localStorage.setItem('hj_refresh_token',refreshToken);
     closeM('adminModal');updateAdminUI();await loadCloud();notify('管理员模式已开启');
   }catch(e){console.error(e);alert('登录失败：'+e.message)}
 }
-function logoutAdmin(){accessToken='';refreshToken='';currentUser=null;isAdmin=false;sessionStorage.removeItem('hj_access_token');sessionStorage.removeItem('hj_refresh_token');updateAdminUI();loadCloud();notify('已退出管理员模式')}
+function logoutAdmin(){accessToken='';refreshToken='';currentUser=null;isAdmin=false;['hj_access_token','hj_refresh_token'].forEach(k=>{localStorage.removeItem(k);sessionStorage.removeItem(k)});updateAdminUI();loadCloud();notify('已退出管理员模式')}
 function updateAdminUI(){
   let b=$('adminButton');if(!b){b=document.createElement('button');b.id='adminButton';b.className='btn primary';b.style.position='fixed';b.style.right='20px';b.style.top='18px';b.style.zIndex='30';document.body.appendChild(b)}
   b.textContent=isAdmin?'管理员模式 · 退出':'管理员登录';b.onclick=isAdmin?logoutAdmin:()=>{if(publishableKey)$('adminKey').value=publishableKey;openM('adminModal')};
@@ -704,7 +724,7 @@ async function uploadMedia(file,workId){
   const safeName=(file.name||'file').replace(/[^\w\u4e00-\u9fff.\-]+/g,'_');const path=currentUser.id+'/'+workId+'/'+Date.now()+'_'+safeName;
   const r=await fetch(SUPABASE_URL+'/storage/v1/object/portfolio-media/'+path,{method:'POST',headers:authHeaders({'Content-Type':file.type||'application/octet-stream','x-upsert':'true'}),body:file});
   const t=await r.text();if(!r.ok){let msg=t;try{const j=JSON.parse(t);msg=j.message||j.error||t}catch{};throw Error(msg||('上传失败 HTTP '+r.status))}
-  return {work_id:workId,owner_id:currentUser.id,path,name:file.name,mime_type:file.type||'application/octet-stream',size:file.size,url:SUPABASE_URL+'/storage/v1/object/public/portfolio-media/'+path};
+  return {work_id:workId,owner_id:currentUser.id,path,name:file.name,mime_type:file.type||'application/octet-stream',size:file.size,url:storagePublicUrl(path)};
 }
 async function deleteStoragePath(path){if(!path||!currentUser?.id)return;try{await fetch(SUPABASE_URL+'/storage/v1/object/portfolio-media',{method:'DELETE',headers:authHeaders({'Content-Type':'application/json'}),body:JSON.stringify({prefixes:[path]})})}catch(e){console.warn('Storage 删除失败',e)}}
 async function saveWork(){
@@ -724,8 +744,7 @@ function renderWorks(){
   const a=works.filter(x=>(!f||x.type===f)&&(!q||((x.title||'')+(x.type||'')+(x.desc||'')).toLowerCase().includes(q)));
   $('grid').innerHTML=a.length?a.map(x=>{
     const m=x.media||{},u=mediaUrl(m),isv=(m.mime_type||'').startsWith('video/'),isi=(m.mime_type||'').startsWith('image/');
-    const fallback='<div class="placeholder">媒体加载失败</div>';
-    const media=isv&&u?`<video src="${esc(u)}" controls preload="metadata" playsinline onerror="this.outerHTML=${JSON.stringify(fallback)}"></video>`:isi&&u?`<img src="${esc(u)}" alt="${esc(x.title||'作品')}" loading="lazy" onerror="this.outerHTML=${JSON.stringify(fallback)}">`:'<div class="placeholder">✦</div>';
+    const media=isv&&u?`<video src="${esc(u)}" controls preload="metadata" playsinline data-mpath="${esc(m.path||'')}" onerror="mediaFail(this)"></video>`:isi&&u?`<img src="${esc(u)}" alt="${esc(x.title||'作品')}" loading="lazy" data-mpath="${esc(m.path||'')}" onerror="mediaFail(this)">`:'<div class="placeholder">✦</div>';
     return `<article class="card"><div class="thumb">${media}</div><div class="body"><span class="tag">${esc(x.type||'其他')}</span><h3>${esc(x.title||'未命名作品')}</h3><p>${esc(x.desc||'暂无说明')}</p><div class="actions">${isAdmin?`<button class="btn mini" onclick="openWork('${x.id}')">编辑</button><button class="btn mini danger" onclick="removeWork('${x.id}')">删除</button>`:''}</div></div></article>`;
   }).join(''):'<div class="empty">还没有作品，或没有符合条件的作品。</div>';
   $('wc').textContent=works.length;applySiteSettings();
@@ -811,7 +830,15 @@ function readSiteSettingsForm(){return {...siteSettings,bgMode:$('siteBgMode').v
 function previewSiteSettings(){if(!$('siteLogo'))return;const cover=siteSettings.cover;const bgPreview=siteSettings.bgImagePreview;siteSettings={...siteSettings,...readSiteSettingsForm()};if(cover)siteSettings.cover=cover;if(bgPreview)siteSettings.bgImagePreview=bgPreview;applySiteSettings()}
 function fillSiteSettingsForm(){if(!$('siteLogo'))return;$('siteBgMode').value=siteSettings.bgMode||'solid';$('siteGrad1').value=siteSettings.grad1||'#090a0d';$('siteGrad2').value=siteSettings.grad2||'#171a20';$('siteGradAngle').value=siteSettings.gradAngle??135;$('siteBgImageOpacity').value=Math.round((siteSettings.bgImageOpacity??.25)*100);$('siteBgImageFit').value=siteSettings.bgImageFit||'cover';$('siteLogo').value=siteSettings.logo||'';$('siteTitle').value=siteSettings.title||'';$('siteSub').value=siteSettings.sub||'';$('siteHeroHeadline').value=siteSettings.heroHeadline||'';$('siteHeroDesc').value=siteSettings.heroDesc||'';$('siteCoverPosition').value=siteSettings.coverPosition||'center';$('siteCoverOpacity').value=Math.round((siteSettings.coverOpacity??.48)*100);$('siteCoverOpacityVal').textContent=$('siteCoverOpacity').value+'%';$('siteBg').value=siteSettings.bg||'#090a0d';$('sitePanel').value=siteSettings.panel||'#111318';$('sitePanel2').value=siteSettings.panel2||'#171a20';$('siteAccent').value=siteSettings.accent||'#d9ff57';$('siteText').value=siteSettings.text||'#f5f6f7';$('siteMuted').value=siteSettings.muted||'#9299a6';$('siteLine').value=siteSettings.line||'#292d36';$('siteRadius').value=siteSettings.radius??15;$('siteRadiusVal').textContent=(siteSettings.radius??15)+'px';$('siteFont').value=siteSettings.font||DEFAULT_SITE_SETTINGS.font;$('siteMaxWidth').value=siteSettings.maxWidth??1500;$('siteMaxWidthVal').textContent=(siteSettings.maxWidth??1500)+'px';$('siteSidebar').value=siteSettings.sidebar??230;$('siteSidebarVal').textContent=(siteSettings.sidebar??230)+'px';$('siteGridCols').value=String(siteSettings.gridCols??3);$('siteCardRatio').value=siteSettings.cardRatio||'16/9';$('siteObjectFit').value=siteSettings.objectFit||'cover';$('siteTitleSize').value=siteSettings.titleSize??48;$('siteTitleSizeVal').textContent=(siteSettings.titleSize??48)+'px';$('siteBodySize').value=siteSettings.bodySize??16;$('siteBodySizeVal').textContent=(siteSettings.bodySize??16)+'px';$('siteStat1Value').value=siteSettings.stat1Value??'';$('siteStat1Label').value=siteSettings.stat1Label??'';$('siteStat2Value').value=siteSettings.stat2Value??'';$('siteStat2Label').value=siteSettings.stat2Label??'';$('siteStat3Value').value=siteSettings.stat3Value??'';$('siteStat3Label').value=siteSettings.stat3Label??'';$('siteStat4Value').value=siteSettings.stat4Value??'';$('siteStat4Label').value=siteSettings.stat4Label??'';$('siteShowScripts').checked=siteSettings.showScripts!==false;$('siteShowAbout').checked=siteSettings.showAbout!==false;$('siteShowCloud').checked=siteSettings.showCloud!==false;$('siteShowStats').checked=siteSettings.showStats!==false;$('siteShowUpload').checked=siteSettings.showUpload!==false;$('siteHeroAlign').value=siteSettings.heroAlign||'left'}
 function resetSiteSettingsForm(){siteSettings=JSON.parse(JSON.stringify(DEFAULT_SITE_SETTINGS));fillSiteSettingsForm();applySiteSettings();$('siteCoverFile').value='';$('siteFontFile').value=''}
-async function loadSiteSettings(){try{const rows=await rest('portfolio_data?owner_id=eq.'+encodeURIComponent(currentUser?.id||'')+'&key=eq.site_settings&select=value');if(rows?.[0]?.value)siteSettings={...siteSettings,...rows[0].value}}catch(e){console.warn('读取界面设置失败',e)}applySiteSettings();if(isAdmin)fillSiteSettingsForm()}
+async function loadSiteSettings(){
+  try{
+    let rows;
+    if(isAdmin&&currentUser?.id)rows=await rest('portfolio_data?owner_id=eq.'+encodeURIComponent(currentUser.id)+'&key=eq.site_settings&select=value');
+    else rows=await rest('portfolio_data?key=eq.site_settings&select=value'); // 游客：不过滤 owner，读取站点设置
+    if(rows?.[0]?.value)siteSettings={...siteSettings,...rows[0].value}
+  }catch(e){console.warn('读取界面设置失败',e)}
+  applySiteSettings();if(isAdmin)fillSiteSettingsForm()
+}
 async function saveSiteSettings(){if(!isAdmin)return openM('adminModal');siteSettings={...siteSettings,...readSiteSettingsForm()};try{const f=$('siteCoverFile')?.files?.[0],ff=$('siteFontFile')?.files?.[0],bf=$('siteBgFile')?.files?.[0];if(f){const path=currentUser.id+'/site/cover_'+Date.now()+'_'+(f.name||'cover').replace(/[^\w\u4e00-\u9fff.\-]+/g,'_');const r=await fetch(SUPABASE_URL+'/storage/v1/object/portfolio-media/'+path,{method:'POST',headers:authHeaders({'Content-Type':f.type||'image/jpeg','x-upsert':'true'}),body:f});if(!r.ok)throw Error(await r.text());siteSettings.cover=storagePublicUrl(path)}if(bf){
   const safeName=(bf.name||'background').replace(/[^\w\u4e00-\u9fff.\-]+/g,'_');
   const path=currentUser.id+'/site/background_'+Date.now()+'_'+safeName;
@@ -842,17 +869,26 @@ async function loadCloud(){
     let rows=await rest('portfolio_items?'+query);let fs=[];try{fs=await rest('portfolio_files?select=work_id,name,mime_type,url,path,size')}catch(e){console.warn('读取媒体记录失败',e)}
     const fm={};fs.forEach(f=>fm[f.work_id]=f);works=rows.map(w=>({...w,desc:w.description||'',media:fm[w.id]||null}));
     try{let data;if(isAdmin)data=await rest('portfolio_data?select=key,value&owner_id=eq.'+encodeURIComponent(currentUser.id));else data=await rest('portfolio_data?select=key,value');for(const x of (data||[])){if(x.key==='scripts')scripts=Array.isArray(x.value)?x.value:(x.value?.scripts||[]);if(x.key==='profile')profile={...profile,...(x.value||{})}}}catch(e){console.warn('读取脚本/个人资料失败',e)}
-    syncUI();loadProfile();renderWorks();renderScripts();setCloudStatus('云端已连接：读取 '+works.length+' 个作品');notify('云端读取完成，共 '+works.length+' 个作品');
+    syncUI();loadProfile();renderWorks();renderScripts();lastCloudSync=Date.now();setCloudStatus('云端已连接：读取 '+works.length+' 个作品');notify('云端读取完成，共 '+works.length+' 个作品');
   }catch(e){console.error(e);setCloudStatus('云端读取失败：'+e.message);$('grid').innerHTML='<div class="empty">云端读取失败：'+esc(e.message)+'</div>'}
 }
 async function restoreSession(){
   if(!publishableKey||!accessToken)return false;
   try{const d=await request('/auth/v1/user');currentUser=d;isAdmin=true;return true}catch(e){if(await refreshSession()){try{currentUser=await request('/auth/v1/user');isAdmin=true;return true}catch{}}}
-  accessToken='';refreshToken='';currentUser=null;isAdmin=false;sessionStorage.removeItem('hj_access_token');sessionStorage.removeItem('hj_refresh_token');return false;
+  accessToken='';refreshToken='';currentUser=null;isAdmin=false;['hj_access_token','hj_refresh_token'].forEach(k=>{localStorage.removeItem(k);sessionStorage.removeItem(k)});return false;
 }
 function setupDrop(){const drop=document.querySelector('#wm .drop');if(!drop)return;drop.addEventListener('dragover',e=>{e.preventDefault();drop.style.borderColor='var(--a)'});drop.addEventListener('dragleave',()=>drop.style.borderColor='');drop.addEventListener('drop',e=>{e.preventDefault();drop.style.borderColor='';const f=e.dataTransfer.files?.[0];if(f){pickDropFile(f);drop.textContent='已选择：'+f.name}})}
+let lastCloudSync=0;
+async function syncCloudIfStale(){
+  if(!publishableKey)return;
+  if(Date.now()-lastCloudSync<30000)return; // 30 秒内不重复拉取
+  lastCloudSync=Date.now();
+  try{await loadCloud()}catch(e){console.warn('自动同步失败',e)}
+}
+window.addEventListener('focus',syncCloudIfStale);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')syncCloudIfStale()});
 async function boot(){
-  $('cloudUrl').value=SUPABASE_URL;$('cloudKey').value=publishableKey||'';setupDrop();await restoreSession();updateAdminUI();await loadCloud();
+  $('cloudUrl').value=SUPABASE_URL;$('cloudKey').value=publishableKey||'';setupDrop();await restoreSession();updateAdminUI();lastCloudSync=Date.now();await loadCloud();
   if(!publishableKey)setCloudStatus('请进入“云端”，粘贴 Publishable / Anon Key 并保存。');
 }
 boot();
