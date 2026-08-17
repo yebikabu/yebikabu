@@ -5,7 +5,36 @@
 <title>个人作品集｜CG · Houdini · AIGC</title>
 <style>
 :root{--bg:#090a0d;--p:#111318;--p2:#171a20;--line:#292d36;--t:#f5f6f7;--m:#9299a6;--a:#d9ff57}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font-family:Inter,"Microsoft YaHei",sans-serif}.app{display:grid;grid-template-columns:230px 1fr;min-height:100vh}.side{padding:28px 18px;border-right:1px solid var(--line);position:sticky;top:0;height:100vh;background:#0c0d10}.logo{font-weight:800;letter-spacing:.12em;margin:0 10px 30px}.logo i{color:var(--a);font-style:normal}.nav button{width:100%;padding:12px;border:0;background:0;color:var(--m);text-align:left;border-radius:9px;margin:2px 0}.nav button.active,.nav button:hover{background:var(--p2);color:#fff}.note{position:absolute;bottom:25px;left:28px;color:#666d78;font-size:12px;line-height:1.7}main{max-width:1500px;width:100%;padding:34px 42px 70px;margin:auto}.page{display:none}.page.active{display:block}.top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:30px}.k{font-size:11px;letter-spacing:.18em;color:var(--a)}h1{font-size:48px;line-height:1.05;margin:8px 0}.sub{color:var(--m);line-height:1.7;max-width:720px}.btn{background:var(--p2);border:1px solid var(--line);color:#fff;border-radius:9px;padding:10px 14px;cursor:pointer}.primary{background:var(--a);border-color:var(--a);color:#090a0d;font-weight:800}.danger{color:#ff8495}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:16px}.heroMain,.stat{border:1px solid var(--line);background:var(--p);border-radius:18px;padding:30px}.heroMain{min-height:300px;display:flex;flex-direction:column;justify-content:end;background:radial-gradient(circle at 75% 20%,#3a414c 0,#15181d 35%,#0f1115 75%)}.heroMain h2{font-size:34px;margin:8px 0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}.stat b{font-size:35px}.stat span{display:block;color:var(--m);margin-top:7px}.toolbar{display:flex;gap:10px;margin:18px 0;flex-wrap:wrap}.input{background:var(--p);border:1px solid var(--line);color:#fff;border-radius:9px;padding:11px 13px;min-width:240px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card,.script{border:1px solid var(--line);background:var(--p);border-radius:15px;overflow:hidden}.thumb{height:auto;min-height:160px;background:#0b0d10;display:flex;align-items:center;justify-content:center}.thumb img,.thumb video{width:100%;height:100%;object-fit:cover}.placeholder{font-size:40px;color:#414753}.body{padding:16px}.tag{display:inline-block;color:var(--a);border:1px solid #46551c;border-radius:99px;padding:4px 8px;font-size:11px;margin-bottom:9px}.body h3{margin:0 0 7px}.body p{color:var(--m);font-size:13px;line-height:1.6;min-height:42px}.actions{display:flex;gap:8px}.mini{font-size:12px;padding:7px 9px}.empty{grid-column:1/-1;text-align:center;color:var(--m);padding:55px;border:1px dashed var(--line);border-radius:15px}.script{padding:18px;margin-bottom:12px}.script h3{margin:0 0 7px}.script small{color:var(--m)}pre{white-space:pre-wrap;color:#b9bec8;line-height:1.75;font:13px inherit}.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:16px}.panel{background:var(--p);border:1px solid var(--line);border-radius:15px;padding:22px}.field{margin:14px 0}.field label{display:block;color:var(--m);font-size:12px;margin-bottom:7px}.field input,.field textarea,.field select{width:100%;background:#0b0d10;border:1px solid var(--line);color:#fff;border-radius:9px;padding:11px}.field textarea{min-height:220px;resize:vertical}.modal{display:none;position:fixed;inset:0;background:#000b;z-index:5;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.box{width:min(760px,100%);max-height:90vh;overflow:auto;background:#111318;border:1px solid var(--line);border-radius:15px;padding:22px}.mh{display:flex;justify-content:space-between}.close{background:0;border:0;color:#aaa;font-size:24px;cursor:pointer}.drop{padding:25px;border:1px dashed #4a505b;border-radius:10px;text-align:center;color:var(--m)}.filehint{color:#777f8d;font-size:12px;line-height:1.6;margin-top:8px}.status{position:fixed;right:20px;bottom:20px;background:#171a20;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:#bfc5ce;display:none;z-index:20}.status.show{display:block}@media(max-width:950px){.app{grid-template-columns:1fr}.side{height:auto;position:relative;border-right:0;border-bottom:1px solid var(--line)}.note{display:none}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap}.hero,.about{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}main{padding:25px}}@media(max-width:600px){.grid{grid-template-columns:1fr}h1{font-size:36px}.top{flex-direction:column}}
-.site-cover-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.48;border-radius:18px}.heroMain{position:relative;overflow:hidden}.heroMain>*{position:relative;z-index:1}.settingsGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.settingsGrid .panel{padding:22px}.colorGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.colorGrid input[type=color]{width:100%;height:42px;padding:3px}.checkRow{padding:10px 0;color:var(--t)}.checkRow input{margin-right:8px}@media(max-width:900px){.settingsGrid{grid-template-columns:1fr}.app{grid-template-columns:1fr}.side{position:relative;height:auto}.nav{display:flex;flex-wrap:wrap}.nav button{width:auto}.note{display:none}main{padding:24px 18px 50px}}#siteGlobalBg{z-index:0!important}body>*:not(#siteGlobalBg){position:relative;z-index:1}</style>
+.site-cover-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.48;border-radius:18px;z-index:0;pointer-events:none}.heroMain{position:relative;overflow:hidden}.heroMain>*:not(.site-cover-bg){position:relative;z-index:1}.heroMain>.site-cover-bg{position:absolute;inset:0;z-index:0;pointer-events:none}.settingsGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.settingsGrid .panel{padding:22px}.colorGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.colorGrid input[type=color]{width:100%;height:42px;padding:3px}.checkRow{padding:10px 0;color:var(--t)}.checkRow input{margin-right:8px}@media(max-width:900px){.settingsGrid{grid-template-columns:1fr}.app{grid-template-columns:1fr}.side{position:relative;height:auto}.nav{display:flex;flex-wrap:wrap}.nav button{width:auto}.note{display:none}main{padding:24px 18px 50px}}body{position:relative;isolation:isolate}
+
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  background-image:var(--site-bg-image,none);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:var(--site-bg-size,cover);
+  background-attachment:fixed;
+  opacity:var(--site-bg-image-opacity,1);
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background-image:var(--site-bg-gradient-layer,none);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+  background-attachment:fixed;
+  opacity:var(--site-bg-gradient-opacity,1);
+}
+</style>
 </head>
 <body>
 <div class="app"><aside class="side"><div class="logo" id="siteLogoView">PORTFOLIO<i>/</i>26</div><nav class="nav"><button class="" onclick="go(&#39;home&#39;,this)">总览</button><button onclick="go(&#39;works&#39;,this)" class="">作品</button><button onclick="go(&#39;scripts&#39;,this)" class="active">脚本 / 分镜</button><button onclick="go(&#39;about&#39;,this)" class="">关于我</button><button onclick="go(&#39;cloud&#39;,this)" class="">云端</button><button data-admin onclick="go(&#39;settings&#39;,this)" class="" style="display:none">界面设置</button></nav><div class="note">可编辑个人作品集<br>图片 · 视频 · 脚本 · 分镜<br><br>作品与资料保存到 Supabase 云端<br>管理员登录后可编辑、上传、删除</div></aside><main>
@@ -604,7 +633,7 @@
 const SUPABASE_URL='https://ponmymjbhzylvgegihrf.supabase.co';
 const CONFIG_KEY='hjvfx_publishable_key';
 // 把你的完整 sb_publishable_... 密钥粘贴到下一行。Publishable key 可以安全放在前端。
-const BUILTIN_PUBLISHABLE_KEY='sb_publishable_yhHHGYud4AfE7AaXcr52cA_TG9yhaMU';
+const BUILTIN_PUBLISHABLE_KEY='';
 let publishableKey=BUILTIN_PUBLISHABLE_KEY||localStorage.getItem(CONFIG_KEY)||'';
 let accessToken=sessionStorage.getItem('hj_access_token')||'';
 let refreshToken=sessionStorage.getItem('hj_refresh_token')||'';
@@ -707,16 +736,56 @@ async function delScript(id){if(!isAdmin)return openM('adminModal');if(!confirm(
 async function saveProfile(){if(!isAdmin)return openM('adminModal');profile={...profile,name:$('pname').value,role:$('prole').value,bio:$('pbio').value,email:$('pemail').value,link:$('plink').value};await rest('portfolio_data',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({owner_id:currentUser.id,key:'profile',value:profile})});syncUI();notify('个人资料已保存到云端')}
 function loadProfile(){$('pname').value=profile.name||'';$('prole').value=profile.role||'';$('pbio').value=profile.bio||'';$('pemail').value=profile.email||'';$('plink').value=profile.link||'';['pname','prole','pbio','pemail','plink'].forEach(id=>$(id).readOnly=!isAdmin)}
 
-let siteSettings={bgMode:'solid',grad1:'#090a0d',grad2:'#171a20',gradAngle:135,bgImage:'',bgImageOpacity:.25,bgImageFit:'cover',logo:'PORTFOLIO/26',title:'AIGC视觉',sub:'做的还有很多，这里部分展示',heroHeadline:'让作品自己说话。',heroDesc:'用完整项目呈现你的视觉设计、特效技术、镜头语言和创作能力。',cover:'',coverPosition:'center',coverOpacity:.48,bg:'#090a0d',panel:'#111318',panel2:'#171a20',accent:'#d9ff57',text:'#f5f6f7',muted:'#9299a6',line:'#292d36',radius:15,font:'Inter,"Microsoft YaHei",sans-serif',fontUrl:'',maxWidth:1500,sidebar:230,gridCols:3,cardRatio:'16/9',objectFit:'cover',titleSize:48,bodySize:16,heroAlign:'left',stat1Value:'36',stat1Label:'作品',stat2Value:'3',stat2Label:'脚本 / 分镜',stat3Value:'CG',stat3Label:'核心方向',stat4Value:'VFX',stat4Label:'技术方向',showScripts:true,showAbout:true,showCloud:true,showStats:true,showUpload:true};
+let siteSettings={bgMode:'solid',grad1:'#090a0d',grad2:'#171a20',gradAngle:135,bgImage:'',bgImageOpacity:1,bgImageFit:'cover',logo:'PORTFOLIO/26',title:'AIGC视觉',sub:'做的还有很多，这里部分展示',heroHeadline:'让作品自己说话。',heroDesc:'用完整项目呈现你的视觉设计、特效技术、镜头语言和创作能力。',cover:'',coverPosition:'center',coverOpacity:.48,bg:'#090a0d',panel:'#111318',panel2:'#171a20',accent:'#d9ff57',text:'#f5f6f7',muted:'#9299a6',line:'#292d36',radius:15,font:'Inter,"Microsoft YaHei",sans-serif',fontUrl:'',maxWidth:1500,sidebar:230,gridCols:3,cardRatio:'16/9',objectFit:'cover',titleSize:48,bodySize:16,heroAlign:'left',stat1Value:'36',stat1Label:'作品',stat2Value:'3',stat2Label:'脚本 / 分镜',stat3Value:'CG',stat3Label:'核心方向',stat4Value:'VFX',stat4Label:'技术方向',showScripts:true,showAbout:true,showCloud:true,showStats:true,showUpload:true};
 const DEFAULT_SITE_SETTINGS=JSON.parse(JSON.stringify(siteSettings));
 function applyGlobalBackground(){
-  let l=document.getElementById('siteGlobalBg');
-  if(!l){l=document.createElement('div');l.id='siteGlobalBg';document.body.prepend(l)}
-  Object.assign(l.style,{position:'fixed',inset:'0',zIndex:'0',pointerEvents:'none',backgroundRepeat:'no-repeat',backgroundPosition:'center',backgroundSize:siteSettings.bgImageFit||'cover',opacity:String(siteSettings.bgImageOpacity??.25)});
-  const g=`linear-gradient(${siteSettings.gradAngle||135}deg,${siteSettings.grad1||siteSettings.bg||'#090a0d'},${siteSettings.grad2||siteSettings.panel||'#171a20'})`;
-  const bgSrc=siteSettings.bgImagePreview||siteSettings.bgImage||'';
-  const i=bgSrc?`url("${bgSrc}")`:'';
-  l.style.backgroundImage=siteSettings.bgMode==='gradient'?g:siteSettings.bgMode==='image'?i:siteSettings.bgMode==='gradient-image'?(i?g+','+i:g):'none';
+  const root=document.documentElement;
+  const mode=siteSettings.bgMode||'solid';
+  const src=siteSettings.bgImagePreview||siteSettings.bgImage||'';
+  const grad1=siteSettings.grad1||siteSettings.bg||'#090a0d';
+  const grad2=siteSettings.grad2||siteSettings.panel||'#171a20';
+  const angle=Number(siteSettings.gradAngle??135);
+  const imageOpacity=Math.max(0,Math.min(1,Number(siteSettings.bgImageOpacity??1)));
+  const fit=siteSettings.bgImageFit||'cover';
+
+  root.style.setProperty('--site-bg-size',fit);
+  root.style.setProperty('--site-bg-image',src?`url("${src}")`:'none');
+  root.style.setProperty('--site-bg-image-opacity',String(imageOpacity));
+
+  const solid=siteSettings.bg||'#090a0d';
+  document.body.style.backgroundColor=solid;
+
+  if(mode==='image'){
+    root.style.setProperty('--site-bg-image','none');
+    root.style.setProperty('--site-bg-gradient-layer','none');
+    document.body.style.backgroundImage=src?`url("${src}")`:'none';
+    document.body.style.backgroundRepeat='no-repeat';
+    document.body.style.backgroundPosition='center';
+    document.body.style.backgroundAttachment='fixed';
+    document.body.style.backgroundSize=fit;
+    return;
+  }
+
+  document.body.style.backgroundImage='none';
+
+  if(mode==='gradient'){
+    root.style.setProperty('--site-bg-image','none');
+    root.style.setProperty('--site-bg-gradient-layer',`linear-gradient(${angle}deg,${grad1},${grad2})`);
+    root.style.setProperty('--site-bg-gradient-opacity','1');
+    return;
+  }
+
+  if(mode==='gradient-image'){
+    // Dedicated image layer + translucent gradient layer.
+    root.style.setProperty('--site-bg-image',src?`url("${src}")`:'none');
+    root.style.setProperty('--site-bg-image-opacity',String(imageOpacity));
+    root.style.setProperty('--site-bg-gradient-layer',`linear-gradient(${angle}deg,${grad1}cc,${grad2}cc)`);
+    root.style.setProperty('--site-bg-gradient-opacity','1');
+    return;
+  }
+
+  root.style.setProperty('--site-bg-image','none');
+  root.style.setProperty('--site-bg-gradient-layer','none');
 }
 function applySiteSettings(){applyGlobalBackground();
   const r=document.documentElement.style;r.setProperty('--bg',siteSettings.bg);r.setProperty('--p',siteSettings.panel);r.setProperty('--p2',siteSettings.panel2);r.setProperty('--a',siteSettings.accent);r.setProperty('--t',siteSettings.text);r.setProperty('--m',siteSettings.muted);r.setProperty('--line',siteSettings.line);
@@ -737,7 +806,7 @@ function applySiteSettings(){applyGlobalBackground();
   const nodes=document.querySelectorAll('.stats .stat'),vals=[siteSettings.stat1Value,siteSettings.stat2Value,siteSettings.stat3Value,siteSettings.stat4Value],labs=[siteSettings.stat1Label,siteSettings.stat2Label,siteSettings.stat3Label,siteSettings.stat4Label];nodes.forEach((n,i)=>{if(!n)return;const b=n.querySelector('b'),sp=n.querySelector('span');if(b)b.textContent=vals[i]??'';if(sp)sp.textContent=labs[i]??''});
 }
 function readSiteSettingsForm(){return {...siteSettings,bgMode:$('siteBgMode').value,grad1:$('siteGrad1').value,grad2:$('siteGrad2').value,gradAngle:Number($('siteGradAngle').value),bgImageOpacity:Number($('siteBgImageOpacity').value)/100,bgImageFit:$('siteBgImageFit').value,logo:$('siteLogo').value.trim()||'PORTFOLIO/26',title:$('siteTitle').value.trim()||'AIGC视觉',sub:$('siteSub').value,heroHeadline:$('siteHeroHeadline').value,heroDesc:$('siteHeroDesc').value,coverPosition:$('siteCoverPosition').value,coverOpacity:Number($('siteCoverOpacity').value)/100,bg:$('siteBg').value,panel:$('sitePanel').value,panel2:$('sitePanel2').value,accent:$('siteAccent').value,text:$('siteText').value,muted:$('siteMuted').value,line:$('siteLine').value,radius:Number($('siteRadius').value),font:$('siteFont').value,maxWidth:Number($('siteMaxWidth').value),sidebar:Number($('siteSidebar').value),gridCols:Number($('siteGridCols').value),cardRatio:$('siteCardRatio').value,objectFit:$('siteObjectFit').value,titleSize:Number($('siteTitleSize').value),bodySize:Number($('siteBodySize').value),stat1Value:$('siteStat1Value').value,stat1Label:$('siteStat1Label').value,stat2Value:$('siteStat2Value').value,stat2Label:$('siteStat2Label').value,stat3Value:$('siteStat3Value').value,stat3Label:$('siteStat3Label').value,stat4Value:$('siteStat4Value').value,stat4Label:$('siteStat4Label').value,showScripts:$('siteShowScripts').checked,showAbout:$('siteShowAbout').checked,showCloud:$('siteShowCloud').checked,showStats:$('siteShowStats').checked,showUpload:$('siteShowUpload').checked,heroAlign:$('siteHeroAlign').value}}
-function previewSiteSettings(){if(!$('siteLogo'))return;siteSettings={...siteSettings,...readSiteSettingsForm()};applySiteSettings()}
+function previewSiteSettings(){if(!$('siteLogo'))return;const cover=siteSettings.cover;const bgPreview=siteSettings.bgImagePreview;siteSettings={...siteSettings,...readSiteSettingsForm()};if(cover)siteSettings.cover=cover;if(bgPreview)siteSettings.bgImagePreview=bgPreview;applySiteSettings()}
 function fillSiteSettingsForm(){if(!$('siteLogo'))return;$('siteBgMode').value=siteSettings.bgMode||'solid';$('siteGrad1').value=siteSettings.grad1||'#090a0d';$('siteGrad2').value=siteSettings.grad2||'#171a20';$('siteGradAngle').value=siteSettings.gradAngle??135;$('siteBgImageOpacity').value=Math.round((siteSettings.bgImageOpacity??.25)*100);$('siteBgImageFit').value=siteSettings.bgImageFit||'cover';$('siteLogo').value=siteSettings.logo||'';$('siteTitle').value=siteSettings.title||'';$('siteSub').value=siteSettings.sub||'';$('siteHeroHeadline').value=siteSettings.heroHeadline||'';$('siteHeroDesc').value=siteSettings.heroDesc||'';$('siteCoverPosition').value=siteSettings.coverPosition||'center';$('siteCoverOpacity').value=Math.round((siteSettings.coverOpacity??.48)*100);$('siteCoverOpacityVal').textContent=$('siteCoverOpacity').value+'%';$('siteBg').value=siteSettings.bg||'#090a0d';$('sitePanel').value=siteSettings.panel||'#111318';$('sitePanel2').value=siteSettings.panel2||'#171a20';$('siteAccent').value=siteSettings.accent||'#d9ff57';$('siteText').value=siteSettings.text||'#f5f6f7';$('siteMuted').value=siteSettings.muted||'#9299a6';$('siteLine').value=siteSettings.line||'#292d36';$('siteRadius').value=siteSettings.radius??15;$('siteRadiusVal').textContent=(siteSettings.radius??15)+'px';$('siteFont').value=siteSettings.font||DEFAULT_SITE_SETTINGS.font;$('siteMaxWidth').value=siteSettings.maxWidth??1500;$('siteMaxWidthVal').textContent=(siteSettings.maxWidth??1500)+'px';$('siteSidebar').value=siteSettings.sidebar??230;$('siteSidebarVal').textContent=(siteSettings.sidebar??230)+'px';$('siteGridCols').value=String(siteSettings.gridCols??3);$('siteCardRatio').value=siteSettings.cardRatio||'16/9';$('siteObjectFit').value=siteSettings.objectFit||'cover';$('siteTitleSize').value=siteSettings.titleSize??48;$('siteTitleSizeVal').textContent=(siteSettings.titleSize??48)+'px';$('siteBodySize').value=siteSettings.bodySize??16;$('siteBodySizeVal').textContent=(siteSettings.bodySize??16)+'px';$('siteStat1Value').value=siteSettings.stat1Value??'';$('siteStat1Label').value=siteSettings.stat1Label??'';$('siteStat2Value').value=siteSettings.stat2Value??'';$('siteStat2Label').value=siteSettings.stat2Label??'';$('siteStat3Value').value=siteSettings.stat3Value??'';$('siteStat3Label').value=siteSettings.stat3Label??'';$('siteStat4Value').value=siteSettings.stat4Value??'';$('siteStat4Label').value=siteSettings.stat4Label??'';$('siteShowScripts').checked=siteSettings.showScripts!==false;$('siteShowAbout').checked=siteSettings.showAbout!==false;$('siteShowCloud').checked=siteSettings.showCloud!==false;$('siteShowStats').checked=siteSettings.showStats!==false;$('siteShowUpload').checked=siteSettings.showUpload!==false;$('siteHeroAlign').value=siteSettings.heroAlign||'left'}
 function resetSiteSettingsForm(){siteSettings=JSON.parse(JSON.stringify(DEFAULT_SITE_SETTINGS));fillSiteSettingsForm();applySiteSettings();$('siteCoverFile').value='';$('siteFontFile').value=''}
 async function loadSiteSettings(){try{const rows=await rest('portfolio_data?owner_id=eq.'+encodeURIComponent(currentUser?.id||'')+'&key=eq.site_settings&select=value');if(rows?.[0]?.value)siteSettings={...siteSettings,...rows[0].value}}catch(e){console.warn('读取界面设置失败',e)}applySiteSettings();if(isAdmin)fillSiteSettingsForm()}
@@ -753,12 +822,12 @@ async function saveSiteSettings(){if(!isAdmin)return openM('adminModal');siteSet
   siteSettings.bgImage=storagePublicUrl(path);
 }
 if(ff){const path=currentUser.id+'/site/font_'+Date.now()+'_'+(ff.name||'font').replace(/[^\w.\-]+/g,'_');const r=await fetch(SUPABASE_URL+'/storage/v1/object/portfolio-media/'+path,{method:'POST',headers:authHeaders({'Content-Type':ff.type||'font/woff2','x-upsert':'true'}),body:ff});if(!r.ok)throw Error(await r.text());siteSettings.fontUrl=storagePublicUrl(path)}await rest('portfolio_data',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({owner_id:currentUser.id,key:'site_settings',value:siteSettings})});applySiteSettings();notify('界面设置已保存到云端')}catch(e){console.error(e);alert('界面设置保存失败：'+e.message)}}
-document.addEventListener('change',e=>{if(e.target?.id==='siteCoverFile'&&e.target.files?.[0]){const f=e.target.files[0];if(!f.type.startsWith('image/')){alert('封面必须是图片文件');e.target.value='';return}const r=new FileReader();r.onload=()=>{siteSettings={...siteSettings,cover:r.result};applySiteSettings()};r.readAsDataURL(f)}});document.addEventListener('change',e=>{
+document.addEventListener('change',e=>{if(e.target?.id==='siteCoverFile'&&e.target.files?.[0]){const f=e.target.files[0];if(!f.type.startsWith('image/')){alert('封面必须是图片文件');e.target.value='';return}const r=new FileReader();r.onload=()=>{siteSettings={...siteSettings,cover:r.result};applySiteSettings();requestAnimationFrame(()=>applySiteSettings())};r.readAsDataURL(f)}});document.addEventListener('change',e=>{
   if(e.target?.id==='siteBgFile'&&e.target.files?.[0]){
     const f=e.target.files[0];
     if(!f.type.startsWith('image/')){alert('背景必须是图片文件');e.target.value='';return}
     const r=new FileReader();
-    r.onload=()=>{siteSettings={...siteSettings,bgImagePreview:r.result,bgMode:siteSettings.bgMode||'image'};applyGlobalBackground()};
+    r.onload=()=>{siteSettings={...siteSettings,bgImagePreview:r.result,bgMode:$('siteBgMode')?.value||siteSettings.bgMode||'image'};applyGlobalBackground()};
     r.readAsDataURL(f);
   }
 });
