@@ -633,7 +633,7 @@ body::after{
 const SUPABASE_URL='https://ponmymjbhzylvgegihrf.supabase.co';
 const CONFIG_KEY='hjvfx_publishable_key';
 // 把你的完整 sb_publishable_... 密钥粘贴到下一行。Publishable key 可以安全放在前端。
-const BUILTIN_PUBLISHABLE_KEY='sb_publishable_yhHHGYud4AfE7AaXcr52cA_TG9yhaMU';
+const BUILTIN_PUBLISHABLE_KEY='';
 let publishableKey=BUILTIN_PUBLISHABLE_KEY||localStorage.getItem(CONFIG_KEY)||'';
 let accessToken=localStorage.getItem('hj_access_token')||sessionStorage.getItem('hj_access_token')||'';
 let refreshToken=localStorage.getItem('hj_refresh_token')||sessionStorage.getItem('hj_refresh_token')||'';
@@ -687,7 +687,7 @@ async function request(path,opt={}){
   }
   try{return t?JSON.parse(t):null}catch{return t}
 }
-async function rest(table,query='',opt={}){return request('/rest/v1/'+table+query,opt)}
+async function rest(table,query='',opt={}){if(query&&typeof query==='object'){opt=query;query=''}return request('/rest/v1/'+table+query,opt)}
 async function refreshSession(){
   if(!refreshToken||!publishableKey)return false;
   const r=await fetch(SUPABASE_URL+'/auth/v1/token?grant_type=refresh_token',{method:'POST',headers:{apikey:publishableKey,'Content-Type':'application/json'},body:JSON.stringify({refresh_token:refreshToken})});
