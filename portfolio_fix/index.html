@@ -744,7 +744,7 @@ function updateAdminUI(){
   b.textContent=isAdmin?'管理员模式 · 退出':'管理员登录';b.onclick=isAdmin?logoutAdmin:()=>{if(publishableKey)$('adminKey').value=publishableKey;openM('adminModal')};
   document.querySelectorAll('[data-admin]').forEach(x=>x.style.display=isAdmin?'':'none');loadProfile();renderWorks();renderScripts();loadSiteSettings();
 }
-function go(id,b){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(id==='works')renderWorks();if(id==='scripts')renderScripts();if(id==='about')loadProfile();if(id==='cloud')syncCloudPanel();if(id==='settings'){if(!isAdmin)return openM('adminModal');fillSiteSettingsForm()}}
+function go(id,b){if(id!=='works')document.querySelectorAll('#grid video').forEach(v=>v.pause());document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(id==='works')renderWorks();if(id==='scripts')renderScripts();if(id==='about')loadProfile();if(id==='cloud')syncCloudPanel();if(id==='settings'){if(!isAdmin)return openM('adminModal');fillSiteSettingsForm()}}
 function syncCloudPanel(){$('cloudUrl').value=SUPABASE_URL;$('cloudKey').value=publishableKey||'';setCloudStatus(publishableKey?'已配置云端密钥。正在读取作品…':'请粘贴 Publishable / Anon Key 后保存。')}
 async function connectCloud(){if(!publishableKey){openM('adminModal');return}await loadCloud()}
 function saveCloudConfig(){const k=$('cloudKey').value.trim();if(!k)return alert('请粘贴 Publishable / Anon Key');publishableKey=k;localStorage.setItem(CONFIG_KEY,k);loadCloud()}
@@ -770,13 +770,24 @@ async function saveWork(){
   }catch(e){console.error(e);alert('保存失败：'+e.message)}
 }
 async function removeWork(id){if(!isAdmin)return openM('adminModal');if(!confirm('确定删除这个作品？'))return;try{const old=works.find(x=>x.id===id);if(old?.media?.path)await deleteStoragePath(old.media.path);await rest('portfolio_items?'+new URLSearchParams({id:'eq.'+id}),{method:'DELETE',headers:{'Prefer':'return=minimal'}});await loadCloud();notify('作品已删除')}catch(e){alert('删除失败：'+e.message)}}
+function startWorkVideo(button){
+  const video=button.nextElementSibling;
+  document.querySelectorAll('#grid video').forEach(v=>{if(v!==video)v.pause()});
+  video.hidden=false;button.hidden=true;
+  if(!video.getAttribute('src'))video.src=video.dataset.src;
+  video.play().catch(()=>{ /* Native controls remain available for retry. */ });
+}
 function renderWorks(){
   const q=($('search')?.value||'').toLowerCase(),f=$('filter')?.value||'';
   const a=works.filter(x=>(!f||x.type===f)&&(!q||((x.title||'')+(x.type||'')+(x.desc||'')).toLowerCase().includes(q)));
+  const renderKey=JSON.stringify([isAdmin,a]);
+  if($('grid').dataset.renderKey===renderKey)return;
+  document.querySelectorAll('#grid video').forEach(v=>{v.pause();v.removeAttribute('src');v.load()});
+  $('grid').dataset.renderKey=renderKey;
   window._lbImages=a.filter(x=>x.media&&(x.media.mime_type||'').startsWith('image/')).map(x=>({url:mediaUrl(x.media),path:x.media.path,title:x.title}));
   $('grid').innerHTML=a.length?a.map(x=>{
     const m=x.media||{},u=mediaUrl(m),isv=(m.mime_type||'').startsWith('video/'),isi=(m.mime_type||'').startsWith('image/');
-    const media=isv&&u?`<video src="${esc(u)}" controls preload="metadata" playsinline data-mpath="${esc(m.path||'')}" onerror="mediaFail(this)" onclick="if(this.paused&&this.requestFullscreen)this.requestFullscreen().catch(()=>{})"></video>`:isi&&u?`<img src="${esc(u)}" alt="${esc(x.title||'作品')}" loading="lazy" data-mpath="${esc(m.path||'')}" onerror="mediaFail(this)" onclick="openLightbox(window._lbImages,window._lbImages.findIndex(i=>i.path==='${esc(m.path||'')}'))">`:'<div class="placeholder">✦</div>';
+    const media=isv&&u?`<button type="button" class="btn" onclick="startWorkVideo(this)">▶ 播放视频</button><video hidden data-src="${esc(u)}" controls preload="none" playsinline data-mpath="${esc(m.path||'')}" onerror="mediaFail(this)"></video>`:isi&&u?`<img src="${esc(u)}" alt="${esc(x.title||'作品')}" loading="lazy" data-mpath="${esc(m.path||'')}" onerror="mediaFail(this)" onclick="openLightbox(window._lbImages,window._lbImages.findIndex(i=>i.path==='${esc(m.path||'')}'))">`:'<div class="placeholder">✦</div>';
     return `<article class="card"><div class="thumb">${media}</div><div class="body"><span class="tag">${esc(x.type||'其他')}</span><h3>${esc(x.title||'未命名作品')}</h3><p>${esc(x.desc||'暂无说明')}</p><div class="actions">${isAdmin?`<button class="btn mini" onclick="openWork('${x.id}')">编辑</button><button class="btn mini danger" onclick="removeWork('${x.id}')">删除</button>`:''}</div></div></article>`;
   }).join(''):'<div class="empty">还没有作品，或没有符合条件的作品。</div>';
   $('wc').textContent=works.length;applySiteSettings();
@@ -904,7 +915,7 @@ document.addEventListener('change',e=>{if(e.target?.id==='siteCoverFile'&&e.targ
 });
 function syncUI(){$('wc').textContent=works.length;$('sc').textContent=scripts.length;applySiteSettings();syncCloudPanel()}
 async function loadCloud(){
-  if($('grid'))$('grid').innerHTML='<div class="empty">正在读取云端作品…</div>';
+  // Keep existing players while refreshing metadata; unchanged results reuse the DOM.
   if(!publishableKey){setCloudStatus('未配置 Supabase Publishable / Anon Key。打开“云端”页面粘贴一次即可。');return}
   try{
     let query='select=id,title,type,description,sort_order,created_at,is_public&order=sort_order.asc,created_at.asc';if(!isAdmin)query+='&is_public=eq.true';
@@ -912,7 +923,7 @@ async function loadCloud(){
     const fm={};fs.forEach(f=>fm[f.work_id]=f);works=rows.map(w=>({...w,desc:w.description||'',media:fm[w.id]||null}));
     try{let data;if(isAdmin)data=await rest('portfolio_data?select=key,value&owner_id=eq.'+encodeURIComponent(currentUser.id));else data=await rest('portfolio_data?select=key,value');for(const x of (data||[])){if(x.key==='scripts')scripts=Array.isArray(x.value)?x.value:(x.value?.scripts||[]);if(x.key==='profile')profile={...profile,...(x.value||{})}}}catch(e){console.warn('读取脚本/个人资料失败',e)}
     syncUI();loadProfile();renderWorks();renderScripts();lastCloudSync=Date.now();setCloudStatus('云端已连接：读取 '+works.length+' 个作品');notify('云端读取完成，共 '+works.length+' 个作品');
-  }catch(e){console.error(e);setCloudStatus('云端读取失败：'+e.message);$('grid').innerHTML='<div class="empty">云端读取失败：'+esc(e.message)+'</div>'}
+  }catch(e){console.error(e);setCloudStatus('云端读取失败：'+e.message);notify('云端读取失败：'+e.message)}
 }
 async function restoreSession(){
   if(!publishableKey||!accessToken)return false;
@@ -928,7 +939,7 @@ async function syncCloudIfStale(){
   try{await loadCloud()}catch(e){console.warn('自动同步失败',e)}
 }
 window.addEventListener('focus',syncCloudIfStale);
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')syncCloudIfStale()});
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')syncCloudIfStale();else document.querySelectorAll('#grid video').forEach(v=>v.pause())});
 async function boot(){
   $('cloudUrl').value=SUPABASE_URL;$('cloudKey').value=publishableKey||'';setupDrop();await restoreSession();updateAdminUI();lastCloudSync=Date.now();await loadCloud();
   if(!publishableKey)setCloudStatus('请进入“云端”，粘贴 Publishable / Anon Key 并保存。');
